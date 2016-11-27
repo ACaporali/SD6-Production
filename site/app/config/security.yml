@@ -25,11 +25,16 @@ security:
             anonymous: true
             provider:  main_provider
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path:   logout
+                path:   fos_user_security_logout
                 target: /
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #- { path: ^/add, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: ^/logout, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        #- { path: ^/edit, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        #- { path: ^/delete, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: ^/change-password, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/register, roles: ROLE_SUPER_ADMIN }
