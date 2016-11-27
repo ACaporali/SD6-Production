@@ -11,6 +11,8 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
+twig:
+    cache: false #pour enveler le cache, il me semble, c'est important sinon fonctionne plus
 monolog:
     handlers:
         main:

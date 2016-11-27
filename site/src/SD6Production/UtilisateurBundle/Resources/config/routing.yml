@@ -1,0 +1,3 @@
+sd6_production_utilisateur_homepage:
+    path:     /
+    defaults: { _controller: SD6ProductionAppBundle:Default:index }

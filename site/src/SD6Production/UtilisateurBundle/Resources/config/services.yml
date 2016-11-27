@@ -1,0 +1,4 @@
+services:
+#    sd6_production_utilisateur.example:
+#        class: SD6Production\UtilisateurBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
