@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SD6 Production{% endblock %}
+{% block body %}
+	{# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+	{% block site_body %} 	
+		{% for key, message in app.session.flashbag.all() %}
+		    <div class="alert alert-{{ key }}">
+		      {{ message|trans({}, 'FOSUserBundle') }}
+		    </div>
+		  {% endfor %}
+				
+	{% endblock %}
+		
+{% endblock %}

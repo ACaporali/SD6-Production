@@ -1,0 +1,4 @@
+[37;41mCould not create database [39;49m[33m`sd6_production`[39m[37;41m for connection named [39;49m[33mdefault[39m
+[37;41mAn exception occurred while executing 'CREATE DATABASE `sd6_production`':
+
+SQLSTATE[HY000]: General error: 1007 Ne peut créer la base 'sd6_production'; elle existe déjà[39;49m
