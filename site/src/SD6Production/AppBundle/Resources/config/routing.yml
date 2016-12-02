@@ -2,6 +2,18 @@ sd6_production_app_homepage:
     path:     /
     defaults: { _controller: SD6ProductionAppBundle:Default:index }
 
+sd6_production_app_ajoutannonce:
+    path:     /ajouter-annonce
+    defaults: { _controller: SD6ProductionAppBundle:Default:ajouterannonce }
+
+sd6_production_app_editionannonce:
+    path:     /editer-annonce
+    defaults: { _controller: SD6ProductionAppBundle:Default:editerannonce }
+
+sd6_production_app_supprimeannonce:
+    path:     /supprimer-annonce
+    defaults: { _controller: SD6ProductionAppBundle:Default:supprimerannonce }
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

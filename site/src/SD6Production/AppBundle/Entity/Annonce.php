@@ -67,6 +67,7 @@ class Annonce
 
     /**
      * @ORM\ManyToMany(targetEntity="SD6Production\AppBundle\Entity\Categorie", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
     public $categories;
 
@@ -238,5 +239,62 @@ class Annonce
     {
         return $this->publie;
     }
-}
 
+    /**
+     * Add category
+     *
+     * @param \SD6Production\AppBundle\Entity\Categorie $category
+     *
+     * @return Annonce
+     */
+    public function addCategory(\SD6Production\AppBundle\Entity\Categorie $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \SD6Production\AppBundle\Entity\Categorie $category
+     */
+    public function removeCategory(\SD6Production\AppBundle\Entity\Categorie $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \SD6Production\AppBundle\Entity\Image $image
+     *
+     * @return Annonce
+     */
+    public function setImage(\SD6Production\AppBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \SD6Production\AppBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+}
