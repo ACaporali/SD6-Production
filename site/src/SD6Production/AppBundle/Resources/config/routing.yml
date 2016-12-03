@@ -2,9 +2,9 @@ sd6_production_app_homepage:
     path:     /
     defaults: { _controller: SD6ProductionAppBundle:Default:index }
 
-sd6_production_app_ajoutannonce:
-    path:     /ajouter-annonce
-    defaults: { _controller: SD6ProductionAppBundle:Default:ajouterannonce }
+sd6_production_app_ajout:
+    path:     /ajouter
+    defaults: { _controller: SD6ProductionAppBundle:Default:ajouter }
 
 sd6_production_app_editionannonce:
     path:     /editer-annonce

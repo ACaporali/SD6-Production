@@ -41,11 +41,12 @@ class Image
      */
     public $categories;
 
+
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -104,5 +105,38 @@ class Image
     {
         return $this->alt;
     }
-}
 
+    /**
+     * Add category
+     *
+     * @param \SD6Production\AppBundle\Entity\Categorie $category
+     *
+     * @return Image
+     */
+    public function addCategory(\SD6Production\AppBundle\Entity\Categorie $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \SD6Production\AppBundle\Entity\Categorie $category
+     */
+    public function removeCategory(\SD6Production\AppBundle\Entity\Categorie $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+}

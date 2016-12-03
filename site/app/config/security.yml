@@ -37,4 +37,4 @@ security:
         #- { path: ^/edit, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         #- { path: ^/delete, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         - { path: ^/change-password, roles: ROLE_SUPER_ADMIN }
-        - { path: ^/register, roles: ROLE_SUPER_ADMIN }
+        #- { path: ^/register, roles: ROLE_SUPER_ADMIN }

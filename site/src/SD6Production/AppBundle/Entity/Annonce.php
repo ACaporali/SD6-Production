@@ -72,10 +72,9 @@ class Annonce
     public $categories;
 
     /**
-     * @ORM\OneToOne(targetEntity="SD6Production\AppBundle\Entity\Image", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
-     * @Assert\Valid()
-     */
+    * @ORM\ManyToOne(targetEntity="SD6Production\AppBundle\Entity\Image", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=true)
+    */
     private $image;
 
     public function __construct()
@@ -84,7 +83,6 @@ class Annonce
         $this->date = new \Datetime();
         $this->categories = new ArrayCollection();
     }
-
 
     /**
      * Get id

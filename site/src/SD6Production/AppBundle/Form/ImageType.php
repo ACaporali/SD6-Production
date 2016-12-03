@@ -13,7 +13,14 @@ class ImageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('url')->add('alt')->add('categories')        ;
+        $builder
+        ->add('url','text')
+        ->add('alt','text')
+        ->add('categories','entity', array( //Affiche la liste des catégories
+                'class'    => 'SD6ProductionAppBundle:Categorie',
+                'property' => 'nom',
+                'multiple' => true))
+        ->add('valider','submit')        ;
     }
     
     /**

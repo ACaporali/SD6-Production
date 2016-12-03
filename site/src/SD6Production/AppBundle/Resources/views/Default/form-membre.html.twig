@@ -1,0 +1,63 @@
+<h3>Formulaire de membre</h3>
+
+<div class="container">
+	{{ form_start(formMembre) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {% if form_errors(formMembre) or form_errors(formMembre.nom) or form_errors(formMembre.prenom) or form_errors(formMembre.poste) or form_errors(formMembre.description) or form_errors(formMembre.image.url)%}
+	    <div class="">
+		    {{ form_errors(formMembre) }}
+		    {{ form_errors(formMembre.nom) }}
+		    {{ form_errors(formMembre.prenom) }}
+		    {{ form_errors(formMembre.poste) }}
+		    {{ form_errors(formMembre.description) }}
+		    {{ form_errors(formMembre.image.url) }}
+		    {{ form_errors(formMembre.image.file) }}
+		</div>
+	{% endif %}
+
+    <div class="row">		
+		{{ form_label(formMembre.nom, "Nom du membre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}			
+		{{ form_widget(formMembre.nom, {'attr': {'class': 'form-control'}}) }}		
+    </div>
+
+    <div class="row">
+		{{ form_label(formMembre.prenom, "Prenom du membre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}		
+		{{ form_widget(formMembre.prenom, {'attr': {'class': 'form-control'}}) }}		
+    </div>
+
+  	<div class="row">
+		{{ form_label(formMembre.poste, "Poste", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.poste, {'attr': {'class': 'formMembre-control poste-poste'}}) }}
+    </div>
+
+    <div class="row">
+		{{ form_label(formMembre.description, "Description", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="row">
+		{{ form_label(formMembre.image.url, "Image URL", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.image.url, {'attr': {'class': 'form-control'}}) }}
+
+		{{ form_label(formMembre.image.alt, "Image alt", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.image.alt, {'attr': {'class': 'form-control'}}) }}
+
+		{{ form_label(formMembre.image.categories, "Image categories", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.image.categories, {'attr': {'class': 'form-control'}}) }}
+
+		{#{{ form_label(formMembre.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.image.file, {'attr': {'class': 'form-control'}}) }}#}
+    </div>
+
+  	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  	{{ form_widget(formMembre.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  	{# Génération automatique des champs pas encore écrits.
+     	Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     	et tous les champs cachés (type « hidden »). #}
+  	{{ form_rest(formMembre) }}
+  
+  	{# Fermeture de la balise <form> du formulaire HTML #}
+  	{{ form_end(formMembre) }}
+</div>

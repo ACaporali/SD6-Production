@@ -49,6 +49,11 @@ class Membre
      */
     private $description;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="SD6Production\AppBundle\Entity\Image", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $image;
 
     /**
      * Get id
@@ -155,5 +160,28 @@ class Membre
     {
         return $this->description;
     }
-}
 
+    /**
+     * Set image
+     *
+     * @param \SD6Production\AppBundle\Entity\Image $image
+     *
+     * @return Membre
+     */
+    public function setImage(\SD6Production\AppBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \SD6Production\AppBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+}
