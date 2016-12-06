@@ -91,4 +91,40 @@ class DefaultController extends Controller
     {
         return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
     }
+
+    public function productionsAction()
+    {
+        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+    }
+
+    public function equipeAction()
+    {
+        return $this->render('SD6ProductionAppBundle:Default:equipe.html.twig');
+    }
+
+    public function actualitesAction()
+    {
+        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+    }
+
+    public function photosAction()
+    {
+        $listeImageGalerie = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SD6ProductionAppBundle:Image')
+            ->getImageGalerie();
+        return $this->render('SD6ProductionAppBundle:Default:photos.html.twig', array(
+            'listeImageGalerie' => $listeImageGalerie,
+            ));
+    }
+
+    public function recrutementsAction()
+    {
+        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+    }
+
+    public function contactAction()
+    {
+        return $this->render('SD6ProductionAppBundle:Default:contact.html.twig');
+    }
 }

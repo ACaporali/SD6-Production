@@ -14,6 +14,30 @@ sd6_production_app_supprimeannonce:
     path:     /supprimer-annonce
     defaults: { _controller: SD6ProductionAppBundle:Default:supprimerannonce }
 
+sd6_production_app_productions:
+    path:     /productions
+    defaults: { _controller: SD6ProductionAppBundle:Default:productions }
+
+sd6_production_app_equipe:
+    path:     /equipe
+    defaults: { _controller: SD6ProductionAppBundle:Default:equipe }
+
+sd6_production_app_actualites:
+    path:     /actualites
+    defaults: { _controller: SD6ProductionAppBundle:Default:actualites }
+
+sd6_production_app_photos:
+    path:     /galerie-photos
+    defaults: { _controller: SD6ProductionAppBundle:Default:photos }
+
+sd6_production_app_recrutements:
+    path:     /recrutements
+    defaults: { _controller: SD6ProductionAppBundle:Default:recrutements }
+
+sd6_production_app_contact:
+    path:     /contact
+    defaults: { _controller: SD6ProductionAppBundle:Default:contact }
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

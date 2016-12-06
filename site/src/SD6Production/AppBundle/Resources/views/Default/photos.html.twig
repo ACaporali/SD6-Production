@@ -1,0 +1,29 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Galerie photos - {{ parent() }}{% endblock %}
+
+{% block head %}
+  	{{ parent() }}
+  	<meta name="description" content="">
+  	<meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+  	{{ parent() }}
+  	<h1>Galerie photos</h1>
+  	<div id="links">
+  		{% for ImageGalerie in listeImageGalerie %}
+  			<a href="{{ImageGalerie.url}}" title="{{ImageGalerie.alt}}"><img src="{{ImageGalerie.url}}" class="img-responsive thumbnail" alt="{{ImageGalerie.alt}}"></a>
+  		{% endfor %}	  	
+	</div>
+	<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+	    <div class="slides"></div>
+	    <h3 class="title"></h3>
+	    <a class="prev">‹</a>
+	    <a class="next">›</a>
+	    <a class="close">×</a>
+	    <a class="play-pause"></a>
+	    <ol class="indicator"></ol>
+	</div>
+
+{% endblock %}

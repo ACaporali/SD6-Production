@@ -6,3 +6,13 @@
 	    border-radius: 0px;
 	}	
 }
+
+
+/*------Page Galerie Image------*/
+#links img{
+	max-height: 200px;
+	height: auto;
+	display: inline-block;
+}
+
+.blueimp-gallery>.slides>.slide-loading{background:url(images/loading.gif) center no-repeat;background-size:64px 64px}
