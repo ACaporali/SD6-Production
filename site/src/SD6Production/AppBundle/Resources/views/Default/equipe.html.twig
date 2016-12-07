@@ -9,7 +9,27 @@
 {% endblock %}
 
 {% block site_body %}
-  {{ parent() }}
-  <p>Equipe</p>
+	<div class="bordures">
+	  	{{ parent() }}
+	  	<h1>Equipe</h1>
+			<div class="equipe">  		
+		  	<div class="row">
+			  	{% for Membre in listeMembres %}
+			  		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 membre media">
+			  			<div class="image media-left media-middle">
+			  				<img class="media-object img-rounded" src="{{Membre.Image.url}}" alt="{{Membre.Image.alt}}">
+			  			</div>
+			  			<div class="media-body">
+			  				<h4>{{Membre.prenom}} {% if Membre.nom is not null %}{{Membre.nom}}{% endif %}, {{Membre.poste}}</h4>
+			  				<p>{{Membre.description}}</p>
+			  			</div>
+			  		</div>
+					
+				{% else %}
+			    	<p>L'équipe est partie en vacances.</p>
+			    {% endfor %}
+			</div>
+		</div>
+	</div>
 
 {% endblock %}

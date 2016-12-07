@@ -99,7 +99,12 @@ class DefaultController extends Controller
 
     public function equipeAction()
     {
-        return $this->render('SD6ProductionAppBundle:Default:equipe.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $listeMembres = $em->getRepository('SD6ProductionAppBundle:Membre')->findAll();
+
+        return $this->render('SD6ProductionAppBundle:Default:equipe.html.twig', array(
+            'listeMembres' => $listeMembres,
+        ));
     }
 
     public function actualitesAction()

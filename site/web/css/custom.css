@@ -1,11 +1,37 @@
 /*------Général------*/
-
+.bordures{
+	width: 80%;
+    margin: auto;
+}
 /*------Navbar------*/
 @media (min-width: 768px){
 	.navbar {
 	    border-radius: 0px;
 	}	
 }
+
+
+/*------Equipe------*/
+.equipe .membre{
+	padding: 15px
+}
+
+.equipe .membre .image{
+	width: 30%;
+	height: auto;
+}
+
+.equipe .membre .image img{
+	width: 100%;
+	height: auto;
+	max-height: 200px;
+}
+
+.equipe .membre .media-body{
+	width: 70%;
+	vertical-align: middle;
+}
+
 
 
 /*------Page Galerie Image------*/

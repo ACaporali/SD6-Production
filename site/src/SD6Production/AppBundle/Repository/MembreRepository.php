@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class MembreRepository extends EntityRepository
 {
+	public function getMembre(){
+		$qb = $this->createQueryBuilder('i');
+
+	    $qb
+	      ->join('i.categories', 'cat')
+	      ->addSelect('cat');
+
+	    $qb->where('cat.nom = :catGalerie')
+	    ->setParameter('catGalerie', 'Galerie');
+
+	    $qb->orderBy('i.id', 'DESC');
+
+	  	return $qb
+	    	->getQuery()
+	    	->getResult();
+	}
 }
