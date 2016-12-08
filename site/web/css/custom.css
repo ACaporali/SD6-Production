@@ -33,6 +33,15 @@
 }
 
 
+/*------Production------*/
+.production div[class^="col-"] img{
+	width: 100%;
+	height: auto;
+}
+
+.production div[class^="col-"] .contenu h3:first-letter{
+	text-transform: uppercase;
+}
 
 /*------Page Galerie Image------*/
 #links img{

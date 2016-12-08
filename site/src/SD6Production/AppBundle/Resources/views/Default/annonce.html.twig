@@ -1,0 +1,20 @@
+{% for Annonce in listeAnnonces %}	
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+		<div class="image">
+			<img src="{{Annonce.Image.Url}}" alt="{{Annonce.Image.Alt}}">
+		</div>
+		<div class="contenu">
+			<div class="titre">
+				<h3>{{Annonce.Titre}}</h3>
+			</div>
+			<div class="accroche">
+				<p>{{Annonce.Accroche}}</p>
+			</div>
+			<div class="bouton">
+				<a href="#" alt"voir plus">Voir plus</a>
+			</div>
+		</div>
+	</div>
+{% else %}
+	<p>Pas d'annonce disponible.</p>
+{% endfor %}

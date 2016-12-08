@@ -1,0 +1,22 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Equipe - {{ parent() }}{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+	<div class="bordures">
+	  	{{ parent() }}
+	  	<h1>Production</h1>
+			<div class="production">  		
+		  	<div class="row">
+			  	{{ include("SD6ProductionAppBundle:Default:annonce.html.twig") }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

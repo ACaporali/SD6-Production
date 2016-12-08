@@ -94,7 +94,14 @@ class DefaultController extends Controller
 
     public function productionsAction()
     {
-        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+        $listeAnnonces = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SD6ProductionAppBundle:Annonce')
+            ->getAnnonceWithCategories(array('Production'));
+
+        return $this->render('SD6ProductionAppBundle:Default:production.html.twig', array(
+            'listeAnnonces' => $listeAnnonces,
+        ));
     }
 
     public function equipeAction()
