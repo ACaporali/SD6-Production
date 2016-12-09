@@ -1,7 +1,11 @@
 {% for Annonce in listeAnnonces %}	
 	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 		<div class="image">
-			<img src="{{Annonce.Image.Url}}" alt="{{Annonce.Image.Alt}}">
+			{% if Annonce.Image is not null %}
+				<img src="{{Annonce.Image.Url}}" alt="{{Annonce.Image.Alt}}">
+			{% else %}
+				<p>Pas de visuel</p>
+			{% endif %}
 		</div>
 		<div class="contenu">
 			<div class="titre">

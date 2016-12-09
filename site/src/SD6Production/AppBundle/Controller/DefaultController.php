@@ -99,7 +99,7 @@ class DefaultController extends Controller
             ->getRepository('SD6ProductionAppBundle:Annonce')
             ->getAnnonceWithCategories(array('Production'));
 
-        return $this->render('SD6ProductionAppBundle:Default:production.html.twig', array(
+        return $this->render('SD6ProductionAppBundle:Default:productions.html.twig', array(
             'listeAnnonces' => $listeAnnonces,
         ));
     }
@@ -116,7 +116,14 @@ class DefaultController extends Controller
 
     public function actualitesAction()
     {
-        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+        $listeAnnonces = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SD6ProductionAppBundle:Annonce')
+            ->getAnnonceWithCategories(array('Actualite'));
+
+        return $this->render('SD6ProductionAppBundle:Default:actualites.html.twig', array(
+            'listeAnnonces' => $listeAnnonces,
+        ));
     }
 
     public function photosAction()
@@ -132,7 +139,14 @@ class DefaultController extends Controller
 
     public function recrutementsAction()
     {
-        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+        $listeAnnonces = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SD6ProductionAppBundle:Annonce')
+            ->getAnnonceWithCategories(array('Recrutement'));
+
+        return $this->render('SD6ProductionAppBundle:Default:recrutements.html.twig', array(
+            'listeAnnonces' => $listeAnnonces,
+            ));
     }
 
     public function contactAction()

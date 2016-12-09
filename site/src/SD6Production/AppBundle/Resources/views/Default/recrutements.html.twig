@@ -1,6 +1,6 @@
 {% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
 
-{% block title %}Equipe - {{ parent() }}{% endblock %}
+{% block title %}Recrutements - {{ parent() }}{% endblock %}
 
 {% block head %}
   {{ parent() }}
@@ -11,10 +11,10 @@
 {% block site_body %}
 	<div class="bordures">
 	  	{{ parent() }}
-	  	<h1>Production</h1>
+	  	<h1>Recrutements</h1>
 			<div class="production">  		
 		  	<div class="row">
-			  	{{ include("SD6ProductionAppBundle:Default:annonce.html.twig") }}
+			  	{{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
 			</div>
 		</div>
 	</div>
