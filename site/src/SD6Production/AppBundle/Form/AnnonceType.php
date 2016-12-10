@@ -25,6 +25,10 @@ class AnnonceType extends AbstractType
                 'property' => 'nom',
                 'multiple' => true))
         ->add('image', new ImageType(), array('required' => false)) // Imbriqué le form image dans celui-ci
+        ->add('image', 'entity', array(
+                'class'    => 'SD6ProductionAppBundle:Image',
+                'property' => 'url',
+                'multiple' => false))
         ->add('valider','submit');
     }
     

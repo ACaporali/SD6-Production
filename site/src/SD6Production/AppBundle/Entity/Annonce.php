@@ -5,6 +5,7 @@ namespace SD6Production\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Annonce
@@ -14,6 +15,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Annonce
 {
+    /**
+    * @Gedmo\Slug(fields={"titre"})
+    * @ORM\Column(name="slug", type="string", length=255, unique=false)
+    */
+    private $slug;
+
     /**
      * @var int
      *
@@ -294,5 +301,29 @@ class Annonce
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Annonce
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

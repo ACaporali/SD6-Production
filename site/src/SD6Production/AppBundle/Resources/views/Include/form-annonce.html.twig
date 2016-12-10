@@ -4,7 +4,7 @@
 	{{ form_start(formAnnonce) }}
 
     {# Les erreurs générales du formulaire. #}
-    {% if form_errors(formAnnonce) or form_errors(formAnnonce.titre) or form_errors(formAnnonce.contenu) or form_errors(formAnnonce.date) or form_errors(formAnnonce.auteur) or form_errors(formAnnonce.image.url)%}
+    {% if form_errors(formAnnonce) or form_errors(formAnnonce.titre) or form_errors(formAnnonce.contenu) or form_errors(formAnnonce.date) or form_errors(formAnnonce.auteur) or form_errors(formAnnonce.image)%}
 	    <div class="">
 		    {{ form_errors(formAnnonce) }}
 		    {{ form_errors(formAnnonce.titre) }}
@@ -55,14 +55,14 @@
     </div>
 
     <div class="row">
-		{{ form_label(formAnnonce.image.url, "Image URL", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.image.url, {'attr': {'class': 'form-control'}}) }}
+		{{ form_label(formAnnonce.image, "Image URL", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAnnonce.image, {'attr': {'class': 'form-control'}}) }}
 
-		{{ form_label(formAnnonce.image.alt, "Image alt", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.image.alt, {'attr': {'class': 'form-control'}}) }}
+		{#{{ form_label(formAnnonce.image.alt, "Image alt", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAnnonce.image.alt, {'attr': {'class': 'form-control'}}) }}#}
 
-		{{ form_label(formAnnonce.image.categories, "Image categories", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.image.categories, {'attr': {'class': 'form-control'}}) }}
+		{#{{ form_label(formAnnonce.image.categories, "Image categories", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAnnonce.image.categories, {'attr': {'class': 'form-control'}}) }}#}
 
 		{#{{ form_label(formAnnonce.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 		{{ form_widget(formAnnonce.image.file, {'attr': {'class': 'form-control'}}) }}#}

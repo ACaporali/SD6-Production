@@ -14,8 +14,13 @@
 			<div class="accroche">
 				<p>{{Annonce.Accroche}}</p>
 			</div>
+			<div class="date">
+				<p>{{Annonce.date|date('d/m/Y')}}</p>
+			</div>
 			<div class="bouton">
-				<a href="#" alt"voir plus">Voir plus</a>
+				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categories[0].nom, 'nomAnnonce': Annonce.slug}) }}" alt"voir plus">Voir plus</a>
+
+				{{dump(Annonce)}}
 			</div>
 		</div>
 	</div>

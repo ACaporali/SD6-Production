@@ -153,4 +153,18 @@ class DefaultController extends Controller
     {
         return $this->render('SD6ProductionAppBundle:Default:contact.html.twig');
     }
+
+    public function detailsAnnonceAction($typeAnnonce, $nomAnnonce)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $Annonce = $em
+          ->getRepository('SD6ProductionAppBundle:Annonce')
+          ->findOneBySlug($nomAnnonce)
+        ;
+
+        return $this->render('SD6ProductionAppBundle:Default:detail.html.twig', array(
+            'Annonce' => $Annonce,
+            ));
+    }
 }

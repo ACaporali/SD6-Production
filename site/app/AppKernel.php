@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new SD6Production\UtilisateurBundle\SD6ProductionUtilisateurBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
         );
 
