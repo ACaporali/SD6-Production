@@ -13,8 +13,11 @@
   	<h1>Galerie photos</h1>
   	<div id="links">
   		{% for ImageGalerie in listeImageGalerie %}
-  			<a href="{{ImageGalerie.url}}" title="{{ImageGalerie.alt}}"><img src="{{ImageGalerie.url}}" class="img-responsive thumbnail" alt="{{ImageGalerie.alt}}"></a>
-  		{% endfor %}	  	
+  			<a href="{{ asset(''~ImageGalerie.url~'')}}" title="{{ImageGalerie.alt}}"><img src="{{ asset(''~ImageGalerie.url~'')}}" class="img-responsive thumbnail" alt="{{ImageGalerie.alt}}"></a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('sd6_production_app_edition_image', {'idImage': ImageGalerie.id})}}">Editer</a>
+            {% endif %}
+        {% endfor %}
 	</div>
 	<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
 	    <div class="slides"></div>

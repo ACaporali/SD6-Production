@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>{% block title %}{% endblock %}</title>
         {% block head %}{% endblock %}
-        {% block stylesheets %}          
+        {% block stylesheets %}
             <!--Import Google Icon Font-->
-            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">         
-            {% stylesheets filter='cssrewrite' 
+            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            {% stylesheets filter='cssrewrite'
             'css/bootstrap.min.css' 'css/blueimp-gallery.min.css' 'css/custom.css'%}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
-        {% endblock %}               
+        {% endblock %}
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -31,7 +31,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}                         
+                    {% if is_granted('ROLE_ADMIN') %}                         
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour {{ app.user.username }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -39,27 +39,27 @@
                                 <li><a href="{{ path('fos_user_change_password') }}">Change mot de passe</a></li>
                             </ul>
                         </li>
-                    {% endif %} 
+                    {% endif %}
                     <li><a href="{{ path('sd6_production_app_productions') }}">Productions</a></li>
                     <li><a href="{{ path('sd6_production_app_equipe') }}">Équipe</a></li>
                     <li><a href="{{ path('sd6_production_app_actualites') }}">Actualités</a></li>
                     <li><a href="{{ path('sd6_production_app_photos') }}">Photos</a></li>
                     <li><a href="{{ path('sd6_production_app_recrutements') }}">Recrutements</a></li>
                     <li><a href="{{ path('sd6_production_app_contact') }}">Contact</a></li>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}                         
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
                             <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
                         </li>
-                    {% endif %} 
+                    {% endif %}
                 </ul>
-                
+
             </div>
         </div>
         </nav>
 
         {% block body %}
         {% endblock %}
-        
+
         {% block javascripts %}
             {% javascripts  'js/jquery-3.1.1.min.js''js/bootstrap.min.js''js/blueimp-gallery.min.js''js/app.js' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>

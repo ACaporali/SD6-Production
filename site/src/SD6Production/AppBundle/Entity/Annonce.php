@@ -17,7 +17,7 @@ class Annonce
 {
     /**
     * @Gedmo\Slug(fields={"titre"})
-    * @ORM\Column(name="slug", type="string", length=255, unique=false)
+    * @ORM\Column(name="slug", type="string", length=255, unique=true)
     */
     private $slug;
 
@@ -34,6 +34,12 @@ class Annonce
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 80,
+     *      minMessage = "Le titre de l'article doit faire {{ limit }} caractères mini.",
+     *      maxMessage = "Le titre de l'article doit faire {{ limit }} caractères maxi."
+     * )
      */
     private $titre;
 
@@ -48,6 +54,7 @@ class Annonce
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank(message="Le contenu ne peux pas être vide.")
      */
     private $contenu;
 
@@ -55,6 +62,12 @@ class Annonce
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 30,
+     *      minMessage = "Nom de l'auteur doit faire {{ limit }} caractères mini.",
+     *      maxMessage = "Nom de l'auteur doit faire {{ limit }} caractères maxi."
+     * )
      */
     private $auteur;
 
@@ -62,6 +75,7 @@ class Annonce
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime(message="Date non valide.")
      */
     private $date;
 

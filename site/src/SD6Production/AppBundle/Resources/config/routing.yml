@@ -2,18 +2,6 @@ sd6_production_app_homepage:
     path:     /
     defaults: { _controller: SD6ProductionAppBundle:Default:index }
 
-sd6_production_app_ajout:
-    path:     /ajouter
-    defaults: { _controller: SD6ProductionAppBundle:Default:ajouter }
-
-sd6_production_app_editionannonce:
-    path:     /editer-annonce
-    defaults: { _controller: SD6ProductionAppBundle:Default:editerannonce }
-
-sd6_production_app_supprimeannonce:
-    path:     /supprimer-annonce
-    defaults: { _controller: SD6ProductionAppBundle:Default:supprimerannonce }
-
 sd6_production_app_productions:
     path:     /productions
     defaults: { _controller: SD6ProductionAppBundle:Default:productions }
@@ -39,8 +27,26 @@ sd6_production_app_contact:
     defaults: { _controller: SD6ProductionAppBundle:Default:contact }
 
 sd6_production_app_details_annonce:
-    path:     /{typeAnnonce}/{nomAnnonce}
+    path:     /{typeAnnonce}/{slugAnnonce}
     defaults: { _controller: SD6ProductionAppBundle:Default:detailsAnnonce }
     requirements:
         typeAnnonce: "[a-zA-Z]+"
         nomAnnonce: "[a-zA-Z0-9-]+"
+
+
+
+sd6_production_app_ajout:
+    path:     /ajouter
+    defaults: { _controller: SD6ProductionAppBundle:Action:ajouter }
+
+sd6_production_app_edition_annonce:
+    path:     annonce/editer/{slugAnnonce}
+    defaults: { _controller: SD6ProductionAppBundle:Action:editerAnnonce }
+
+sd6_production_app_supprime_annonce:
+    path:     /supprimer
+    defaults: { _controller: SD6ProductionAppBundle:Action:supprimerAnnonce }
+
+sd6_production_app_edition_image:
+    path:     image/editer/{idImage}
+    defaults: { _controller: SD6ProductionAppBundle:Action:editerImage }

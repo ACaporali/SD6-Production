@@ -11,19 +11,24 @@
 		</div>
 	{% endif %}
 
-    <div class="row">		
-		{{ form_label(formImage.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}			
-		{{ form_widget(formImage.url, {'attr': {'class': 'form-control'}}) }}		
+    <div class="row">
+		{{ form_label(formImage.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formImage.url, {'attr': {'class': 'form-control'}}) }}
     </div>
 
-    <div class="row">   
-    {{ form_label(formImage.alt, "Alt de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}      
-    {{ form_widget(formImage.alt, {'attr': {'class': 'form-control'}}) }}   
-    </div>  
+    <div class="row">
+    	{{ form_label(formImage.alt, "Alt de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+    	{{ form_widget(formImage.alt, {'attr': {'class': 'form-control'}}) }}
+    </div>
 
-    <div class="row">   
-    {{ form_label(formImage.categories, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}      
-    {{ form_widget(formImage.categories, {'attr': {'class': 'form-control'}}) }}   
+	<div class="row">
+		{{ form_label(formImage.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formImage.file, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+    <div class="row">
+    {{ form_label(formImage.categories, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+    {{ form_widget(formImage.categories, {'attr': {'class': 'form-control'}}) }}
     </div>
 
   	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
@@ -31,7 +36,7 @@
 
   	{# Génération automatique des champs pas encore écrits. #}
   	{{ form_rest(formImage) }}
-  
+
   	{# Fermeture de la balise <form> du formulaire HTML #}
   	{{ form_end(formImage) }}
 </div>

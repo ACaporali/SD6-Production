@@ -12,21 +12,21 @@
 	<div class="bordures">
 	  	{{ parent() }}
 	  	<h1>Actualités</h1>
-		<div class="{{Annonce.Categories[0].nom}} {{Annonce.slug}}">  		
+		<div class="{{annonce.Categories[0].nom}} {{annonce.slug}}">
 		  	<div class="row">
 			  	<div class="image">
-					{% if Annonce.Image is not null %}
-						<img src="{{Annonce.Image.Url}}" alt="{{Annonce.Image.Alt}}">
+					{% if annonce.Image is not null %}
+						<img src="{{annonce.Image.Url}}" alt="{{annonce.Image.Alt}}">
 					{% else %}
 						<p>Pas de visuel</p>
 					{% endif %}
 				</div>
 				<div class="contenu">
 					<div class="titre">
-						<h2>{{Annonce.Titre}}</h2>
+						<h2>{{annonce.Titre}}</h2>
 					</div>
 					<div class="texte">
-						<p>{{Annonce.contenu}}</p>
+						<p>{{annonce.contenu}}</p>
 					</div>
 				</div>
 			</div>

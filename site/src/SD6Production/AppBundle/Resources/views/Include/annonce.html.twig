@@ -1,4 +1,4 @@
-{% for Annonce in listeAnnonces %}	
+{% for Annonce in listeAnnonces %}
 	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 		<div class="image">
 			{% if Annonce.Image is not null %}
@@ -18,9 +18,10 @@
 				<p>{{Annonce.date|date('d/m/Y')}}</p>
 			</div>
 			<div class="bouton">
-				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categories[0].nom, 'nomAnnonce': Annonce.slug}) }}" alt"voir plus">Voir plus</a>
-
-				{{dump(Annonce)}}
+				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categories[0].nom, 'slugAnnonce': Annonce.slug}) }}" alt"voir plus">Voir plus</a>
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('sd6_production_app_edition_annonce', {'slugAnnonce': Annonce.slug})}}">Editer</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>
