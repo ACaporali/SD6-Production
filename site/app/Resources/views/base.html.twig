@@ -25,13 +25,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ path('sd6_production_app_homepage') }}">SD6 Production</a>
+                <a class="navbar-brand" href="{{ path('sd6_production_app_homepage') }}"><img src="{{ asset('images/accueil/logo-sd6-production.jpg')}}" alt="logo SD6 Production"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    {% if is_granted('ROLE_ADMIN') %}                         
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour {{ app.user.username }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -59,6 +59,30 @@
 
         {% block body %}
         {% endblock %}
+
+        <footer class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 coordonnees">
+                <h4>Notre studio de production</h4>
+                <p>Grenoble</p>
+                <p>SD6Production@gmail.com</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 plan">
+                <h4>Plan du site</h4>
+                <a href="{{ path('sd6_production_app_productions') }}">Productions</a>
+                <a href="{{ path('sd6_production_app_equipe') }}">Équipe</a>
+                <a href="{{ path('sd6_production_app_actualites') }}">Actualités</a>
+                <a href="{{ path('sd6_production_app_photos') }}">Photos</a>
+                <a href="{{ path('sd6_production_app_recrutements') }}">Recrutements</a>
+                <a href="{{ path('sd6_production_app_contact') }}">Contact</a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rs">
+                <h4>Reseaux sociaux</h4>
+                <a href="https://www.facebook.com/SD6Production/?fref=ts" target="_blank"><img src="{{ asset('images/facebook.png')}}" alt="facebook SD6 Production"></a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 copyright">
+                <p>Copyright {{ 'now'|date('Y') }} SD6 Production. Tous droits réservés.</p>
+            </div>
+        </footer>
 
         {% block javascripts %}
             {% javascripts  'js/jquery-3.1.1.min.js''js/bootstrap.min.js''js/blueimp-gallery.min.js''js/app.js' %}

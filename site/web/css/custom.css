@@ -1,15 +1,127 @@
 /*------Général------*/
+/*beige :#DDCEBC*/
+h2{
+	text-align: center;
+	font-size: 32px;
+}
+
+p{
+	font-size: 15px;
+}
+
+hr{
+	margin-bottom: 30px;
+}
+
+hr.hr-beige{
+	width: 50px;
+	border: 1px solid #DDCEBC;
+}
+
+h2.beige{
+	color: #DDCEBC;
+}
+
+footer{
+	background-color: #222222;
+	color: #fff;
+}
+
+.row{
+	padding: 40px 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
 .bordures{
-	width: 80%;
+	width: 70%;
     margin: auto;
 }
+
+.annonce .image img{
+	width: 100%;
+	height: auto;
+}
+
 /*------Navbar------*/
+.navbar{
+	margin-bottom: 0px;
+	height: 70px;
+}
+
+.navbar>.container-fluid .navbar-brand, .container-fluid>.navbar-header, .container-fluid{
+    height: 100%;
+}
+
+.navbar-brand{
+	padding: 0;
+}
+
+.navbar-brand>img {
+    width: auto;
+    height: 100%;
+}
+
+.nav>li>a {
+    font-size: 16px;
+}
+
+.navbar-inverse .navbar-collapse{
+    background-color: rgb(34, 34, 34);
+}
+
 @media (min-width: 768px){
 	.navbar {
 	    border-radius: 0px;
-	}	
+	}
+
+	.navbar-nav>li>a {
+	    padding-top: 25px;
+	    padding-bottom: 25px;
+	}
 }
 
+/*------Accueil------*/
+.accueil .visuel-activites{
+	background-image: url('../images/accueil/pexels-photo-29737.jpg');
+    background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 400px;
+}
+
+.accueil .visuel-activites .filtre{
+    width: 100%;
+    height: 100%;
+	background-image: url('../images/accueil/point.png');
+    background-repeat: repeat;
+	display: table;
+}
+
+.accueil .visuel-activites .filtre .contenu{
+	display: table-cell;
+    vertical-align: middle;
+	text-transform: uppercase;
+	color: #DDCEBC;
+	padding-left: 50px;
+	text-shadow: -3px -1px 0px #665f57;
+}
+
+.accueil .visuel-activites .filtre .contenu h1{
+	font-size: 48px;
+}
+
+.accueil .presentation{
+	background-color: #F7F7F7;
+}
+
+.accueil .presentation .texte .col-1{
+	text-align: right;
+}
+
+.accueil .presentation .texte .btn{
+	text-align: center;
+}
 
 /*------Equipe------*/
 .equipe .membre{
@@ -51,3 +163,33 @@
 }
 
 .blueimp-gallery>.slides>.slide-loading{background:url(images/loading.gif) center no-repeat;background-size:64px 64px}
+
+
+/*------Footer------*/
+footer h4{
+	text-transform: uppercase;
+}
+
+footer .plan a{
+	display: block;
+}
+
+footer.row{
+	padding: 40px 0px 0px 0px;
+}
+
+footer .rs img{
+	width: 45px;
+	height: auto;
+}
+
+footer .coordonnees, footer .plan , footer .rs{
+	margin-bottom: 20px;
+}
+
+footer .copyright{
+	padding-top: 10px;
+	text-align: center;
+	background-color: #151515;
+	font-style: italic;
+}

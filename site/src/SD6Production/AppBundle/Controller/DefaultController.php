@@ -17,7 +17,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $listeAnnonces = $em->getRepository('SD6ProductionAppBundle:Annonce')->getAnnonceNb(3);
+
+        return $this->render('SD6ProductionAppBundle:Default:index.html.twig', array(
+            'listeAnnonces' => $listeAnnonces,
+        ));
     }
     public function productionsAction()
     {

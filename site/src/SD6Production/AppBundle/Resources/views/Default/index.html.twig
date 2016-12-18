@@ -9,27 +9,38 @@
 {% endblock %}
 
 {% block site_body %}
-  {{ parent() }}
-  Hello World!!
-<!-- Standard button -->
-<button type="button" class="btn btn-default">Default</button>
-
-<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-<button type="button" class="btn btn-primary">Primary</button>
-
-<!-- Indicates a successful or positive action -->
-<button type="button" class="btn btn-success">Success</button>
-
-<!-- Contextual button for informational alert messages -->
-<button type="button" class="btn btn-info">Info</button>
-
-<!-- Indicates caution should be taken with this action -->
-<button type="button" class="btn btn-warning">Warning</button>
-
-<!-- Indicates a dangerous or potentially negative action -->
-<button type="button" class="btn btn-danger">Danger</button>
-
-<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
-<button type="button" class="btn btn-link">Link</button>
+    {{ parent() }}
+    <div class="accueil">
+        <div class="visuel-activites">
+            <div class="filtre">
+                <div class="contenu">
+                    <h1>Un studio de production</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row presentation">
+            <div class="bordures">
+                <h2 class="beige">SD6 Production</h2>
+                <hr class="hr-beige">
+                <div class="texte">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-1">
+                        <p>Sed laeditur hic coetuum magnificus splendor levitate paucorum incondita, ubi nati sunt non reputantium, sed tamquam indulta licentia vitiis ad errores lapsorum ac lasciviam. ut enim.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-2">
+                        <p>Ultima Syriarum est Palaestina per intervalla magna protenta, cultis abundans terris et nitidis et civitates habens quasdam egregias, nullam nulli cedentem sed sibi vicissim.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn">
+                        <a href="{{ path('sd6_production_app_equipe') }}" class="btn btn-default">Voir plus</a>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        </div>
+        <div class="row actualites">
+            <h2 class="beige">Dernières publications</h2>
+            <hr class="hr-beige">
+            {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+        </div>
+    </div>
 
 {% endblock %}
