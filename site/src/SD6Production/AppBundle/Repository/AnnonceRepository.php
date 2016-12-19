@@ -12,14 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnnonceRepository extends EntityRepository
 {
-	public function getAnnonceWithCategories(array $categorieNoms){
+	public function getAnnonceWithCategories($categorieNoms){
 		$qb = $this->createQueryBuilder('a');
 
 	    $qb
-	      ->join('a.categories', 'cat')
+	      ->join('a.categorie', 'cat')
 	      ->addSelect('cat');
 
-	    $qb->where($qb->expr()->in('cat.nom', $categorieNoms));
+	    $qb->where('cat.nom = :catNom')
+			->setParameter('catNom', $categorieNoms);
 
 	    $qb->andWhere('a.publie = :publie')
 	    	->setParameter('publie', true)

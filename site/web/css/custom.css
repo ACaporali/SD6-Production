@@ -38,6 +38,9 @@ footer{
     margin: auto;
 }
 
+.ombres {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3); }
+
 .annonce .image img{
 	width: 100%;
 	height: auto;
@@ -145,13 +148,21 @@ footer{
 }
 
 
-/*------Production------*/
-.production div[class^="col-"] img{
+/*------Annonce include page------*/
+.annonce div[class^="col-"] img{
 	width: 100%;
 	height: auto;
 }
 
-.production div[class^="col-"] .contenu h3:first-letter{
+.annonce div[class^="col-"] .contenu{
+	border: 1px solid #d1d1d1;
+}
+
+.annonce div[class^="col-"] .contenu .texte{
+	padding: 0px 15px 15px 15px;
+}
+
+.production div[class^="col-"] .text h3:first-letter{
 	text-transform: uppercase;
 }
 

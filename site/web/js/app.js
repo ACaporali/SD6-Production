@@ -1,5 +1,6 @@
 $( document ).ready(function(){
-	 $(document).on('click','links', function() {
+	/*Visuel gallerie photos*/
+ 	$(document).on('click','links', function() {
 	    event = event || window.event;
 	    var target = event.target || event.srcElement,
 	        link = target.src ? target.parentNode : target,
@@ -7,4 +8,9 @@ $( document ).ready(function(){
 	        links = this.getElementsByTagName('a');
 	    blueimp.Gallery(links, options);
 	});
+
+	/*Ombres hover*/
+	$(".annonce [class*='col-'] .contenu").hover(
+      function(){$(this).toggleClass("ombres");}
+  );
 })

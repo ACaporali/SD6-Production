@@ -29,7 +29,7 @@ class DefaultController extends Controller
         $listeAnnonces = $this->getDoctrine()
             ->getManager()
             ->getRepository('SD6ProductionAppBundle:Annonce')
-            ->getAnnonceWithCategories(array('Production'));
+            ->getAnnonceWithCategories('Production');
 
         return $this->render('SD6ProductionAppBundle:Default:productions.html.twig', array(
             'listeAnnonces' => $listeAnnonces,
@@ -51,7 +51,7 @@ class DefaultController extends Controller
         $listeAnnonces = $this->getDoctrine()
             ->getManager()
             ->getRepository('SD6ProductionAppBundle:Annonce')
-            ->getAnnonceWithCategories(array('Actualite'));
+            ->getAnnonceWithCategories('Actualite');
 
         return $this->render('SD6ProductionAppBundle:Default:actualites.html.twig', array(
             'listeAnnonces' => $listeAnnonces,
@@ -74,7 +74,7 @@ class DefaultController extends Controller
         $listeAnnonces = $this->getDoctrine()
             ->getManager()
             ->getRepository('SD6ProductionAppBundle:Annonce')
-            ->getAnnonceWithCategories(array('Recrutement'));
+            ->getAnnonceWithCategories('Recrutement');
 
         return $this->render('SD6ProductionAppBundle:Default:recrutements.html.twig', array(
             'listeAnnonces' => $listeAnnonces,
@@ -90,102 +90,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $Annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->findOneBySlug($nomAnnonce)
+        $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->findOneBySlug($slugAnnonce)
         ;
 
         return $this->render('SD6ProductionAppBundle:Default:detail.html.twig', array(
             'annonce' => $annonce,
             ));
-    }
-
-    public function ajouterAction(Request $request){
-        $annonce = new Annonce();
-        $formAnnonce = $this->get('form.factory')->create(new AnnonceType(), $annonce);
-
-        $membre = new Membre();
-        $formMembre = $this->get('form.factory')->create(new MembreType(), $membre);
-
-        $categorie = new Categorie();
-        $formCategorie = $this->get('form.factory')->create(new CategorieType(), $categorie);
-
-        $image = new Image();
-        $formImage = $this->get('form.factory')->create(new ImageType(), $image);
-
-        $formAnnonce->handleRequest($request);
-        $formMembre->handleRequest($request);
-        $formCategorie->handleRequest($request);
-        $formImage->handleRequest($request);
-
-        if ($formAnnonce->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($annonce);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-
-            return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-        } else if ($formMembre->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($membre);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Membre bien enregistrée.');
-
-            return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-
-        }else if ($formCategorie->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($categorie);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Catégorie bien enregistrée.');
-
-            return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-
-        }else if ($formImage->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($image);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Catégorie bien enregistrée.');
-
-            return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-        }
-
-	    return $this->render('SD6ProductionAppBundle:Default:ajouter.html.twig', array(
-	      'formAnnonce' => $formAnnonce->createView(),
-          'formMembre' => $formMembre->createView(),
-          'formCategorie' => $formCategorie->createView(),
-          'formImage' => $formImage->createView(),
-	    ));
-    }
-
-    public function editerAnnonceAction(Request $request, $slugAnnonce)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->findOneBySlug($slugAnnonce);
-
-        $formAnnonce = $this->get('form.factory')->create(new AnnonceType(), $annonce);
-        $formAnnonce->handleRequest($request);
-
-        if ($formAnnonce->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($annonce);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
-
-            return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-        }
-
-        return $this->render('SD6ProductionAppBundle:Default:editer.html.twig', array(
-            'formAnnonce' => $formAnnonce->createView(),
-            'annonce' => $annonce,
-        ));
-    }
-
-    public function supprimerAnnonceAction()
-    {
-        return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
     }
 }

@@ -12,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="annonce")
  * @ORM\Entity(repositoryClass="SD6Production\AppBundle\Repository\AnnonceRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Annonce
 {
@@ -87,10 +88,10 @@ class Annonce
     private $publie;
 
     /**
-     * @ORM\ManyToMany(targetEntity="SD6Production\AppBundle\Entity\Categorie", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="SD6Production\AppBundle\Entity\Categorie", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
-    public $categories;
+    public $categorie;
 
     /**
     * @ORM\ManyToOne(targetEntity="SD6Production\AppBundle\Entity\Image", cascade={"persist"})
@@ -102,7 +103,6 @@ class Annonce
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
         $this->date = new \Datetime();
-        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -260,40 +260,6 @@ class Annonce
     }
 
     /**
-     * Add category
-     *
-     * @param \SD6Production\AppBundle\Entity\Categorie $category
-     *
-     * @return Annonce
-     */
-    public function addCategory(\SD6Production\AppBundle\Entity\Categorie $category)
-    {
-        $this->categories[] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Remove category
-     *
-     * @param \SD6Production\AppBundle\Entity\Categorie $category
-     */
-    public function removeCategory(\SD6Production\AppBundle\Entity\Categorie $category)
-    {
-        $this->categories->removeElement($category);
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
      * Set image
      *
      * @param \SD6Production\AppBundle\Entity\Image $image
@@ -339,5 +305,40 @@ class Annonce
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \SD6Production\AppBundle\Entity\Categorie $categorie
+     *
+     * @return Annonce
+     */
+    public function setCategorie(\SD6Production\AppBundle\Entity\Categorie $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \SD6Production\AppBundle\Entity\Categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+
+    /**
+    * @ORM\prePersist()
+    * @ORM\preUpdate()
+     */
+    public function preUpload()
+    {
+      $this->accroche = substr($this->contenu,0,80);
+
     }
 }
