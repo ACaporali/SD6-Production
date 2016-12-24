@@ -16,7 +16,8 @@ class AnnonceType extends AbstractType
       $builder
       ->add('titre', 'text')
       ->add('accroche', 'text', array('required' => false))
-      ->add('contenu', 'textarea')
+      ->add('contenu', 'ckeditor', array(
+    'config' => array('toolbar' => 'full')))
       ->add('auteur', 'text')
       ->add('date', 'date')
       ->add('publie', 'checkbox', array('required' => false))// Element non obligatoire dans le form

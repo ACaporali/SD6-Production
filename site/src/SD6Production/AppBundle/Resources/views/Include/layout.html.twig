@@ -3,13 +3,12 @@
 {% block title %}SD6 Production{% endblock %}
 {% block body %}
 	{# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
-	{% block site_body %} 	
-		{% for key, message in app.session.flashbag.all() %}
-		    <div class="alert alert-{{ key }}">
-		      {#{{ message|trans({}, 'FOSUserBundle') }}#}
-		    </div>
-		  {% endfor %}
-				
+	{% block site_body %}
+		{% for flash_message in app.session.flashBag.get('notice') %}
+	    	<div class="flash-notice">
+	      	{{ flash_message  }}
+	    	</div>
+	  	{% endfor %}
 	{% endblock %}
-		
+
 {% endblock %}

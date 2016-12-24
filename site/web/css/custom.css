@@ -181,8 +181,17 @@ footer{
 	padding: 0px 15px 15px 15px;
 }
 
-.production div[class^="col-"] .text h3:first-letter{
+.annonce div[class^="col-"] .contenu .titre .text h3 a{
+	display: block;
+	color: #f00 !important;
+}
+
+.annonce div[class^="col-"] .contenu .titre .text h3 a:first-letter{
 	text-transform: uppercase;
+}
+
+.annonce div[class^="col-"] .contenu .accroche{
+	font-size: 15px;
 }
 
 .annonce div[class^="col-"] .contenu .bouton{
@@ -246,4 +255,22 @@ footer .copyright{
 	background-color: #151515;
 	font-style: italic;
 	color: #444444;
+}
+
+
+/*------Detail annonce------*/
+.detail .contenu .titre h2:first-letter{
+	text-transform: uppercase;
+}
+
+.detail .contenu .image img{
+	width: 100%;
+	height: auto;
+}
+
+.detail .contenu .infos p{
+	color: #7C7C7C;
+	font-size: 13px;
+	padding: 10px 0px;
+
 }

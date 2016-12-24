@@ -13,4 +13,10 @@ $( document ).ready(function(){
 	/*$(".annonce [class*='col-'] .contenu").hover(
 		function(){$(this).toggleClass("ombres");}
 	);*/
+
+	/*liste annonces*/
+	/*Change les balises accroche annonce en p*/
+	$( ".annonce div[class^='col-'] .contenu .accroche" ).children().each(function(index){
+		$(this).replaceWith($('<p>' + $(this).text() + '</p>'))
+	})
 })
