@@ -15,86 +15,86 @@ use SD6Production\AppBundle\Form\ImageType;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listeAnnonces = $em->getRepository('SD6ProductionAppBundle:Annonce')->getAnnonceNb(3);
+   public function indexAction()
+   {
+      $em = $this->getDoctrine()->getManager();
+      $listeAnnonces = $em->getRepository('SD6ProductionAppBundle:Annonce')->getAnnonceNb(3);
 
-        return $this->render('SD6ProductionAppBundle:Default:index.html.twig', array(
-            'listeAnnonces' => $listeAnnonces,
-        ));
-    }
-    public function productionsAction()
-    {
-        $listeAnnonces = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('SD6ProductionAppBundle:Annonce')
-            ->getAnnonceWithCategories('Production');
+      return $this->render('SD6ProductionAppBundle:Default:index.html.twig', array(
+         'listeAnnonces' => $listeAnnonces,
+      ));
+   }
+   public function productionsAction()
+   {
+      $listeAnnonces = $this->getDoctrine()
+      ->getManager()
+      ->getRepository('SD6ProductionAppBundle:Annonce')
+      ->getAnnonceWithCategories('Production');
 
-        return $this->render('SD6ProductionAppBundle:Default:productions.html.twig', array(
-            'listeAnnonces' => $listeAnnonces,
-        ));
-    }
+      return $this->render('SD6ProductionAppBundle:Default:productions.html.twig', array(
+         'listeAnnonces' => $listeAnnonces,
+      ));
+   }
 
-    public function equipeAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $listeMembres = $em->getRepository('SD6ProductionAppBundle:Membre')->findAll();
+   public function equipeAction()
+   {
+      $em = $this->getDoctrine()->getManager();
+      $listeMembres = $em->getRepository('SD6ProductionAppBundle:Membre')->findAll();
 
-        return $this->render('SD6ProductionAppBundle:Default:equipe.html.twig', array(
-            'listeMembres' => $listeMembres,
-        ));
-    }
+      return $this->render('SD6ProductionAppBundle:Default:equipe.html.twig', array(
+         'listeMembres' => $listeMembres,
+      ));
+   }
 
-    public function actualitesAction()
-    {
-        $listeAnnonces = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('SD6ProductionAppBundle:Annonce')
-            ->getAnnonceWithCategories('Actualite');
+   public function actualitesAction()
+   {
+      $listeAnnonces = $this->getDoctrine()
+      ->getManager()
+      ->getRepository('SD6ProductionAppBundle:Annonce')
+      ->getAnnonceWithCategories('Actualite');
 
-        return $this->render('SD6ProductionAppBundle:Default:actualites.html.twig', array(
-            'listeAnnonces' => $listeAnnonces,
-        ));
-    }
+      return $this->render('SD6ProductionAppBundle:Default:actualites.html.twig', array(
+         'listeAnnonces' => $listeAnnonces,
+      ));
+   }
 
-    public function photosAction()
-    {
-        $listeImageGalerie = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('SD6ProductionAppBundle:Image')
-            ->getImageGalerie();
-        return $this->render('SD6ProductionAppBundle:Default:photos.html.twig', array(
-            'listeImageGalerie' => $listeImageGalerie,
-            ));
-    }
+   public function photosAction()
+   {
+      $listeImageGalerie = $this->getDoctrine()
+      ->getManager()
+      ->getRepository('SD6ProductionAppBundle:Image')
+      ->getImageGalerie();
+      return $this->render('SD6ProductionAppBundle:Default:photos.html.twig', array(
+         'listeImageGalerie' => $listeImageGalerie,
+      ));
+   }
 
-    public function recrutementsAction()
-    {
-        $listeAnnonces = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('SD6ProductionAppBundle:Annonce')
-            ->getAnnonceWithCategories('Recrutement');
+   public function recrutementsAction()
+   {
+      $listeAnnonces = $this->getDoctrine()
+      ->getManager()
+      ->getRepository('SD6ProductionAppBundle:Annonce')
+      ->getAnnonceWithCategories('Recrutement');
 
-        return $this->render('SD6ProductionAppBundle:Default:recrutements.html.twig', array(
-            'listeAnnonces' => $listeAnnonces,
-            ));
-    }
+      return $this->render('SD6ProductionAppBundle:Default:recrutements.html.twig', array(
+         'listeAnnonces' => $listeAnnonces,
+      ));
+   }
 
-    public function contactAction()
-    {
-        return $this->render('SD6ProductionAppBundle:Default:contact.html.twig');
-    }
+   public function contactAction()
+   {
+      return $this->render('SD6ProductionAppBundle:Default:contact.html.twig');
+   }
 
-    public function detailsAnnonceAction($typeAnnonce, $slugAnnonce)
-    {
-        $em = $this->getDoctrine()->getManager();
+   public function detailsAnnonceAction($typeAnnonce, $slugAnnonce)
+   {
+      $em = $this->getDoctrine()->getManager();
 
-        $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->findOneBySlug($slugAnnonce)
-        ;
+      $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->findOneBySlug($slugAnnonce)
+      ;
 
-        return $this->render('SD6ProductionAppBundle:Default:detail.html.twig', array(
-            'annonce' => $annonce,
-            ));
-    }
+      return $this->render('SD6ProductionAppBundle:Default:detail.html.twig', array(
+         'annonce' => $annonce,
+      ));
+   }
 }

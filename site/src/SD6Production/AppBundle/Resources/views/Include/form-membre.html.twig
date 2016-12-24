@@ -16,14 +16,14 @@
 		</div>
 	{% endif %}
 
-    <div class="row">		
-		{{ form_label(formMembre.nom, "Nom du membre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}			
-		{{ form_widget(formMembre.nom, {'attr': {'class': 'form-control'}}) }}		
+    <div class="row">
+		{{ form_label(formMembre.nom, "Nom du membre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.nom, {'attr': {'class': 'form-control'}}) }}
     </div>
 
     <div class="row">
-		{{ form_label(formMembre.prenom, "Prenom du membre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}		
-		{{ form_widget(formMembre.prenom, {'attr': {'class': 'form-control'}}) }}		
+		{{ form_label(formMembre.prenom, "Prenom du membre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.prenom, {'attr': {'class': 'form-control'}}) }}
     </div>
 
   	<div class="row">
@@ -46,8 +46,8 @@
 		{{ form_label(formMembre.image.categories, "Image categories", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 		{{ form_widget(formMembre.image.categories, {'attr': {'class': 'form-control'}}) }}
 
-		{#{{ form_label(formMembre.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formMembre.image.file, {'attr': {'class': 'form-control'}}) }}#}
+		{{ form_label(formMembre.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formMembre.image.file, {'attr': {'class': 'form-control'}}) }}
     </div>
 
   	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
@@ -57,7 +57,7 @@
      	Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
      	et tous les champs cachés (type « hidden »). #}
   	{{ form_rest(formMembre) }}
-  
+
   	{# Fermeture de la balise <form> du formulaire HTML #}
   	{{ form_end(formMembre) }}
 </div>

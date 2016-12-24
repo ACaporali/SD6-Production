@@ -83,3 +83,10 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+#IvoryCKEditorBundle pour textarea form annonce
+ivory_ck_editor:
+   enable: true
+   configs:
+      my_config:
+         toolbar: full
