@@ -1,0 +1,55 @@
+/*------Annonce include page------*/
+.annonce{
+  div[class^="col-"]{
+  	padding-bottom: 40px;
+
+    img{
+    	width: 100%;
+    	height: auto;
+    }
+
+    .contenu{
+    	border: 1px solid #d1d1d1;
+
+      .texte{
+        padding: 0px 15px 15px 15px;
+        .titre{
+          h3{
+            a{
+              display: block;
+            	color: #f00 !important;
+            }
+            a:first-letter{
+            	text-transform: uppercase;
+            }
+          }
+        }
+
+        .accroche{
+        	font-size: 15px;
+        }
+      }
+
+      .bouton{
+      	text-align: center;
+
+        a{
+        	background-color: #222222;
+         	border: 1px solid #222222;
+        	display: block;
+        	padding: 5px 0px;
+        	color: #fff;
+        	text-decoration: none;
+        }
+        a:hover{
+        	background-color: #fff;
+        	color: #222222;
+        	border: 1px solid #222222;
+        }
+        a.editer{
+        	margin-top: 1px;
+        }
+      }
+    }
+  }
+}

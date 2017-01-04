@@ -1,0 +1,33 @@
+/*------Footer------*/
+footer.row{
+  padding: 40px 0px 0px 0px;
+
+  h4{
+  	text-transform: uppercase;
+  }
+
+  .plan{
+    a{
+    	display: block;
+    }
+  }
+
+  .rs {
+    img{
+  	width: 45px;
+  	height: auto;
+  }
+  }
+
+  .copyright{
+  	padding-top: 10px;
+  	text-align: center;
+  	background-color: #151515;
+  	font-style: italic;
+  	color: #444444;
+  }
+
+  .coordonnees, .plan , .rs{
+  	margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,22 @@
+/*------Equipe------*/
+.equipe{
+  .membre{
+  	padding: 15px;
+
+    .image{
+    	width: 30%;
+    	height: auto;
+
+      img{
+      	width: 100%;
+      	height: auto;
+      	max-height: 200px;
+      }
+    }
+
+    .media-body{
+    	width: 70%;
+    	vertical-align: middle;
+    }
+  }
+}

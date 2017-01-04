@@ -1,0 +1,54 @@
+/*------Navbar------*/
+.navbar{
+	margin-bottom: 0px;
+	height: auto;
+	border: 0px;
+
+  .container-fluid {
+  	padding-right: 0px;
+  	padding-left: 0px;
+
+    .navbar-header {
+      a.navbar-brand{
+      	padding: 0;
+      	height: 69px;
+
+        img {
+        	width: auto;
+        	height: 100%;
+        }
+      }
+    }
+
+    .navbar-collapse{
+      background-color: rgb(34, 34, 34);
+      .nav{
+        li{
+          a{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-brand, .container-fluid>.navbar-header, .container-fluid{
+  	height: auto;
+  }
+}
+
+
+@media (min-width: 768px){
+	.navbar {
+		border-radius: 0px;
+	}
+
+	.navbar-nav{
+    li{
+      a{
+        padding-top: 25px;
+    		padding-bottom: 25px;
+      }
+    }
+	}
+}
