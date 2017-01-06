@@ -26,13 +26,13 @@ class DefaultController extends Controller
    }
    public function productionsAction()
    {
-      $listeAnnonces = $this->getDoctrine()
+      $listeProductions = $this->getDoctrine()
       ->getManager()
       ->getRepository('SD6ProductionAppBundle:Annonce')
       ->getAnnonceWithCategories('Production');
 
       return $this->render('SD6ProductionAppBundle:Default:productions.html.twig', array(
-         'listeAnnonces' => $listeAnnonces,
+         'listeProductions' => $listeProductions,
       ));
    }
 

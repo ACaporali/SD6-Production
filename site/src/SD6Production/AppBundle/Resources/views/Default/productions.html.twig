@@ -12,9 +12,48 @@
 	<div class="bordures">
 	  	{{ parent() }}
 	  	<h1>Production</h1>
-			<div class="production">  		
+			<div class="production">
 		  	<div class="row">
-			  	{{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+          {% for Production in listeProductions %}
+        	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        		<div class="contenu">
+        			<div class="image">
+        				{% if Production.Image is not null %}
+        					<!--<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">-->
+        						<img src="{{asset(Production.Image.Url)}}" alt="{{Production.Image.Alt}}">
+        					<!--</a>-->
+        				{% else %}
+        				<p>Pas de visuel</p>
+        				{% endif %}
+        			</div>
+              <div class="overlay">
+                <div class="texte">
+                  <div class="titre">
+                    <h3>
+                      <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">
+                        {{Production.Titre}}
+                      </a>
+                    </h3>
+                  </div>
+                  <div class="accroche">
+                    <p>{{Production.Accroche|raw}}</p>
+                  </div>
+                  <div class="date">
+                    <p>{{Production.date|date('d M Y')}}</p>
+                  </div>
+                </div>
+                <div class="bouton">
+                  <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">Voir plus</a>
+                  {% if is_granted('ROLE_ADMIN') %}
+                  <a href="{{ path('sd6_production_app_edition_annonce', {'slugAnnonce': Production.slug})}}" class="editer">Editer</a>
+                  {% endif %}
+                </div>
+              </div>
+        		</div>
+        	</div>
+        	{% else %}
+        	<p>Pas d'Production disponible.</p>
+        	{% endfor %}
 			</div>
 		</div>
 	</div>

@@ -1,11 +1,14 @@
 /*------General------*/
+body{
+  font-family: 'Roboto regular', sans-serif;
+}
 h2{
   text-align: center;
   font-size: 32px;
 }
 
 p{
-  font-size: 15px;
+  font-size: 15.5px;
 }
 
 hr{
@@ -33,7 +36,7 @@ footer{
 }
 
 .bordures{
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 
@@ -50,6 +53,31 @@ footer{
   }
 }
 
+.zoom-effet{
+  overflow: hidden;
+  img {
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+}
+.zoom-effet:hover{
+  overflow: hidden;
+  img {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+}
+
+@font-face {
+	font-family: 'Roboto regular';
+	src: url('../fonts/roboto/Roboto-Regular.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../fonts/roboto/Roboto-Regular.woff') format('woff'), /* Modern Browsers */
+	url('../fonts/roboto/Roboto-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
 
 @media (min-width: 992px ){
   .container {

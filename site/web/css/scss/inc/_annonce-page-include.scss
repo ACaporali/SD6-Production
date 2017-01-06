@@ -17,10 +17,14 @@
           h3{
             a{
               display: block;
-            	color: #f00 !important;
+            	color: $noirTxt;
             }
             a:first-letter{
             	text-transform: uppercase;
+            }
+            a:hover{
+              text-decoration: none;
+            	color: $beige;
             }
           }
         }
@@ -34,17 +38,16 @@
       	text-align: center;
 
         a{
-        	background-color: #222222;
-         	border: 1px solid #222222;
+        	background-color: $noirBtn;
+         	border: 1px solid $noirBtn;
         	display: block;
         	padding: 5px 0px;
         	color: #fff;
         	text-decoration: none;
         }
         a:hover{
-        	background-color: #fff;
-        	color: #222222;
-        	border: 1px solid #222222;
+        	background-color: $beige;
+        	border: 1px solid $beige;
         }
         a.editer{
         	margin-top: 1px;

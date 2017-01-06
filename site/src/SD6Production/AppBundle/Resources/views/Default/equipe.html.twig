@@ -9,27 +9,86 @@
 {% endblock %}
 
 {% block site_body %}
-	<div class="bordures">
+	<div class="equipe">
 	  	{{ parent() }}
-	  	<h1>Equipe</h1>
-			<div class="equipe">  		
-		  	<div class="row">
-			  	{% for Membre in listeMembres %}
-			  		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 membre media">
-			  			<div class="image media-left media-middle">
-			  				<img class="media-object img-rounded" src="{{Membre.Image.url}}" alt="{{Membre.Image.alt}}">
-			  			</div>
-			  			<div class="media-body">
-			  				<h4>{{Membre.prenom}} {% if Membre.nom is not null %}{{Membre.nom}}{% endif %}, {{Membre.poste}}</h4>
-			  				<p>{{Membre.description}}</p>
-			  			</div>
-			  		</div>
-					
-				{% else %}
-			    	<p>L'équipe est partie en vacances.</p>
-			    {% endfor %}
-			</div>
+	  	<h1 class="beige">Equipe</h1>
+      <hr class="hr-beige">
+      <div class="row presentation">
+        <div class="bordures">
+          <!--<h2 class="beige">Qui sommes-nous ?</h2>
+          <hr class="hr-beige">-->
+          <div class="row objets">
+            <p class="center">SD6 Production est une association Grenobloise ayant pour objet la production et la réalisation de <span style="white-space: nowrap;">projets :</span></p>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="icon">
+                <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+              </div>
+              <div class="texte">
+                Cinématographiques/télévisuels
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="icon">
+                <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+              </div>
+              <div class="texte">
+                Compositions musicales
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="icon">
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              </div>
+              <div class="texte">
+                Organisation d’évènements
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  	<div class="row membres">
+        <div class="bordures">
+          <h2 class="beige">Notre équipe</h2>
+          <hr class="hr-beige">
+          {% for Membre in listeMembres %}
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 media">
+            <div class="image media-left media-middle">
+              <img class="media-object img-rounded" src="{{asset(Membre.Image.url)}}" alt="{{Membre.Image.alt}}">
+            </div>
+            <div class="media-body">
+              <h4>{{Membre.prenom}} {% if Membre.nom is not null %}{{Membre.nom}}{% endif %}, {{Membre.poste}}</h4>
+              <p>{{Membre.description}}</p>
+            </div>
+          </div>
+
+          {% else %}
+          <p>L'équipe est partie en vacances.</p>
+          {% endfor %}
+        </div>
 		</div>
+    <div class="row paralax">
+      <div class="bordures">
+        <p>Chaque projet réalisé pourra être diffusé dans un premier temps dans <strong>la région Grenobloise</strong> puis à l’échelle nationale ; ce qui reste notre priorité. </p>
+      </div>
+    </div>
+    <div class="row autre">
+      <div class="bordures">
+        <h2 class="beige">Autre titre</h2>
+        <hr class="hr-beige">
+        <p class="center">De nos jours, la plupart des œuvres cinématographiques sont filmées dans de grandes villes telles que Paris, Marseille, Lyon et quelques villes aux alentours... Cependant,  notre région est peu présente dans les  grands projets audiovisuels.</p>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <p>L’objectif de <strong>SD6 Production</strong> est de <strong>valoriser Grenoble et sa région</strong> en mettant en œuvre nos savoirs faire.</p>
+          <p>Nous mettons également en avant l'activité des entreprises et des artistes  en les incluant dans nos projets. Il est important pour nous de <strong>révéler des talents</strong> potentiels avec l'encouragement des organismes publics, privés, et divers dons.</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <p><strong>Les sponsors, subventions, et ou donations</strong> seront nos uniques ressources pour mener à bien nos projets et valoriser ainsi les acteurs qui auront contribué à notre développement. </p>
+          <div class="citation">
+            <p class="texte">"La logique vous mènera d’un point A à un point B. L’imagination vous emmènera où vous voulez."</p>
+            <p class="auteur">Albert Einstein</p>
+          </div>
+        </div>
+      </div>
+    </div>
 	</div>
 
 {% endblock %}
