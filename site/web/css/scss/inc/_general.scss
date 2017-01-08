@@ -20,7 +20,7 @@ hr.hr-beige{
   border: 1px solid $beige;
 }
 
-h2.beige{
+h1.beige, h2.beige{
   color: $beige;
 }
 
@@ -68,6 +68,12 @@ footer{
     transform: scale(1.2);
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+  }
+}
+
+.active{
+  a{
+    color: #fff;
   }
 }
 

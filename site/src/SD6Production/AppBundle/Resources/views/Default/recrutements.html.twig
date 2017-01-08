@@ -9,14 +9,21 @@
 {% endblock %}
 
 {% block site_body %}
-	<div class="bordures">
-	  	{{ parent() }}
-	  	<h1>Recrutements</h1>
-			<div class="production">  		
-		  	<div class="row">
-			  	{{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
-			</div>
-		</div>
+	<div class="recrutement">
+  	{{ parent() }}
+  	<h1 class="beige">Recrutements</h1>
+    <hr class="hr-beige">
+      <div class="row description">
+        <div class="bordures">
+          <p>Parfois nous avons besoin de nouvelles personnes dans nos projets.</p>
+          <p>Si vous trouvez un poste qui correspond à votre profil et que vous avez envie de nous rejoindre, n'hésitez pas à <a href="{{ path('sd6_production_app_contact') }}">nous contactez</a> !</p>
+        </div>
+      </div>
+	  	<div class="row">
+        <div class="bordures">
+          {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+        </div>
+		  </div>
 	</div>
 
 {% endblock %}

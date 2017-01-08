@@ -1,0 +1,34 @@
+.contact{
+  h1{
+    text-align: center;
+  }
+
+  .contenu{
+    background-color: $grisClair;
+
+    .coordonnes{
+      a.facebook{
+        img{
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+
+    .formulaire{
+      #sd6production_contactbundle_contact{
+        div{
+          margin-bottom: 10px;
+
+          label, input{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .map{
+    padding: 0px;
+  }
+}

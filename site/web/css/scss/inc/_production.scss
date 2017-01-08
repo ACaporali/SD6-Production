@@ -28,61 +28,70 @@
         transition:all .4s ease-in-out;
         text-align: center;
 
-        .titre{
-          text-transform:uppercase;
-          font-size:17px;
-          background:rgba(0,0,0,0.7);
-          /*-webkit-transition:all .2s ease-in-out;
-          transition:all .2s ease-in-out;*/
-          padding:10px;
-          margin: 10px 0px;
+        .texte{
+          display: table;
+          width: 100%;
+          height: 100%;
 
-          h3{
-            margin: 0;
-            a{
+          .table-cell{  
+            display: table-cell;
+            vertical-align: middle;
+            .titre{
+              text-transform:uppercase;
+              font-size:17px;
+              background:rgba(0,0,0,0.7);
+              padding:10px;
+              margin: 10px 0px;
+
+              h3{
+                margin: 0;
+                a{
+                  color:#fff;
+                  text-decoration: none;
+                }
+              }
+
+              h3:hover{
+                a{
+                  color: $beige;
+                }
+              }
+            }
+
+            .accroche, .date{
               color:#fff;
-              text-decoration: none;
+              p{
+                font-size: 13px;
+              }
+              padding: 0px 10px;
+            }
+
+            .bouton{
+              display:inline-block;
+              border:1px solid $noirBtn;
+              background-color:$noirBtn;
+              filter:alpha(opacity=0);
+              -webkit-transition:all .2s ease-in-out;
+              transition:all .2s ease-in-out;
+              padding:7px 14px;
+
+              a{
+                color:#fff;
+                text-decoration:none;
+              }
+            }
+
+            .bouton:hover {
+              border:1px solid $beige;
+              background-color:$beige;
+
+              a{
+                color:#fff;
+              }
             }
           }
-
-          h3:hover{
-            a{
-              color: $beige;
-            }
-          }
         }
 
-        .accroche, .date{
-          color:#fff;
-          p{            
-            font-size: 13px;
-          }
-          padding: 0px 10px;
-        }
-
-        .bouton{
-          display:inline-block;
-          border:1px solid $noirBtn;
-          background-color:$noirBtn;
-          filter:alpha(opacity=0);
-          -webkit-transition:all .2s ease-in-out;
-          transition:all .2s ease-in-out;
-          padding:7px 14px;
-
-          a{
-            color:#fff;
-            text-decoration:none;
-          }
-        }
-
-        .bouton:hover {
-          border:1px solid $beige;
-          background-color:$beige;
-
-          a{
-            color:#fff;
-          }
-        }
       }
 
       /*.image:hover{

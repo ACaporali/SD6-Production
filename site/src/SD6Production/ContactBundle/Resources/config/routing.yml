@@ -1,0 +1,7 @@
+sd6_production_contact_homepage:
+    path:     /
+    defaults: { _controller: SD6ProductionAppBundle:Default:index }
+
+sd6_production_contact_contact:
+    path:     /contact
+    defaults: { _controller: SD6ProductionContactBundle:Default:contact }

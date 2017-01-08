@@ -1,0 +1,4 @@
+services:
+#    sd6_production_contact.example:
+#        class: SD6Production\ContactBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

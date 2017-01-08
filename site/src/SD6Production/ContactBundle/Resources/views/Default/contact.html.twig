@@ -1,0 +1,43 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Contact - {{ parent() }}{% endblock %}
+
+{% block head %}
+{{ parent() }}
+<meta name="description" content="">
+<meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+<div class="contact">
+  {{ parent() }}
+  <h1 class="beige">Contact</h1>
+  <hr class="hr-beige">
+  <div class="row contenu">
+    <div class="bordures">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="coordonnes">
+          <h4>Coordonnés</h4>
+          <p>Adresse email : sd6production@gmail.com</p>
+          <h4>Reseaux sociaux</h4>
+          <a class="facebook" href="https://www.facebook.com/SD6Production/?fref=ts" target="_blank"><img src="{{ asset('images/facebook.png')}}" alt="facebook SD6 Production"></a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="formulaire">
+          <h4>Formulaire</h4>
+          <form action="{{ path('sd6_production_contact_contact') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+            <input class="btn btn-primary" type="submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row map">
+    <div class="google-maps">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75674.74425532694!2d5.6392798067806!3d45.181437911933266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478af48bd689be6f%3A0x618c10cd6e995398!2sGrenoble!5e0!3m2!1sfr!2sfr!4v1483903355712" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+    </div>
+  </div>
+</div>
+{% endblock %}

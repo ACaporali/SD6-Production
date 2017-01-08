@@ -42,10 +42,14 @@ sd6_production_app_ajout:
 sd6_production_app_edition_annonce:
     path:     annonce/editer/{slugAnnonce}
     defaults: { _controller: SD6ProductionAppBundle:Action:editerAnnonce }
+    requirements:
+        slugAnnonce: "[a-zA-Z0-9-]+"
 
 sd6_production_app_supprime_annonce:
-    path:     /supprimer
+    path:     /supprimer/{idAnnonce}
     defaults: { _controller: SD6ProductionAppBundle:Action:supprimerAnnonce }
+    requirements:
+        idAnnonce: "[0-9]+"
 
 sd6_production_app_edition_image:
     path:     image/editer/{idImage}

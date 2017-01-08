@@ -1,3 +1,7 @@
+sd6_production_contact:
+    resource: "@SD6ProductionContactBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sd6_production_utilisateur:
     resource: "@SD6ProductionUtilisateurBundle/Resources/config/routing.yml"
     prefix:   /
