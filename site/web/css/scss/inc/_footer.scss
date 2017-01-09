@@ -4,11 +4,14 @@ footer.row{
 
   h4{
   	text-transform: uppercase;
+    color: $beige;
   }
 
   .plan{
     a{
     	display: block;
+      color: $grisTxtFooter;
+      cursor: pointer;
     }
   }
 
@@ -29,5 +32,6 @@ footer.row{
 
   .coordonnees, .plan , .rs{
   	margin-bottom: 20px;
+    color: $grisTxtFooter;
   }
 }

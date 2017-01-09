@@ -3,10 +3,14 @@
     text-align: center;
   }
 
+  h4{
+    text-transform: uppercase;
+  }
+
   .contenu{
     background-color: $grisClair;
 
-    .coordonnes{
+    .reseaux-sociaux{
       a.facebook{
         img{
           width: 45px;
@@ -25,6 +29,10 @@
           }
         }
       }
+    }
+
+    .coordonnes, .reseaux-sociaux, .formulaire{
+      margin-bottom: 30px;
     }
   }
 

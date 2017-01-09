@@ -57,6 +57,16 @@ footer {
 .active a {
   color: #fff; }
 
+.nav-fixed {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  animation: navBarHaut 0.5s; }
+
 @font-face {
   font-family: 'Roboto regular';
   src: url("../fonts/roboto/Roboto-Regular.eot");
@@ -213,9 +223,12 @@ footer {
 footer.row {
   padding: 40px 0px 0px 0px; }
   footer.row h4 {
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    color: #A99675; }
   footer.row .plan a {
-    display: block; }
+    display: block;
+    color: #818181;
+    cursor: pointer; }
   footer.row .rs img {
     width: 45px;
     height: auto; }
@@ -226,7 +239,8 @@ footer.row {
     font-style: italic;
     color: #444444; }
   footer.row .coordonnees, footer.row .plan, footer.row .rs {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    color: #818181; }
 
 /*------Page Galerie Image------*/
 #links img {
@@ -356,15 +370,114 @@ footer.row {
 .contact h1 {
   text-align: center; }
 
+.contact h4 {
+  text-transform: uppercase; }
+
 .contact .contenu {
   background-color: #F6F6F6; }
-  .contact .contenu .coordonnes a.facebook img {
+  .contact .contenu .reseaux-sociaux a.facebook img {
     width: 45px;
     height: 45px; }
   .contact .contenu .formulaire #sd6production_contactbundle_contact div {
     margin-bottom: 10px; }
     .contact .contenu .formulaire #sd6production_contactbundle_contact div label, .contact .contenu .formulaire #sd6production_contactbundle_contact div input {
       width: 100%; }
+  .contact .contenu .coordonnes, .contact .contenu .reseaux-sociaux, .contact .contenu .formulaire {
+    margin-bottom: 30px; }
 
 .contact .map {
   padding: 0px; }
+
+.actualite h1 {
+  text-align: center; }
+
+/*------Animations------*/
+.animation-de-gauche {
+  position: relative;
+  animation-name: slideGauche;
+  animation-duration: 1s; }
+
+.animation-de-droite {
+  position: relative;
+  animation-name: slideDroite;
+  animation-duration: 1s; }
+
+.animation-du-bas {
+  position: relative;
+  animation-name: slideBas;
+  animation-duration: 1s; }
+
+.animation-gauche, .animation-droite, .animation-bas {
+  visibility: hidden; }
+
+@-webkit-keyframes slideGauche {
+  0% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes slideGauche {
+  0% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@-webkit-keyframes slideDroite {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes slideDroite {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@-webkit-keyframes slideBas {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes slideBas {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@-webkit-keyframes navBarHaut {
+  0% {
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes navBarHaut {
+  0% {
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    visibility: visible; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }

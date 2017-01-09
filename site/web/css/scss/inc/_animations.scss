@@ -1,0 +1,28 @@
+/*------Animations------*/
+.animation-de-gauche{
+	position: relative;
+	animation-name: slideGauche;
+	animation-duration: 1s;
+}
+
+.animation-de-droite{
+  position: relative;
+  animation-name: slideDroite;
+  animation-duration: 1s;
+}
+
+.animation-du-bas{
+	position: relative;
+	animation-name: slideBas;
+	animation-duration: 1s;
+}
+
+.animation-gauche, .animation-droite, .animation-bas{
+  visibility: hidden;
+}
+
+@-webkit-keyframes slideGauche{0%{-webkit-transform:translate3d(-50%, 0, 0);transform:translate3d(-50%, 0, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}@keyframes slideGauche{0%{-webkit-transform:translate3d(-50%, 0, 0);transform:translate3d(-50%, 0, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}
+@-webkit-keyframes slideDroite{0%{-webkit-transform:translate3d(100%, 0, 0);transform:translate3d(100%, 0, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}@keyframes slideDroite{0%{-webkit-transform:translate3d(100%, 0, 0);transform:translate3d(100%, 0, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}
+@-webkit-keyframes slideBas{0%{-webkit-transform:translate3d(0, 100%, 0);transform:translate3d(0, 100%, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}@keyframes slideBas{0%{-webkit-transform:translate3d(0, 100%, 0);transform:translate3d(0, 100%, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}
+
+@-webkit-keyframes navBarHaut{0%{-webkit-transform:translate3d(0, -50%, 0);transform:translate3d(0, -50%, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}@keyframes navBarHaut{0%{-webkit-transform:translate3d(0, -50%, 0);transform:translate3d(0, -50%, 0);visibility:visible}100%{-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}}

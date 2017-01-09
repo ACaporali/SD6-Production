@@ -29,9 +29,8 @@
 			<div class="bouton">
 				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categorie.nom, 'slugAnnonce': Annonce.slug}) }}">Voir plus</a>
 				{% if is_granted('ROLE_ADMIN') %}
-				<a href="{{ path('sd6_production_app_edition_annonce', {'slugAnnonce': Annonce.slug})}}" class="editer">Editer</a>
-				{#<a href="{{ path('sd6_production_app_supprime_annonce', {'idAnnonce':Annonce.id}) }}" onclick="return confirm('are u sure?')">delete</a>#}
-				<a href="{{ path('sd6_production_app_supprime_annonce', {'idAnnonce':Annonce.id}) }}">delete</a>
+				<a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': Annonce.slug})}}" class="editer">Editer</a>
+				<a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':Annonce.id}) }}">Supprimer</a>
 				{% endif %}
 			</div>
 		</div>

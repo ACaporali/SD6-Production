@@ -104,7 +104,7 @@ class ActionController extends Controller
 
   public function supprimerAnnonceAction($idAnnonce, Request $request)
   {
-    /*$em = $this->getDoctrine()->getManager();
+    $em = $this->getDoctrine()->getManager();
     $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->find($idAnnonce);
 
     // Si l'annonce n'existe pas, on affiche une erreur 404
@@ -114,18 +114,10 @@ class ActionController extends Controller
       $em->remove($annonce);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice green accent-2', 'Annonce bien supprimée.');
+      $request->getSession()->getFlashBag()->add('notice alert-success', 'Annonce bien supprimée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    }*/
-    //return $this->render('SD6ProductionAppBundle:Default:index.html.twig');
-    //return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    $session = $request->getSession();
-
-    // store an attribute for reuse during a later user request
-    $session->set('ici', 'ici');
-
-    var_dump('ici');
+    }
   }
 
   public function editerImageAction(Request $request, $idImage)

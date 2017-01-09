@@ -39,7 +39,8 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
          'Actualite',
          'Evenement',
          'Production',
-         'Recrutement'
+         'Recrutement',
+         'Galerie'
       );
 
       foreach ($names as $name) {

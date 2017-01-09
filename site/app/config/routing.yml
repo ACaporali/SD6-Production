@@ -9,7 +9,3 @@ sd6_production_utilisateur:
 sd6_production_app:
     resource: "@SD6ProductionAppBundle/Resources/config/routing.yml"
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation

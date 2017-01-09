@@ -333,8 +333,8 @@ class Annonce
 
 
    /**
-   * @ORM\prePersist()
-   * @ORM\preUpdate()
+   * @ORM\PrePersist()
+   * @ORM\PreUpdate()
    */
    public function preUpload()
    {

@@ -15,6 +15,17 @@ $( document ).ready(function(){
 		$(this).addClass("active");
 	});
 
+	/*Navbar fixe*/
+	var nav = $('nav');
+
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 135) {
+			nav.addClass("nav-fixed");
+		} else {
+			nav.removeClass("nav-fixed");
+		}
+	});
+
 	/*------liste annonces------*/
 	/*Change les balises accroche annonce en p*/
 	$( ".annonce div[class^='col-'] .contenu .accroche" ).children().each(function(index){

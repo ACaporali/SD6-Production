@@ -9,10 +9,11 @@
 {% endblock %}
 
 {% block site_body %}
-	<div class="bordures">
+	<div class="actualite">
 	  	{{ parent() }}
-	  	<h1>Actualités</h1>
-			<div class="actualite">  		
+	  	<h1 class="beige">Actualités</h1>
+      <hr class="hr-beige">
+			<div class="bordures">
 		  	<div class="row">
 			  	{{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
 			</div>

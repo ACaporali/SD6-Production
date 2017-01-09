@@ -18,7 +18,7 @@
       <div class="contenu">
 
         {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('sd6_production_app_edition_annonce', {'slugAnnonce': annonce.slug})}}" class="editer">Editer</a>
+        <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': annonce.slug})}}" class="editer">Editer</a>
         {% endif %}
         <div class="titre">
           <h2>{{annonce.Titre}}</h2>
