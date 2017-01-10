@@ -3,29 +3,7 @@
   h1{
     text-align: center;
   }
-  .presentation{
-    padding-top: 0px;
-    .objets{
-      .center{
-        text-align: center;
-        margin-bottom: 20px;
-      }
 
-      [class*="col-"]{
-        text-align: center;
-        margin-bottom: 20px;
-
-        .icon{
-          font-size: 42px;
-          color: $beige;
-        }
-
-        .texte{
-          font-style: italic;
-        }
-      }
-    }
-  }
   .membres{
     background-color: $grisClair;
 
@@ -51,41 +29,6 @@
     p.center{
       padding-top: 40px;
       text-align: center;
-    }
-  }
-
-  .paralax{
-    background: url('../images/equipe/grenoble.jpg') center center no-repeat fixed;
-    background-size: cover;
-    padding: 0px 0px;
-
-    .filtre{
-    	width: 100%;
-    	height: 100%;
-    	background-color: rgba(0, 0, 0, 0.4);
-      padding: 40px 0px;
-    }
-    p{
-      text-align: center;
-      color: #fff;
-      font-size: 18px;
-    }
-  }
-
-  .autre{
-    .center{
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    [class*="col-"]{
-      .citation{
-        font-style: italic;
-        margin-top: 10px;
-        .texte{
-          color: $beige;
-        }
-      }
     }
   }
 }

@@ -163,20 +163,6 @@ footer {
 .equipe h1 {
   text-align: center; }
 
-.equipe .presentation {
-  padding-top: 0px; }
-  .equipe .presentation .objets .center {
-    text-align: center;
-    margin-bottom: 20px; }
-  .equipe .presentation .objets [class*="col-"] {
-    text-align: center;
-    margin-bottom: 20px; }
-    .equipe .presentation .objets [class*="col-"] .icon {
-      font-size: 42px;
-      color: #A99675; }
-    .equipe .presentation .objets [class*="col-"] .texte {
-      font-style: italic; }
-
 .equipe .membres {
   background-color: #F6F6F6; }
   .equipe .membres [class*="col-"] {
@@ -194,30 +180,6 @@ footer {
   .equipe .membres p.center {
     padding-top: 40px;
     text-align: center; }
-
-.equipe .paralax {
-  background: url("../images/equipe/grenoble.jpg") center center no-repeat fixed;
-  background-size: cover;
-  padding: 0px 0px; }
-  .equipe .paralax .filtre {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 40px 0px; }
-  .equipe .paralax p {
-    text-align: center;
-    color: #fff;
-    font-size: 18px; }
-
-.equipe .autre .center {
-  text-align: center;
-  margin-bottom: 40px; }
-
-.equipe .autre [class*="col-"] .citation {
-  font-style: italic;
-  margin-top: 10px; }
-  .equipe .autre [class*="col-"] .citation .texte {
-    color: #A99675; }
 
 /*------Footer------*/
 footer.row {
@@ -481,3 +443,45 @@ footer.row {
   100% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); } }
+
+/*------Equipe------*/
+.prestations h1 {
+  text-align: center; }
+
+.prestations .presentation {
+  padding-top: 0px; }
+  .prestations .presentation .objets .center {
+    text-align: center;
+    margin-bottom: 20px; }
+  .prestations .presentation .objets [class*="col-"] {
+    text-align: center;
+    margin-bottom: 20px; }
+    .prestations .presentation .objets [class*="col-"] .icon {
+      font-size: 42px;
+      color: #A99675; }
+    .prestations .presentation .objets [class*="col-"] .texte {
+      font-style: italic; }
+
+.prestations .paralax {
+  background: url("../images/equipe/grenoble.jpg") center center no-repeat fixed;
+  background-size: cover;
+  padding: 0px 0px; }
+  .prestations .paralax .filtre {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 40px 0px; }
+  .prestations .paralax p {
+    text-align: center;
+    color: #fff;
+    font-size: 18px; }
+
+.prestations .objectifs .center {
+  text-align: center;
+  margin-bottom: 40px; }
+
+.prestations .objectifs [class*="col-"] .citation {
+  font-style: italic;
+  margin-top: 10px; }
+  .prestations .objectifs [class*="col-"] .citation .texte {
+    color: #A99675; }

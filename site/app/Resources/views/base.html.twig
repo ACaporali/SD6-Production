@@ -41,10 +41,11 @@
                         </li>
                     {% endif %}
                     <li><a href="{{ path('sd6_production_app_productions') }}">Productions</a></li>
+                    <li><a href="{{ path('sd6_production_app_prestations') }}">Prestation</a></li>
                     <li><a href="{{ path('sd6_production_app_equipe') }}">Équipe</a></li>
                     <li><a href="{{ path('sd6_production_app_actualites') }}">Actualités</a></li>
                     <li><a href="{{ path('sd6_production_app_photos') }}">Photos</a></li>
-                    <li><a href="{{ path('sd6_production_app_recrutements') }}">Recrutements</a></li>
+                    <li><a href="{{ path('sd6_production_app_recrutements') }}">Casting</a></li>
                     <li><a href="{{ path('sd6_production_contact_contact') }}">Contact</a></li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
@@ -69,6 +70,7 @@
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 plan">
                 <h4>Plan du site</h4>
                 <a href="{{ path('sd6_production_app_productions') }}">Productions</a>
+                <li><a href="{{ path('sd6_production_app_prestations') }}">Prestation</a></li>
                 <a href="{{ path('sd6_production_app_equipe') }}">Équipe</a>
                 <a href="{{ path('sd6_production_app_actualites') }}">Actualités</a>
                 <a href="{{ path('sd6_production_app_photos') }}">Photos</a>

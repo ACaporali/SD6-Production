@@ -27,6 +27,10 @@ sd6_production_app_productions:
     path:     /productions
     defaults: { _controller: SD6ProductionAppBundle:Default:productions }
 
+sd6_production_app_prestations:
+    path:     /prestations
+    defaults: { _controller: SD6ProductionAppBundle:Default:prestations }
+
 sd6_production_app_equipe:
     path:     /equipe
     defaults: { _controller: SD6ProductionAppBundle:Default:equipe }
