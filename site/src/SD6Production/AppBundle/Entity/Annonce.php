@@ -99,6 +99,13 @@ class Annonce
    */
    private $image;
 
+   /**
+   * @var bool
+   *
+   * @ORM\Column(name="epingle", type="boolean", nullable=true)
+   */
+   private $epingle;
+
    public function __construct()
    {
       // Par défaut, la date de l'annonce est la date d'aujourd'hui
@@ -342,4 +349,28 @@ class Annonce
          $this->accroche = substr($this->contenu,0,124).'...';
       }
    }
+
+    /**
+     * Set epingle
+     *
+     * @param boolean $epingle
+     *
+     * @return Annonce
+     */
+    public function setEpingle($epingle)
+    {
+        $this->epingle = $epingle;
+
+        return $this;
+    }
+
+    /**
+     * Get epingle
+     *
+     * @return boolean
+     */
+    public function getEpingle()
+    {
+        return $this->epingle;
+    }
 }

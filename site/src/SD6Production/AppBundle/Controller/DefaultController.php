@@ -31,8 +31,15 @@ class DefaultController extends Controller
     ->getRepository('SD6ProductionAppBundle:Annonce')
     ->getAnnonceWithCategories('Production');
 
+    foreach ($listeProductions as $key => $production) {
+      if ($production->getEpingle() == 1 ) {
+        $productionsEpingle[] = $production;
+      }
+    }
+
     return $this->render('SD6ProductionAppBundle:Default:productions.html.twig', array(
       'listeProductions' => $listeProductions,
+      'productionsEpingle' => $productionsEpingle,
     ));
   }
 

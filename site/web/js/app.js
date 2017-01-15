@@ -5,7 +5,7 @@ $( document ).ready(function(){
 		function(){$(this).toggleClass("ombres");}
 	);*/
 
-	$(".production [class*='col-']").hover(
+	$(".production .grille [class*='col-']").hover(
     function(){$(this).addClass("zoom-effet");}
   );
 

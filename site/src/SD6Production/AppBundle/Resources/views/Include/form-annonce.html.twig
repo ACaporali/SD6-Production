@@ -76,6 +76,11 @@
 		</div>
 	</div>
 
+	<div class="row">
+		{{ form_label(formAnnonce.epingle, "Epinglé en haut ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_widget(formAnnonce.epingle, {'attr': {'class': 'form-control checkbox_publie'}}) }}
+	</div>
+
 	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
 	{{ form_widget(formAnnonce.valider, {'attr': {'class': 'btn btn-primary'}}) }}
 

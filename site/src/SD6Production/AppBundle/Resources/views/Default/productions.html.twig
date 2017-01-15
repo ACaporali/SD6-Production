@@ -3,62 +3,107 @@
 {% block title %}Productions - {{ parent() }}{% endblock %}
 
 {% block head %}
-  {{ parent() }}
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+{{ parent() }}
+<meta name="description" content="">
+<meta name="keywords" content="">
 {% endblock %}
 
 {% block site_body %}
-	<div class="bordures">
-	  	{{ parent() }}
-	  	<h1>Production</h1>
-			<div class="production">
-		  	<div class="row">
-          {% for Production in listeProductions %}
-        	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        		<div class="contenu">
-        			<div class="image">
-        				{% if Production.Image is not null %}
-        					<!--<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">-->
-        						<img src="{{asset(Production.Image.Url)}}" alt="{{Production.Image.Alt}}">
-        					<!--</a>-->
-        				{% else %}
-        				<p>Pas de visuel</p>
-        				{% endif %}
-        			</div>
-              <div class="overlay">
-                <div class="texte">
-                  <div class="table-cell">
-                    <div class="titre">
-                      <h3>
-                        <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">
-                          {{Production.Titre}}
-                        </a>
-                      </h3>
-                    </div>
-                    <div class="accroche">
-                      <p>{{Production.Accroche|raw}}</p>
-                    </div>
-                    <div class="date">
-                      <p>{{Production.date|date('d M Y')}}</p>
-                    </div>
-                    <div class="bouton">
-                      <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">Voir plus</a>
-                      {% if is_granted('ROLE_ADMIN') %}
-                      <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': Production.slug})}}" class="editer">Editer</a>
-                      <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':Production.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
-                      {% endif %}
-                    </div>
+<div class="production">
+  <div class="bordures">
+    {{ parent() }}
+    <h1 class="beige">Production</h1>
+    <hr class="hr-beige">
+  </div>
+  <div class="row">
+    <div class="production-epingle">
+      {% for productionEpingle in productionsEpingle %}
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contenu">
+        <div class="bordures">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="image">
+              {% if productionEpingle.Image is not null %}
+              <img src="{{asset(productionEpingle.Image.Url)}}" alt="{{productionEpingle.Image.Alt}}">
+              {% else %}
+              <p>Pas de visuel</p>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="titre">
+              <h3>
+                <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">
+                  {{productionEpingle.Titre}}
+                </a>
+              </h3>
+            </div>
+            <div class="accroche">
+              <p>{{productionEpingle.Accroche|raw}}</p>
+            </div>
+            <div class="date">
+              <p>{{productionEpingle.date|date('d M Y')}}</p>
+            </div>
+            <div class="bouton">
+              <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">Voir plus</a>
+              {% if is_granted('ROLE_ADMIN') %}
+              <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
+              <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':productionEpingle.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="bordures">
+      <div class="grille">
+        {% for Production in listeProductions %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="contenu">
+            <div class="image">
+              {% if Production.Image is not null %}
+              <!--<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">-->
+              <img src="{{asset(Production.Image.Url)}}" alt="{{Production.Image.Alt}}">
+              <!--</a>-->
+              {% else %}
+              <p>Pas de visuel</p>
+              {% endif %}
+            </div>
+            <div class="overlay">
+              <div class="texte">
+                <div class="table-cell">
+                  <div class="titre">
+                    <h3>
+                      <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">
+                        {{Production.Titre}}
+                      </a>
+                    </h3>
+                  </div>
+                  <div class="accroche">
+                    <p>{{Production.Accroche|raw}}</p>
+                  </div>
+                  <div class="date">
+                    <p>{{Production.date|date('d M Y')}}</p>
+                  </div>
+                  <div class="bouton">
+                    <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">Voir plus</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': Production.slug})}}" class="editer">Editer</a>
+                    <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':Production.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
+                    {% endif %}
                   </div>
                 </div>
               </div>
-        		</div>
-        	</div>
-        	{% else %}
-        	<p>Pas d'Production disponible.</p>
-        	{% endfor %}
-			</div>
-		</div>
-	</div>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <p>Pas d'Production disponible.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}

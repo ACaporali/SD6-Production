@@ -31,6 +31,7 @@ class AnnonceType extends AbstractType
          'class'    => 'SD6ProductionAppBundle:Image',
          'property' => 'url',
          'multiple' => false))*/
+      ->add('epingle', 'checkbox', array('required' => false))
       ->add('valider','submit');
    }
 

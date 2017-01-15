@@ -66,6 +66,7 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
          $annonces[$i]->setPublie(true);
          $annonces[$i]->setCategorie($categorie);
          $annonces[$i]->setImage($image);
+         $annonces[$i]->setEpingle(false);
          $manager->persist($annonces[$i]);
       }
       $manager->flush();
