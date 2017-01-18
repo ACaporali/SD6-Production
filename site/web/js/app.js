@@ -38,12 +38,37 @@ $( document ).ready(function(){
 
 
 	/*------Visuel gallerie photos------*/
-	$(document).on('click','links', function() {
-		event = event || window.event;
-		var target = event.target || event.srcElement,
-		link = target.src ? target.parentNode : target,
-		options = {index: link, event: event},
-		links = this.getElementsByTagName('a');
-		blueimp.Gallery(links, options);
+	$(document).on('click','.galerie .photos ul li a', function(e) {
+		e.preventDefault();
+		var imageHref = $(this).attr("href");
+
+		if ($('#lightbox').length > 0) { // #lightbox exists
+			//insert img tag with clicked link's href as src value
+			$('#lightbox .contenu').html('<img src="' + imageHref + '" />');
+			$('#lightbox').show();
+		}else { //#lightbox does not exist
+			//create HTML markup for lightbox window
+			var lightbox =
+			'<div id="lightbox">' +
+				'<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>' +
+				'<div class="contenu">' + //insert clicked link's href into img src
+					'<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>'+
+					'<img src="' + imageHref +'" />' +
+					'<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'+
+				'</div>' +
+			'</div>';
+			//insert lightbox HTML into page
+			$('body').append(lightbox);
+		}
 	});
+
+	//Click anywhere on the page to get rid of lightbox window
+	$(document).on('click', '#lightbox span.glyphicon-remove-circle', function(){
+		$('#lightbox').hide();
+	});
+
+	$(document).on('click', '#lightbox .contenu span.glyphicon-menu-right', function(){
+		console.log('ici');
+	});
+
 })

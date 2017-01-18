@@ -208,10 +208,46 @@ footer.row {
     color: #818181; }
 
 /*------Page Galerie Image------*/
-#links img {
-  max-height: 200px;
-  height: auto;
-  display: inline-block; }
+/*pop-up fisionneuse photos*/
+#lightbox {
+  position: fixed;
+  /* keeps the lightbox window in the current viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center; }
+  #lightbox span.glyphicon-remove-circle {
+    color: #d8d8d8;
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+    font-size: 30px;
+    top: 10px;
+    cursor: pointer; }
+  #lightbox .contenu {
+    padding: 50px 60px;
+    display: table; }
+    #lightbox .contenu span.glyphicon-menu-left, #lightbox .contenu span.glyphicon-menu-right {
+      display: table-cell;
+      vertical-align: middle;
+      color: #d8d8d8;
+      font-size: 30px;
+      cursor: pointer; }
+    #lightbox .contenu img {
+      width: 100%;
+      height: auto;
+      box-shadow: 0 0 25px #111;
+      -webkit-box-shadow: 0 0 25px #111;
+      -moz-box-shadow: 0 0 25px #111;
+      max-width: 940px; }
+
+.galerie .photos ul {
+  list-style: none; }
+  .galerie .photos ul li a img {
+    width: 150px;
+    height: auto; }
 
 .blueimp-gallery > .slides > .slide-loading {
   background: url(images/loading.gif) center no-repeat;
