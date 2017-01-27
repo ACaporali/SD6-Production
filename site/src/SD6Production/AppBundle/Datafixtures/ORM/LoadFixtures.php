@@ -39,7 +39,7 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
          'Actualite',
          'Evenement',
          'Production',
-         'Recrutement',
+         'Casting',
          'Galerie'
       );
 

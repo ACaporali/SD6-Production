@@ -81,14 +81,14 @@ class DefaultController extends Controller
     ));
   }
 
-  public function recrutementsAction()
+  public function castingAction()
   {
     $listeAnnonces = $this->getDoctrine()
     ->getManager()
     ->getRepository('SD6ProductionAppBundle:Annonce')
-    ->getAnnonceWithCategories('Recrutement');
+    ->getAnnonceWithCategories('Casting');
 
-    return $this->render('SD6ProductionAppBundle:Default:recrutements.html.twig', array(
+    return $this->render('SD6ProductionAppBundle:Default:casting.html.twig', array(
       'listeAnnonces' => $listeAnnonces,
     ));
   }

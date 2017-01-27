@@ -1,8 +1,4 @@
 .contact{
-  h1{
-    text-align: center;
-  }
-
   h4{
     text-transform: uppercase;
   }
@@ -20,14 +16,38 @@
     }
 
     .formulaire{
-      #sd6production_contactbundle_contact{
-        div{
-          margin-bottom: 10px;
+      form{
+        margin-bottom: 10px;
 
-          label, input{
+        .form-group{
+          margin-bottom: 20px;
+
+          input[type='text'], input[type='email'], textarea{
             width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #eeeeee;
+            border-radius: 0px;
+          }
+
+          button{
+            float: right;
+            color: #fff;
+            background-color: $beige;
+            border: 1px solid #fff;
+            padding: 7px 20px;
+          }
+
+          button:hover{
+            color: $beige;
+            background-color: #fff;
+            border: 1px solid $beige;
           }
         }
+      }
+
+      .legende{
+        font-style: italic;
+        font-size: 11px;
       }
     }
 

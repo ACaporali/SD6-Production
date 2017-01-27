@@ -160,29 +160,24 @@ footer {
   padding: 10px 0px; }
 
 /*------Equipe------*/
-.equipe h1 {
-  text-align: center; }
-
 .equipe .center {
   text-align: center;
   margin-bottom: 40px; }
 
-.equipe .membres [class*="col-"] {
-  padding-bottom: 20px; }
-  .equipe .membres [class*="col-"] .image {
-    width: 30%;
-    height: auto; }
-    .equipe .membres [class*="col-"] .image img {
-      width: 100%;
-      height: auto;
-      max-height: 200px; }
-  .equipe .membres [class*="col-"] .media-body {
-    width: 70%;
-    vertical-align: middle; }
-
-.equipe .membres p.center {
-  padding-top: 40px;
-  text-align: center; }
+.equipe .membres {
+  padding-top: 0px; }
+  .equipe .membres [class*="col-"] {
+    padding-bottom: 20px; }
+    .equipe .membres [class*="col-"] .image {
+      width: 30%;
+      height: auto; }
+      .equipe .membres [class*="col-"] .image img {
+        width: 100%;
+        height: auto;
+        max-height: 200px; }
+    .equipe .membres [class*="col-"] .media-body {
+      width: 70%;
+      vertical-align: middle; }
 
 /*------Footer------*/
 footer.row {
@@ -227,7 +222,7 @@ footer.row {
     top: 10px;
     cursor: pointer; }
   #lightbox .contenu {
-    padding: 50px 60px;
+    margin: 50px 60px;
     display: table; }
     #lightbox .contenu span.glyphicon-menu-left, #lightbox .contenu span.glyphicon-menu-right {
       display: table-cell;
@@ -246,8 +241,12 @@ footer.row {
 .galerie .photos ul {
   list-style: none; }
   .galerie .photos ul li a img {
-    width: 150px;
+    width: 100%;
     height: auto; }
+
+@media (max-width: 767px) {
+  #lightbox .contenu {
+    margin: 50px 0px; } }
 
 .blueimp-gallery > .slides > .slide-loading {
   background: url(images/loading.gif) center no-repeat;
@@ -280,9 +279,6 @@ footer.row {
   .navbar-nav li a {
     padding-top: 25px;
     padding-bottom: 25px; } }
-
-.production h1 {
-  text-align: center; }
 
 .production [class^="col-"] {
   padding-right: 0px;
@@ -384,13 +380,7 @@ footer.row {
       -webkit-transition-delay: .2s;
       transition-delay: .2s; }
 
-.recrutement h1 {
-  text-align: center; }
-
-.recrutement .description p {
-  text-align: center; }
-
-.contact h1 {
+.casting .description p {
   text-align: center; }
 
 .contact h4 {
@@ -401,18 +391,33 @@ footer.row {
   .contact .contenu .reseaux-sociaux a.facebook img {
     width: 45px;
     height: 45px; }
-  .contact .contenu .formulaire #sd6production_contactbundle_contact div {
+  .contact .contenu .formulaire form {
     margin-bottom: 10px; }
-    .contact .contenu .formulaire #sd6production_contactbundle_contact div label, .contact .contenu .formulaire #sd6production_contactbundle_contact div input {
-      width: 100%; }
+    .contact .contenu .formulaire form .form-group {
+      margin-bottom: 20px; }
+      .contact .contenu .formulaire form .form-group input[type='text'], .contact .contenu .formulaire form .form-group input[type='email'], .contact .contenu .formulaire form .form-group textarea {
+        width: 100%;
+        padding: 5px 10px;
+        border: 1px solid #eeeeee;
+        border-radius: 0px; }
+      .contact .contenu .formulaire form .form-group button {
+        float: right;
+        color: #fff;
+        background-color: #A99675;
+        border: 1px solid #fff;
+        padding: 5px 15px; }
+      .contact .contenu .formulaire form .form-group button:hover {
+        color: #A99675;
+        background-color: #fff;
+        border: 1px solid #A99675; }
+  .contact .contenu .formulaire .legende {
+    font-style: italic;
+    font-size: 11px; }
   .contact .contenu .coordonnes, .contact .contenu .reseaux-sociaux, .contact .contenu .formulaire {
     margin-bottom: 30px; }
 
 .contact .map {
   padding: 0px; }
-
-.actualite h1 {
-  text-align: center; }
 
 /*------Animations------*/
 .animation-de-gauche {
@@ -506,9 +511,6 @@ footer.row {
     transform: translate3d(0, 0, 0); } }
 
 /*------Prestations------*/
-.prestations h1 {
-  text-align: center; }
-
 .prestations .presentation {
   padding-top: 0px; }
   .prestations .presentation .objets .center {

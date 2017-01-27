@@ -43,9 +43,9 @@ sd6_production_app_photos:
     path:     /galerie-photos
     defaults: { _controller: SD6ProductionAppBundle:Default:photos }
 
-sd6_production_app_recrutements:
-    path:     /recrutements
-    defaults: { _controller: SD6ProductionAppBundle:Default:recrutements }
+sd6_production_app_casting:
+    path:     /casting
+    defaults: { _controller: SD6ProductionAppBundle:Default:casting }
 
 sd6_production_app_details_annonce:
     path:     /{typeAnnonce}/{slugAnnonce}

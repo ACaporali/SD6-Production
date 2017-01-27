@@ -20,7 +20,7 @@
 	}
 
 	.contenu{
-		padding: 50px 60px;
+		margin: 50px 60px;
 		display: table;
 
 		span.glyphicon-menu-left, span.glyphicon-menu-right{
@@ -49,7 +49,7 @@
 			li{
 				a{
 					img{
-						width: 150px;
+						width: 100%;
 						height: auto;
 					}
 				}
@@ -58,4 +58,11 @@
 	}
 }
 
+@media (max-width: 767px) {
+	#lightbox{
+		.contenu{
+			margin: 50px 0px;
+		}
+	}
+}
 .blueimp-gallery>.slides>.slide-loading{background:url(images/loading.gif) center no-repeat;background-size:64px 64px}

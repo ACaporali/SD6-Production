@@ -11,12 +11,13 @@
 {% block site_body %}
   {{ parent() }}
   <div class="galerie">
-    <h1>Galerie photos</h1>
-    <div class="photos">
+    <h1 class="beige text-center">Galerie photos</h1>
+    <hr class="hr-beige">
+    <div class="photos row">
       <ul>
         {% for ImageGalerie in listeImageGalerie %}
-          <li>
-            <a href="{{ asset(''~ImageGalerie.url~'')}}" title="{{ImageGalerie.alt}}"><img src="{{ asset(''~ImageGalerie.url~'')}}" class="img-responsive" alt="{{ImageGalerie.alt}}"></a>
+          <li class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <a href="{{ asset(''~ImageGalerie.url~'')}}" title="{{ImageGalerie.alt}}"><img src="{{ asset(''~ImageGalerie.url~'')}}" class="" alt="{{ImageGalerie.alt}}"></a>
             {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('sd6_production_app_editer_image', {'idImage': ImageGalerie.id})}}">Editer</a>
             {% endif %}
