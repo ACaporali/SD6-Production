@@ -40,13 +40,13 @@
                             </ul>
                         </li>
                     {% endif %}
-                    <li><a href="{{ path('sd6_production_app_productions') }}">Productions</a></li>
-                    <li><a href="{{ path('sd6_production_app_prestations') }}">Prestations</a></li>
-                    <li><a href="{{ path('sd6_production_app_equipe') }}">Équipe</a></li>
-                    <li><a href="{{ path('sd6_production_app_actualites') }}">Actualités</a></li>
-                    <li><a href="{{ path('sd6_production_app_photos') }}">Photos</a></li>
-                    <li><a href="{{ path('sd6_production_app_casting') }}">Casting</a></li>
-                    <li><a href="{{ path('sd6_production_contact_contact') }}">Contact</a></li>
+                    <li id="productions"><a href="{{ path('sd6_production_app_productions') }}">Productions</a></li>
+                    <li id="prestations"><a href="{{ path('sd6_production_app_prestations') }}">Prestations</a></li>
+                    <li id="actualites"><a href="{{ path('sd6_production_app_actualites') }}">Actualités</a></li>
+                    <li id="equipe"><a href="{{ path('sd6_production_app_equipe') }}">Équipe</a></li>
+                    <li id="galerie-photos"><a href="{{ path('sd6_production_app_photos') }}">Photos</a></li>
+                    <li id="casting"><a href="{{ path('sd6_production_app_casting') }}">Casting</a></li>
+                    <li id="contact"><a href="{{ path('sd6_production_contact_contact') }}">Contact</a></li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>
                             <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
@@ -71,15 +71,16 @@
                 <h4>Plan du site</h4>
                 <a href="{{ path('sd6_production_app_productions') }}">Productions</a>
                 <a href="{{ path('sd6_production_app_prestations') }}">Prestations</a>
-                <a href="{{ path('sd6_production_app_equipe') }}">Équipe</a>
                 <a href="{{ path('sd6_production_app_actualites') }}">Actualités</a>
+                <a href="{{ path('sd6_production_app_equipe') }}">Équipe</a>
                 <a href="{{ path('sd6_production_app_photos') }}">Photos</a>
                 <a href="{{ path('sd6_production_app_casting') }}">Casting</a>
                 <a href="{{ path('sd6_production_contact_contact') }}">Contact</a>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rs">
                 <h4>Reseaux sociaux</h4>
-                <a href="https://www.facebook.com/SD6Production/?fref=ts" target="_blank"><img src="{{ asset('images/facebook.png')}}" alt="facebook SD6 Production"></a>
+                <a class="facebook" href="https://www.facebook.com/SD6Production/?fref=ts" target="_blank"><img src="{{ asset('images/facebook.svg')}}" alt="facebook SD6 Production"></a>
+                <a class="twitter" href="https://twitter.com/sd6production?lang=fr" target="_blank"><img src="{{ asset('images/twitter.svg')}}" alt="twitter SD6 Production"></a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 copyright">
                 <p>Copyright {{ 'now'|date('Y') }} SD6 Production. Tous droits réservés.</p>

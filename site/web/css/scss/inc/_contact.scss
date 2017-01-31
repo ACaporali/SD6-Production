@@ -4,13 +4,14 @@
   }
 
   .contenu{
-    background-color: $grisClair;
+    background-color: #fff;
 
     .reseaux-sociaux{
-      a.facebook{
+      a{
         img{
-          width: 45px;
-          height: 45px;
+          width: 35px;
+          height: auto;
+          margin-right: 5px;
         }
       }
     }
@@ -27,6 +28,11 @@
             padding: 10px 15px;
             border: 1px solid #eeeeee;
             border-radius: 0px;
+            background-color: $grisClair;
+          }
+
+          textarea{
+            height: 150px;
           }
 
           button{
