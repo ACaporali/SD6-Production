@@ -93,11 +93,6 @@ class DefaultController extends Controller
     ));
   }
 
-  public function contactAction()
-  {
-    return $this->render('SD6ProductionAppBundle:Default:contact.html.twig');
-  }
-
   public function detailsAnnonceAction($typeAnnonce, $slugAnnonce)
   {
     $em = $this->getDoctrine()->getManager();
@@ -107,6 +102,17 @@ class DefaultController extends Controller
 
     return $this->render('SD6ProductionAppBundle:Default:detail.html.twig', array(
       'annonce' => $annonce,
+    ));
+  }
+
+  public function categorieAction()
+  {
+    $em = $this->getDoctrine()->getManager();
+
+    $listeCategories = $em->getRepository('SD6ProductionAppBundle:Categorie')->findAll();
+
+    return $this->render('SD6ProductionAppBundle:Default:categorie.html.twig', array(
+      'listeCategories' => $listeCategories,
     ));
   }
 }

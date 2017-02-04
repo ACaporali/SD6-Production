@@ -49,10 +49,12 @@
             </div>#}
             <div class="bouton">
               <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">Voir plus</a>
-              {% if is_granted('ROLE_ADMIN') %}
-              <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
-              <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':productionEpingle.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
-              {% endif %}
+              <div class="boutons-admin">
+                {% if is_granted('ROLE_ADMIN') %}
+                  <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
+                  <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':productionEpingle.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>

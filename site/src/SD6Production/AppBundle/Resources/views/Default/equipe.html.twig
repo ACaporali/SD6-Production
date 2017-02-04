@@ -16,14 +16,20 @@
   <div class="row membres">
     <div class="bordures">
       <p class="center">Notre équipe est composée de divers profils tels que des acteurs, caméramans, scénaristes, monteur vidéo et autres afin de réaliser au mieux tous nos projets.</p>
-      {% for Membre in listeMembres %}
+      {% for membre in listeMembres %}
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 media">
         <div class="image media-left media-middle">
-          <img class="media-object img-rounded" src="{{asset(Membre.Image.url)}}" alt="{{Membre.Image.alt}}">
+          <img class="media-object img-rounded" src="{{asset(membre.Image.url)}}" alt="{{membre.Image.alt}}">
         </div>
         <div class="media-body">
-          <h4>{{Membre.prenom}} {% if Membre.nom is not null %}{{Membre.nom}}{% endif %}, {{Membre.poste}}</h4>
-          <p>{{Membre.description}}</p>
+          <h4>{{membre.prenom}} {% if membre.nom is not null %}{{membre.nom}}{% endif %}, {{membre.poste}}</h4>
+          <p>{{membre.description}}</p>
+        </div>
+        <div class="boutons-admin">
+          {% if is_granted('ROLE_ADMIN') %}
+          <a href="{{ path('sd6_production_app_editer_membre', {'idMembre': membre.id})}}">Editer</a>
+          <a href="{{ path('sd6_production_app_supprimer_membre', {'idMembre': membre.id})}}" class="msg-confirmation">Supprimer</a>
+          {% endif %}
         </div>
       </div>
 

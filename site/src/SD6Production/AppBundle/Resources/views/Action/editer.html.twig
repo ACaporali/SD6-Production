@@ -23,6 +23,18 @@
                 {{ include("SD6ProductionAppBundle:Include:form-image.html.twig") }}
             </div>
         {% endif %}
+        {% if membre is defined %}
+    	  	<h1>Editer membre n°{{membre.id}}</h1>
+            <div class="form-annonce">
+                {{ include("SD6ProductionAppBundle:Include:form-membre.html.twig") }}
+            </div>
+        {% endif %}
+        {% if categorie is defined %}
+    	  	<h1>Editer categorie n°{{categorie.id}}</h1>
+            <div class="form-annonce">
+                {{ include("SD6ProductionAppBundle:Include:form-categorie.html.twig") }}
+            </div>
+        {% endif %}
 	</div>
 
 {% endblock %}

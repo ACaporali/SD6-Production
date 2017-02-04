@@ -1,11 +1,11 @@
 <div class="annonce">
-	{% for Annonce in listeAnnonces %}
+	{% for annonce in listeAnnonces %}
 	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 		<div class="contenu ombres">
 			<div class="image">
-				{% if Annonce.Image is not null %}
-					<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categorie.nom, 'slugAnnonce': Annonce.slug}) }}">
-						<img src="{{asset(Annonce.Image.Url)}}" alt="{{Annonce.Image.Alt}}">
+				{% if annonce.Image is not null %}
+					<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">
+						<img src="{{asset(annonce.Image.Url)}}" alt="{{annonce.Image.Alt}}">
 					</a>
 				{% else %}
 				<p>Pas de visuel</p>
@@ -14,24 +14,26 @@
 			<div class="texte">
 				<div class="titre">
 					<h3>
-						<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categorie.nom, 'slugAnnonce': Annonce.slug}) }}">
-							{{Annonce.Titre}}
+						<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">
+							{{annonce.Titre}}
 						</a>
 					</h3>
 				</div>
 				<div class="accroche">
-					<p>{{Annonce.Accroche|raw}}</p>
+					<p>{{annonce.Accroche|raw}}</p>
 				</div>
 				<div class="date">
-					<p>{{Annonce.date|date('d M Y')}}</p>
+					<p>{{annonce.date|date('d M Y')}}</p>
 				</div>
 			</div>
 			<div class="bouton">
-				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Annonce.Categorie.nom, 'slugAnnonce': Annonce.slug}) }}">Voir plus</a>
-				{% if is_granted('ROLE_ADMIN') %}
-				<a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': Annonce.slug})}}" class="editer">Editer</a>
-				<a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':Annonce.id}) }}">Supprimer</a>
-				{% endif %}
+				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">Voir plus</a>
+				<div class="boutons-admin">
+					{% if is_granted('ROLE_ADMIN') %}
+						<a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': annonce.slug})}}" class="editer">Editer</a>
+						<a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':annonce.id}) }}">Supprimer</a>
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>

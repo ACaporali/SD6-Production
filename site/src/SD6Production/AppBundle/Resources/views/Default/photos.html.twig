@@ -15,12 +15,15 @@
     <hr class="hr-beige">
     <div class="photos row">
       <ul>
-        {% for ImageGalerie in listeImageGalerie %}
+        {% for imageGalerie in listeImageGalerie %}
           <li class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <a href="{{ asset(''~ImageGalerie.url~'')}}" title="{{ImageGalerie.alt}}"><img src="{{ asset(''~ImageGalerie.url~'')}}" class="" alt="{{ImageGalerie.alt}}"></a>
-            {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('sd6_production_app_editer_image', {'idImage': ImageGalerie.id})}}">Editer</a>
-            {% endif %}
+            <a href="{{ asset(''~imageGalerie.url~'')}}" title="{{imageGalerie.alt}}"><img src="{{ asset(''~imageGalerie.url~'')}}" class="" alt="{{imageGalerie.alt}}"></a>
+            <div class="boutons-admin">
+              {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('sd6_production_app_editer_image', {'idImage': imageGalerie.id})}}">Editer</a>
+                <a href="{{ path('sd6_production_app_supprimer_image', {'idImage': imageGalerie.id})}}" class="msg-confirmation">Supprimer</a>
+              {% endif %}
+            </div>
           </li>
         {% endfor %}
       </ul>

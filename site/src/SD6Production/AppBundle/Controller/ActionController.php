@@ -16,6 +16,7 @@ use SD6Production\AppBundle\Form\ImageType;
 
 class ActionController extends Controller
 {
+  /*Ajouter annonce, image, membre et categorie*/
   public function ajouterAction(Request $request){
     $annonce = new Annonce();
     $formAnnonce = $this->get('form.factory')->create(new AnnonceType(), $annonce);
@@ -39,7 +40,7 @@ class ActionController extends Controller
       $em->persist($annonce);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Annonce enregistrée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     } else if ($formMembre->isValid()) {
@@ -47,7 +48,7 @@ class ActionController extends Controller
       $em->persist($membre);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'Membre bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Membre enregistrée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
 
@@ -56,7 +57,7 @@ class ActionController extends Controller
       $em->persist($categorie);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'Catégorie bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Catégorie enregistrée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
 
@@ -65,7 +66,7 @@ class ActionController extends Controller
       $em->persist($image);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'Catégorie bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Image enregistrée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
@@ -78,6 +79,7 @@ class ActionController extends Controller
     ));
   }
 
+  /*Editer et supprimer annonce*/
   public function editerAnnonceAction(Request $request, $slugAnnonce)
   {
     $em = $this->getDoctrine()->getManager();
@@ -91,7 +93,7 @@ class ActionController extends Controller
       $em->persist($annonce);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Annonce modifiée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
@@ -114,12 +116,13 @@ class ActionController extends Controller
       $em->remove($annonce);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice alert-success', 'Annonce bien supprimée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Annonce supprimée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
   }
 
+  /*Editer et supprimer image*/
   public function editerImageAction(Request $request, $idImage)
   {
     $em = $this->getDoctrine()->getManager();
@@ -133,7 +136,7 @@ class ActionController extends Controller
       $em->persist($image);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Image modifiée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
@@ -142,5 +145,109 @@ class ActionController extends Controller
       'formImage' => $formImage->createView(),
       'image' => $image,
     ));
+  }
+
+  public function supprimerImageAction($idImage, Request $request)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $image = $em->getRepository('SD6ProductionAppBundle:Image')->find($idImage);
+
+    // Si l'annonce n'existe pas, on affiche une erreur 404
+    if ($image === null) {
+      throw new NotFoundHttpException("L'image d'id ".$idImage." n'existe pas.");
+    }else{
+      $em->remove($image);
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('succes', 'Image supprimée.');
+
+      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+    }
+  }
+
+  /*Editer et supprimer membre*/
+  public function editerMembreAction(Request $request, $idMembre)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $membre = $em->getRepository('SD6ProductionAppBundle:Membre')->findOneById($idMembre);
+
+    $formMembre = $this->get('form.factory')->create(new MembreType(), $membre);
+    $formMembre->handleRequest($request);
+
+    if ($formMembre->isValid()) {
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($membre);
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('succes', 'Membre modifiée.');
+
+      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+    }
+
+    return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
+      'formMembre' => $formMembre->createView(),
+      'membre' => $membre,
+    ));
+  }
+
+  public function supprimerMembreAction($idMembre, Request $request)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $membre = $em->getRepository('SD6ProductionAppBundle:Membre')->find($idMembre);
+
+    // Si l'annonce n'existe pas, on affiche une erreur 404
+    if ($membre === null) {
+      throw new NotFoundHttpException("Le membre d'id ".$idMembre." n'existe pas.");
+    }else{
+      $em->remove($membre);
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('succes', 'Membre supprimée.');
+
+      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+    }
+  }
+
+  /*Editer et supprimer categorie*/
+  public function editerCategorieAction(Request $request, $idCategorie)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $categorie = $em->getRepository('SD6ProductionAppBundle:Categorie')->findOneById($idCategorie);
+
+    $formCategorie = $this->get('form.factory')->create(new CategorieType(), $categorie);
+    $formCategorie->handleRequest($request);
+
+    if ($formCategorie->isValid()) {
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($categorie);
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('succes', 'Categorie modifiée.');
+
+      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+    }
+
+    return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
+      'formCategorie' => $formCategorie->createView(),
+      'categorie' => $categorie,
+    ));
+  }
+
+  public function supprimerCategorieAction($idCategorie, Request $request)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $categorie = $em->getRepository('SD6ProductionAppBundle:Categorie')->find($idCategorie);
+
+    // Si l'annonce n'existe pas, on affiche une erreur 404
+    if ($categorie === null) {
+      throw new NotFoundHttpException("La categorie d'id ".$idCategorie." n'existe pas.");
+    }else{
+      $em->remove($categorie);
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('succes', 'Categorie supprimée.');
+
+      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+    }
   }
 }
