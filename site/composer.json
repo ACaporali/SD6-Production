@@ -20,7 +20,8 @@
         "symfony/assetic-bundle": "^2.8",
         "friendsofsymfony/user-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "egeloen/ckeditor-bundle": "^4.0"
+        "egeloen/ckeditor-bundle": "^4.0",
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

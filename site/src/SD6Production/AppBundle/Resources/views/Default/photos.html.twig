@@ -17,11 +17,11 @@
       <ul>
         {% for imageGalerie in listeImageGalerie %}
           <li class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <a href="{{ asset(''~imageGalerie.url~'')}}" title="{{imageGalerie.alt}}"><img src="{{ asset(''~imageGalerie.url~'')}}" class="" alt="{{imageGalerie.alt}}"></a>
-            <div class="boutons-admin">
+            <a href="{{ asset(''~imageGalerie.url~'')}}" title="{{imageGalerie.alt}}" class="contenu" data-numelement="{{imageGalerie.id}}" ><img src="{{ asset(''~imageGalerie.url~'')}}" alt="{{imageGalerie.alt}}"></a>
+            <div class="row boutons-admin">
               {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('sd6_production_app_editer_image', {'idImage': imageGalerie.id})}}">Editer</a>
-                <a href="{{ path('sd6_production_app_supprimer_image', {'idImage': imageGalerie.id})}}" class="msg-confirmation">Supprimer</a>
+                <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
               {% endif %}
             </div>
           </li>

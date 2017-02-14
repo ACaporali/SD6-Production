@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new SD6Production\ContactBundle\SD6ProductionContactBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

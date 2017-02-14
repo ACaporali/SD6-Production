@@ -579,10 +579,10 @@ footer.row {
   text-align: center;
   margin-bottom: 40px; }
 
-.prestations .cinematographique-televisuel [class*="col-"] .citation {
+.prestations .cinematographique-televisuel blockquote {
   font-style: italic;
   margin-top: 20px; }
-  .prestations .cinematographique-televisuel [class*="col-"] .citation .texte {
+  .prestations .cinematographique-televisuel blockquote .texte {
     color: #A99675; }
 
 .prestations .musicales {

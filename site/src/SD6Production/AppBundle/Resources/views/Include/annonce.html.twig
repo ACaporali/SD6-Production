@@ -28,10 +28,10 @@
 			</div>
 			<div class="bouton">
 				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">Voir plus</a>
-				<div class="boutons-admin">
+				<div class="row boutons-admin">
 					{% if is_granted('ROLE_ADMIN') %}
 						<a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': annonce.slug})}}" class="editer">Editer</a>
-						<a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':annonce.id}) }}">Supprimer</a>
+						<a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
 					{% endif %}
 				</div>
 			</div>

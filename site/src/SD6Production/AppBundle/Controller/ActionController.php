@@ -16,7 +16,7 @@ use SD6Production\AppBundle\Form\ImageType;
 
 class ActionController extends Controller
 {
-  /*Ajouter annonce, image, membre et categorie*/
+  /*Ajouter un element : annonce, image, membre et categorie*/
   public function ajouterAction(Request $request){
     $annonce = new Annonce();
     $formAnnonce = $this->get('form.factory')->create(new AnnonceType(), $annonce);
@@ -104,25 +104,7 @@ class ActionController extends Controller
     ));
   }
 
-  public function supprimerAnnonceAction($idAnnonce, Request $request)
-  {
-    $em = $this->getDoctrine()->getManager();
-    $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->find($idAnnonce);
-
-    // Si l'annonce n'existe pas, on affiche une erreur 404
-    if ($annonce === null) {
-      throw new NotFoundHttpException("L'annonce d'id ".$idAnnonce." n'existe pas.");
-    }else{
-      $em->remove($annonce);
-      $em->flush();
-
-      $request->getSession()->getFlashBag()->add('succes', 'Annonce supprimée.');
-
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    }
-  }
-
-  /*Editer et supprimer image*/
+  /*Editer image*/
   public function editerImageAction(Request $request, $idImage)
   {
     $em = $this->getDoctrine()->getManager();
@@ -147,25 +129,8 @@ class ActionController extends Controller
     ));
   }
 
-  public function supprimerImageAction($idImage, Request $request)
-  {
-    $em = $this->getDoctrine()->getManager();
-    $image = $em->getRepository('SD6ProductionAppBundle:Image')->find($idImage);
 
-    // Si l'annonce n'existe pas, on affiche une erreur 404
-    if ($image === null) {
-      throw new NotFoundHttpException("L'image d'id ".$idImage." n'existe pas.");
-    }else{
-      $em->remove($image);
-      $em->flush();
-
-      $request->getSession()->getFlashBag()->add('succes', 'Image supprimée.');
-
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    }
-  }
-
-  /*Editer et supprimer membre*/
+  /*Editer membre*/
   public function editerMembreAction(Request $request, $idMembre)
   {
     $em = $this->getDoctrine()->getManager();
@@ -190,25 +155,8 @@ class ActionController extends Controller
     ));
   }
 
-  public function supprimerMembreAction($idMembre, Request $request)
-  {
-    $em = $this->getDoctrine()->getManager();
-    $membre = $em->getRepository('SD6ProductionAppBundle:Membre')->find($idMembre);
 
-    // Si l'annonce n'existe pas, on affiche une erreur 404
-    if ($membre === null) {
-      throw new NotFoundHttpException("Le membre d'id ".$idMembre." n'existe pas.");
-    }else{
-      $em->remove($membre);
-      $em->flush();
-
-      $request->getSession()->getFlashBag()->add('succes', 'Membre supprimée.');
-
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    }
-  }
-
-  /*Editer et supprimer categorie*/
+  /*Editer categorie*/
   public function editerCategorieAction(Request $request, $idCategorie)
   {
     $em = $this->getDoctrine()->getManager();
@@ -233,19 +181,33 @@ class ActionController extends Controller
     ));
   }
 
-  public function supprimerCategorieAction($idCategorie, Request $request)
+  /*Supprimer un element : annonce, image, membre ou categorie*/
+  public function supprimerAction($typeElement, $numElement, Request $request)
   {
-    $em = $this->getDoctrine()->getManager();
-    $categorie = $em->getRepository('SD6ProductionAppBundle:Categorie')->find($idCategorie);
+    //Regarde le type d'Entity à supprimer
+    if ($typeElement == 'annonce') {
+      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Annonce')->find($numElement);
+    }elseif ($typeElement == 'equipe') {
+      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Membre')->find($numElement);
+    }elseif ($typeElement == 'galerie-photos') {
+      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Image')->find($numElement);
+    }elseif ($typeElement == 'categorie') {
+      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Categorie')->find($numElement);
+    }
 
-    // Si l'annonce n'existe pas, on affiche une erreur 404
-    if ($categorie === null) {
-      throw new NotFoundHttpException("La categorie d'id ".$idCategorie." n'existe pas.");
+    $session = $request->getSession();
+    $session->set('numero', $numElement);
+
+    $em = $this->getDoctrine()->getManager();
+
+    // Si l'element n'existe pas, on affiche une erreur 404
+    if ($elementSupp === null) {
+      throw new NotFoundHttpException("Element d'id ".$numElement." n'existe pas.");
     }else{
-      $em->remove($categorie);
+      $em->remove($elementSupp);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('succes', 'Categorie supprimée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Element supprimé.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }

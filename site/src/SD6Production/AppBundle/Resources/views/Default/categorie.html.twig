@@ -29,8 +29,16 @@
               {% for categorie in listeCategories %}
                   <tr>
                     <td>{{categorie.nom}}</td>
-                    <td><a href="{{path('sd6_production_app_editer_categorie', {'idCategorie': categorie.id})}}">Modifier</a></td>
-                    <td><a href="{{path('sd6_production_app_supprimer_categorie', {'idCategorie': categorie.id})}}">Supprimer</a></td>
+                    <td>
+                      <div class="boutons-admin">
+                        <a href="{{path('sd6_production_app_editer_categorie', {'idCategorie': categorie.id})}}">Modifier</a>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="boutons-admin">
+                        <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
+                      </div>
+                    </td>
                   </tr>
               {% endfor %}
             </tbody>

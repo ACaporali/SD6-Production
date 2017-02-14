@@ -49,10 +49,10 @@
             </div>#}
             <div class="bouton">
               <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">Voir plus</a>
-              <div class="boutons-admin">
+              <div class="row boutons-admin">
                 {% if is_granted('ROLE_ADMIN') %}
                   <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
-                  <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':productionEpingle.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
+                  <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': productionEpingle.id})}}" class="supprimer">Supprimer</a>
                 {% endif %}
               </div>
             </div>
@@ -63,13 +63,13 @@
     </div>
     <div class="bordures">
       <div class="grille">
-        {% for Production in listeProductions %}
+        {% for production in listeProductions %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="contenu">
             <div class="image">
-              {% if Production.Image is not null %}
-              <!--<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">-->
-              <img src="{{asset(Production.Image.Url)}}" alt="{{Production.Image.Alt}}">
+              {% if production.Image is not null %}
+              <!--<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': production.Categorie.nom, 'slugAnnonce': production.slug}) }}">-->
+              <img src="{{asset(production.Image.Url)}}" alt="{{production.Image.Alt}}">
               <!--</a>-->
               {% else %}
               <p>Pas de visuel</p>
@@ -80,23 +80,17 @@
                 <div class="table-cell">
                   <div class="titre">
                     <h3>
-                      <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">
-                        {{Production.Titre}}
+                      <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': production.Categorie.nom, 'slugAnnonce': production.slug}) }}">
+                        {{production.Titre}}
                       </a>
                     </h3>
                     <hr>
                   </div>
-                  {#<div class="accroche">
-                    <p>{{Production.Accroche|raw}}</p>
-                  </div>
-                  <div class="date">
-                    <p>{{Production.date|date('d M Y')}}</p>
-                  </div>#}
                   <div class="bouton">
-                    <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': Production.Categorie.nom, 'slugAnnonce': Production.slug}) }}">Voir plus</a>
+                    <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': production.Categorie.nom, 'slugAnnonce': production.slug}) }}">Voir plus</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': Production.slug})}}" class="editer">Editer</a>
-                    <a href="{{ path('sd6_production_app_supprimer_annonce', {'idAnnonce':Production.id}) }}" onclick="return confirm('are u sure?')">Supprimer</a>
+                    <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': production.slug})}}" class="editer">Editer</a>
+                    <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': production.id})}}" class="supprimer">Supprimer</a>
                     {% endif %}
                   </div>
                 </div>
@@ -105,7 +99,7 @@
           </div>
         </div>
         {% else %}
-        <p>Pas d'Production disponible.</p>
+        <p>Pas de production disponible.</p>
         {% endfor %}
       </div>
     </div>
