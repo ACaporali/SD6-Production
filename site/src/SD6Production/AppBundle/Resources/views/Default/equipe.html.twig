@@ -14,28 +14,34 @@
   <h1 class="beige text-center">Equipe</h1>
   <hr class="hr-beige">
   <div class="row membres">
-    <div class="bordures">
-      <p class="center">Notre équipe est composée de divers profils tels que des acteurs, caméramans, scénaristes, monteur vidéo et autres afin de réaliser au mieux tous nos projets.</p>
-      {% for membre in listeMembres %}
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 media">
-        <div class="image media-left media-middle">
-          <img class="media-object img-rounded" src="{{asset(membre.Image.url)}}" alt="{{membre.Image.alt}}">
-        </div>
-        <div class="media-body">
-          <h4>{{membre.prenom}} {% if membre.nom is not null %}{{membre.nom}}{% endif %}, {{membre.poste}}</h4>
-          <p>{{membre.description}}</p>
-        </div>
-        <div class="row boutons-admin">
+    <div class="row description">
+      <div class="bordures">
+        <p class="text-center">Notre équipe est composée de divers profils tels que des acteurs, caméramans, scénaristes, monteur vidéo et autres afin de mieux gérer la production ainsi que la post-production.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="bordures">
+        {% for membre in listeMembres %}
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 media">
+          <div class="image media-left media-middle">
+            <img class="media-object img-rounded" src="{{asset(membre.Image.url)}}" alt="{{membre.Image.alt}}">
+          </div>
+          <div class="media-body">
+            <h4>{{membre.prenom}} {% if membre.nom is not null %}{{membre.nom}}{% endif %}, {{membre.poste}}</h4>
+            <p>{{membre.description}}</p>
+          </div>
           {% if is_granted('ROLE_ADMIN') %}
-          <a href="{{ path('sd6_production_app_editer_membre', {'idMembre': membre.id})}}">Editer</a>
-          <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
+          <div class="row boutons-admin">
+            <a href="{{ path('sd6_production_app_editer_membre', {'idMembre': membre.id})}}">Editer</a>
+            <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
+          </div>
           {% endif %}
         </div>
-      </div>
 
-      {% else %}
-      <p>L'équipe est partie en vacances.</p>
-      {% endfor %}
+        {% else %}
+        <p>L'équipe est partie en vacances.</p>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>

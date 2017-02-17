@@ -3,45 +3,48 @@
 {% block title %}Accueil - {{ parent() }}{% endblock %}
 
 {% block head %}
-  {{ parent() }}
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+{{ parent() }}
+<meta name="description" content="">
+<meta name="keywords" content="">
 {% endblock %}
 
 {% block site_body %}
-    {{ parent() }}
-    <div class="accueil">
-        <div class="visuel-activites">
-            <div class="filtre">
-                <div class="contenu">
-                    <h1>Un studio de production</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row presentation">
-            <div class="bordures">
-                <h2 class="beige">SD6 Production</h2>
-                <hr class="hr-beige">
-                <div class="texte">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-1">
-                        <p>Le studio de production SD6 Production à pour principale fonction la <strong>réalisation d’œuvres cinématographiques, télévisuelles</strong>, ainsi que la composition de musiques et l’organisation d’événements.
-                          A travers nos projets  nous mettons en avant <strong>Grenoble et ses alentours</strong> afin de valoriser la région si peu représentée dans ces milieux.</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-2">
-                        <p>Créée depuis quelques années SD6 Production ne cesse d’avancer et de progresser par la <strong>réalisation de multiples projets</strong> aux thèmes variés. La diversité de ces derniers nous a également permis de nous faire connaitre d’avantage dans ces domaines artistiques.</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn">
-                        <a href="{{ path('sd6_production_app_equipe') }}" class="btn btn-default">Voir plus</a>
-                    </div>
-                </div>
-                <p></p>
-            </div>
-        </div>
-        <div class="row actualites">
-            <h2 class="beige">Dernières publications</h2>
-            <hr class="hr-beige">
-            {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
-        </div>
+{{ parent() }}
+<div class="accueil">
+  <div class="visuel-activites">
+    <div class="filtre">
+      <div class="contenu">
+        <h1>Production de films / series / </h1>
+      </div>
     </div>
+  </div>
+  <div class="row presentation">
+    <div class="bordures">
+      <h2 class="beige">SD6 Production</h2>
+      <hr class="hr-beige">
+      <div class="">
+        <p>Nous donnons vie à nos idées !</p>
+      </div>
+      <div class="texte">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-1">
+          <p>Le studio de production SD6 Production à pour principale fonction la <strong>réalisation d’œuvres cinématographiques, télévisuelles</strong>, ainsi que la composition de musiques et l’organisation d’événements.
+            A travers nos projets  nous mettons en avant <strong>Grenoble et ses alentours</strong> afin de valoriser la région si peu représentée dans ces milieux.</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-2">
+            <p>Créée depuis quelques années SD6 Production ne cesse d’avancer et de progresser par la <strong>réalisation de multiples projets</strong> aux thèmes variés. La diversité de ces derniers nous a également permis de nous faire connaitre d’avantage dans ces domaines artistiques.</p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn">
+            <a href="{{ path('sd6_production_app_equipe') }}" class="btn btn-default">Voir plus</a>
+          </div>
+        </div>
+        <p></p>
+      </div>
+    </div>
+    <div class="row actualites">
+      <h2 class="beige">Dernières publications</h2>
+      <hr class="hr-beige">
+      {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+    </div>
+  </div>
 
 {% endblock %}

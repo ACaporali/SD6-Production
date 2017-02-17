@@ -29,8 +29,9 @@ class DefaultController extends Controller
     $listeProductions = $this->getDoctrine()
     ->getManager()
     ->getRepository('SD6ProductionAppBundle:Annonce')
-    ->getAnnonceWithCategories('Production');
+    ->getAnnonceCategories('Production');
 
+    $productionsEpingle = [];
     foreach ($listeProductions as $key => $production) {
       if ($production->getEpingle() == 1 ) {
         $productionsEpingle[] = $production;
@@ -63,7 +64,7 @@ class DefaultController extends Controller
     $listeAnnonces = $this->getDoctrine()
     ->getManager()
     ->getRepository('SD6ProductionAppBundle:Annonce')
-    ->getAnnonceWithCategories('Actualite');
+    ->getAnnonceCategories('Actualite');
 
     return $this->render('SD6ProductionAppBundle:Default:actualites.html.twig', array(
       'listeAnnonces' => $listeAnnonces,
@@ -86,7 +87,7 @@ class DefaultController extends Controller
     $listeAnnonces = $this->getDoctrine()
     ->getManager()
     ->getRepository('SD6ProductionAppBundle:Annonce')
-    ->getAnnonceWithCategories('Casting');
+    ->getAnnonceCategories('Casting');
 
     return $this->render('SD6ProductionAppBundle:Default:casting.html.twig', array(
       'listeAnnonces' => $listeAnnonces,
@@ -113,6 +114,24 @@ class DefaultController extends Controller
 
     return $this->render('SD6ProductionAppBundle:Default:categorie.html.twig', array(
       'listeCategories' => $listeCategories,
+    ));
+  }
+
+  public function sideBarAction($limite)
+  {
+    $listeProductions = $this->getDoctrine()
+    ->getManager()
+    ->getRepository('SD6ProductionAppBundle:Annonce')
+    ->getAnnonceNbAvecCategorie($limite, 'Production');
+
+    $listeActualites = $this->getDoctrine()
+    ->getManager()
+    ->getRepository('SD6ProductionAppBundle:Annonce')
+    ->getAnnonceNbAvecCategorie($limite, 'Actualite');
+
+    return $this->render('SD6ProductionAppBundle:Default:side-bar.html.twig', array(
+      'listeProductions' => $listeProductions,
+      'listeActualites' => $listeActualites
     ));
   }
 }

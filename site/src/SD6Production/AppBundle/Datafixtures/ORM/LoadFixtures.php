@@ -36,9 +36,9 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
    {
       //Creation de catégories
       $names = array(
-         'Actualite',
+         'Actualites',
          'Evenement',
-         'Production',
+         'Productions',
          'Casting',
          'Galerie'
       );

@@ -3,21 +3,26 @@
 {% block title %}Actualites - {{ parent() }}{% endblock %}
 
 {% block head %}
-  {{ parent() }}
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+{{ parent() }}
+<meta name="description" content="">
+<meta name="keywords" content="">
 {% endblock %}
 
 {% block site_body %}
-	<div class="actualites">
-	  	{{ parent() }}
-	  	<h1 class="beige text-center">Actualités</h1>
-      <hr class="hr-beige">
-			<div class="bordures">
-		  	<div class="row">
-			  	{{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
-			</div>
-		</div>
-	</div>
+<div class="actualites">
+  {{ parent() }}
+  <h1 class="beige text-center">Actualités</h1>
+  <hr class="hr-beige">
+  <div class="row description">
+    <div class="bordures">
+      <p class="text-center">Suivez nos actualités afin de ne rien manquer de nos activités !</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="bordures">
+      {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+    </div>
+  </div>
+</div>
 
 {% endblock %}

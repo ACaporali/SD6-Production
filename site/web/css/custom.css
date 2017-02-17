@@ -173,7 +173,7 @@ footer {
         margin-top: 1px; }
 
 /*------Detail annonce------*/
-.detail .contenu .titre h2:first-letter {
+.detail .contenu h1:first-letter {
   text-transform: uppercase; }
 
 .detail .contenu .image img {
@@ -186,10 +186,6 @@ footer {
   padding: 10px 0px; }
 
 /*------Equipe------*/
-.equipe .center {
-  text-align: center;
-  margin-bottom: 40px; }
-
 .equipe .membres {
   padding-top: 0px; }
   .equipe .membres [class*="col-"] {
@@ -549,9 +545,6 @@ footer.row {
 /*------Prestations------*/
 .prestations .presentation {
   padding-top: 0px; }
-  .prestations .presentation .objets .center {
-    text-align: center;
-    margin-bottom: 20px; }
   .prestations .presentation .objets [class*="col-"] {
     text-align: center;
     margin-bottom: 20px; }
@@ -587,3 +580,8 @@ footer.row {
 
 .prestations .musicales {
   background-color: #F6F6F6; }
+
+/*-----Side-bar------*/
+.side-bar a {
+  display: block;
+  padding: 5px 0px; }

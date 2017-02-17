@@ -16,50 +16,52 @@
     <hr class="hr-beige">
   </div>
   <div class="row bordures">
-    <p class="text-center">Les productions représentes tous les projets que nous avons réalisé avec notre équipe. Vous pouvez y trouver toutes nos productions de films, télévisuels, web series, mais aussi les clips musicaux et d'autres encore.</p>
+    <p class="text-center">Les productions représentes tous les projets que nous avons réalisé avec notre équipe. Dans le panel ci-dessous, vous pouvez y trouver une grande partie de nos productions de films, télévisuels, web series, mais aussi les clips musicaux et d'autres encore.</p>
   </div>
   <div class="row">
     <div class="production-epingle">
-      {% for productionEpingle in productionsEpingle %}
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contenu">
-        <div class="bordures">
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="image">
-              {% if productionEpingle.Image is not null %}
-              <img src="{{asset(productionEpingle.Image.Url)}}" alt="{{productionEpingle.Image.Alt}}">
-              {% else %}
-              <p>Pas de visuel</p>
-              {% endif %}
+      {% if productionsEpingle %}
+        {% for productionEpingle in productionsEpingle %}
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contenu">
+          <div class="bordures">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <div class="image">
+                {% if productionEpingle.Image is not null %}
+                <img src="{{asset(productionEpingle.Image.Url)}}" alt="{{productionEpingle.Image.Alt}}">
+                {% else %}
+                <p>Pas de visuel</p>
+                {% endif %}
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-            <div class="titre">
-              <h3>
-                <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">
-                  {{productionEpingle.Titre}}
-                </a>
-              </h3>
-              <hr>
-            </div>
-            <div class="accroche">
-              <p>{{productionEpingle.Accroche|raw}}</p>
-            </div>
-            {#<div class="date">
-              <p>{{productionEpingle.date|date('d M Y')}}</p>
-            </div>#}
-            <div class="bouton">
-              <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">Voir plus</a>
-              <div class="row boutons-admin">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+              <div class="titre">
+                <h3>
+                  <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">
+                    {{productionEpingle.Titre}}
+                  </a>
+                </h3>
+                <hr>
+              </div>
+              <div class="accroche">
+                <p>{{productionEpingle.Accroche|raw}}</p>
+              </div>
+              {#<div class="date">
+                <p>{{productionEpingle.date|date('d M Y')}}</p>
+              </div>#}
+              <div class="bouton">
+                <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">Voir plus</a>
                 {% if is_granted('ROLE_ADMIN') %}
-                  <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
-                  <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': productionEpingle.id})}}" class="supprimer">Supprimer</a>
+                  <div class="row boutons-admin">
+                    <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
+                    <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': productionEpingle.id})}}" class="supprimer">Supprimer</a>
+                  </div>
                 {% endif %}
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+      {% endif %}
     </div>
     <div class="bordures">
       <div class="grille">

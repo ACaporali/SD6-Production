@@ -1,0 +1,14 @@
+<div class="row contenu">
+  <div class="production">
+    <h4>Dernières productions</h4>
+    {% for production in listeProductions %}
+    <a href="{{path('sd6_production_app_details_annonce', {'typeAnnonce': production.categorie.slug, 'slugAnnonce': production.slug})}}">{{production.titre}}</a>
+    {% endfor %}
+  </div>
+  <div class="actualites">
+    <h4>Dernières actualités</h4>
+    {% for actualites in listeActualites %}
+    <a href="{{path('sd6_production_app_details_annonce', {'typeAnnonce': actualites.categorie.slug, 'slugAnnonce': actualites.slug})}}">{{actualites.titre}}</a>
+    {% endfor %}
+  </div>
+</div>

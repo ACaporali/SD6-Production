@@ -4,7 +4,7 @@
 		<div class="contenu ombres">
 			<div class="image">
 				{% if annonce.Image is not null %}
-					<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">
+					<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.categorie.slug, 'slugAnnonce': annonce.slug}) }}">
 						<img src="{{asset(annonce.Image.Url)}}" alt="{{annonce.Image.Alt}}">
 					</a>
 				{% else %}
@@ -14,7 +14,7 @@
 			<div class="texte">
 				<div class="titre">
 					<h3>
-						<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">
+						<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.categorie.slug, 'slugAnnonce': annonce.slug}) }}">
 							{{annonce.Titre}}
 						</a>
 					</h3>
@@ -28,12 +28,12 @@
 			</div>
 			<div class="bouton">
 				<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': annonce.Categorie.nom, 'slugAnnonce': annonce.slug}) }}">Voir plus</a>
-				<div class="row boutons-admin">
-					{% if is_granted('ROLE_ADMIN') %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<div class="row boutons-admin">
 						<a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': annonce.slug})}}" class="editer">Editer</a>
 						<a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
-					{% endif %}
-				</div>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>

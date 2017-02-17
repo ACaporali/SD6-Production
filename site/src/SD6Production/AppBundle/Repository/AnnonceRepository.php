@@ -12,11 +12,10 @@ use Doctrine\ORM\EntityRepository;
 */
 class AnnonceRepository extends EntityRepository
 {
-	public function getAnnonceWithCategories($categorieNoms){
+	public function getAnnonceCategories($categorieNoms){
 		$qb = $this->createQueryBuilder('a');
 
-		$qb
-		->join('a.categorie', 'cat')
+		$qb->join('a.categorie', 'cat')
 		->addSelect('cat');
 
 		$qb->where('cat.nom = :catNom')
@@ -31,10 +30,16 @@ class AnnonceRepository extends EntityRepository
 		->getResult();
 	}
 
-	public function getAnnonceNb($nbAnnonce){
+	public function getAnnonceNbAvecCategorie($nbAnnonce, $categorieNoms){
 		$qb = $this->createQueryBuilder('a');
 
-		$qb->where('a.publie = :publie')
+		$qb->join('a.categorie', 'cat')
+		->addSelect('cat');
+
+		$qb->where('cat.nom = :catNom')
+		->setParameter('catNom', $categorieNoms);
+
+		$qb->andWhere('a.publie = :publie')
 		->setParameter('publie', true)
 		->orderBy('a.date', 'DESC')
 		->setMaxResults($nbAnnonce);

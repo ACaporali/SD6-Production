@@ -11,19 +11,27 @@ sd6_production_app_editer_annonce:
 sd6_production_app_editer_image:
     path:     image/editer/{idImage}
     defaults: { _controller: SD6ProductionAppBundle:Action:editerImage }
+    requirements:
+      idImage: "[0-9-]+"
 
 sd6_production_app_editer_membre:
     path:     membre/editer/{idMembre}
     defaults: { _controller: SD6ProductionAppBundle:Action:editerMembre }
+    requirements:
+      idMembre: "[0-9-]+"
 
 sd6_production_app_editer_categorie:
     path:     categorie/editer/{idCategorie}
     defaults: { _controller: SD6ProductionAppBundle:Action:editerCategorie}
+    requirements:
+      idCategorie: "[0-9-]+"
 
 sd6_production_app_supprimer:
     path:     supprimer/{typeElement}/{numElement}
     defaults: { _controller: SD6ProductionAppBundle:Action:supprimer}
-
+    requirements:
+      typeElement: "[a-zA-Z-]+"
+      numElement: "[0-9-]+"
 
 sd6_production_app_homepage:
     path:     /

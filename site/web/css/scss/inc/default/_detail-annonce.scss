@@ -1,11 +1,10 @@
 /*------Detail annonce------*/
 .detail{
   .contenu{
-    .titre {
-      h2:first-letter{
-      	text-transform: uppercase;
-      }
+    h1:first-letter{
+    	text-transform: uppercase;
     }
+
 
     .image{
       img{
