@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new SD6Production\ContactBundle\SD6ProductionContactBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new SD6Production\SocialBundle\SD6ProductionSocialBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

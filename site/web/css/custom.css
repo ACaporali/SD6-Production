@@ -177,13 +177,20 @@ footer {
   text-transform: uppercase; }
 
 .detail .contenu .image img {
-  width: 100%;
-  height: auto; }
+  max-width: 100%;
+  height: auto;
+  max-height: 300px; }
 
 .detail .contenu .infos p {
   color: #7C7C7C;
   font-size: 13px;
   padding: 10px 0px; }
+
+.detail .contenu .precedent {
+  float: left; }
+
+.detail .contenu .suivant {
+  float: right; }
 
 /*------Equipe------*/
 .equipe .membres {
@@ -585,3 +592,8 @@ footer.row {
 .side-bar a {
   display: block;
   padding: 5px 0px; }
+
+/*------Barre de partage reseau sociaux------*/
+.partage-boutons img {
+  width: 40px;
+  height: auto; }

@@ -8,8 +8,9 @@
 
     .image{
       img{
-      	width: 100%;
-      	height: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 300px;
       }
     }
 
@@ -20,6 +21,14 @@
       	padding: 10px 0px;
 
       }
+    }
+
+    .precedent{
+      float: left;
+    }
+
+    .suivant{
+      float: right;
     }
   }
 }

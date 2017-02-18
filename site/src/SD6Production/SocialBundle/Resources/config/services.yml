@@ -1,0 +1,4 @@
+services:
+#    sd6_production_social.example:
+#        class: SD6Production\SocialBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

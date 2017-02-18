@@ -30,6 +30,19 @@ class AnnonceRepository extends EntityRepository
 		->getResult();
 	}
 
+	public function getAnnonceNb($nbAnnonce){
+		$qb = $this->createQueryBuilder('a');
+
+		$qb->where('a.publie = :publie')
+		->setParameter('publie', true)
+		->orderBy('a.date', 'DESC')
+		->setMaxResults($nbAnnonce);
+
+		return $qb
+		->getQuery()
+		->getResult();
+	}
+
 	public function getAnnonceNbAvecCategorie($nbAnnonce, $categorieNoms){
 		$qb = $this->createQueryBuilder('a');
 

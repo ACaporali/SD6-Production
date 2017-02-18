@@ -11,7 +11,6 @@
 {% block site_body %}
 <div class="bordures detail">
   {{ parent() }}
-  {#{{dump(app.session)}}#}
   <div class="{{annonce.Categorie.nom}} {{annonce.slug}}">
     <div class="row">
       <div class="contenu col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -31,6 +30,23 @@
         </div>
         <div class="texte">
           <p>{{annonce.contenu|raw}}</p>
+        </div>
+
+        <div class="row">
+          {% include "SD6ProductionSocialBundle:Default:social-bar.html.twig" with {'typeAnnonce': 'annonce.Categorie.nom', 'slugAnnonce': 'annonce.slug'} %}
+        </div>
+
+        <div class="row">
+          <div class="precedent">
+            {% if annoncePrecedente %}
+              <a href="../{{annoncePrecedente.categorie.slug}}/{{annoncePrecedente.slug}}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{annoncePrecedente.titre}}</a>
+            {% endif %}
+          </div>
+          <div class="suivant">
+            {% if annonceSuivante %}
+              <a href="../{{annonceSuivante.categorie.slug}}/{{annonceSuivante.slug}}">{{annonceSuivante.titre}} <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            {% endif %}
+          </div>
         </div>
       </div>
       <div class="side-bar col-xs-12 col-sm-4 col-md-4 col-lg-4">
