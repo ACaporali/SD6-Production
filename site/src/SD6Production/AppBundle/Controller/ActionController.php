@@ -5,56 +5,56 @@ namespace SD6Production\AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use SD6Production\AppBundle\Entity\Annonce;
-use SD6Production\AppBundle\Form\AnnonceType;
-use SD6Production\AppBundle\Entity\Membre;
-use SD6Production\AppBundle\Form\MembreType;
-use SD6Production\AppBundle\Entity\Categorie;
-use SD6Production\AppBundle\Form\CategorieType;
+use SD6Production\AppBundle\Entity\Advert;
+use SD6Production\AppBundle\Form\AdvertType;
+use SD6Production\AppBundle\Entity\Member;
+use SD6Production\AppBundle\Form\MemberType;
+use SD6Production\AppBundle\Entity\Category;
+use SD6Production\AppBundle\Form\CategoryType;
 use SD6Production\AppBundle\Entity\Image;
 use SD6Production\AppBundle\Form\ImageType;
 
 class ActionController extends Controller
 {
-  /*Ajouter un element : annonce, image, membre et categorie*/
-  public function ajouterAction(Request $request){
-    $annonce = new Annonce();
-    $formAnnonce = $this->get('form.factory')->create(new AnnonceType(), $annonce);
+  /*Ajouter un element : advert, image, member et category*/
+  public function addAction(Request $request){
+    $advert = new Advert();
+    $formAdvert = $this->get('form.factory')->create(new AdvertType(), $advert);
 
-    $membre = new Membre();
-    $formMembre = $this->get('form.factory')->create(new MembreType(), $membre);
+    $member = new Member();
+    $formMember = $this->get('form.factory')->create(new MemberType(), $member);
 
-    $categorie = new Categorie();
-    $formCategorie = $this->get('form.factory')->create(new CategorieType(), $categorie);
+    $category = new Category();
+    $formCategory = $this->get('form.factory')->create(new CategoryType(), $category);
 
     $image = new Image();
     $formImage = $this->get('form.factory')->create(new ImageType(), $image);
 
-    $formAnnonce->handleRequest($request);
-    $formMembre->handleRequest($request);
-    $formCategorie->handleRequest($request);
+    $formAdvert->handleRequest($request);
+    $formMember->handleRequest($request);
+    $formCategory->handleRequest($request);
     $formImage->handleRequest($request);
 
-    if ($formAnnonce->isValid()) {
+    if ($formAdvert->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $em->persist($annonce);
+      $em->persist($advert);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('succes', 'Annonce enregistrée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Advert enregistrée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    } else if ($formMembre->isValid()) {
+    } else if ($formMember->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $em->persist($membre);
+      $em->persist($member);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('succes', 'Membre enregistrée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Member enregistrée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
 
-    }else if ($formCategorie->isValid()) {
+    }else if ($formCategory->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $em->persist($categorie);
+      $em->persist($category);
       $em->flush();
 
       $request->getSession()->getFlashBag()->add('succes', 'Catégorie enregistrée.');
@@ -72,25 +72,25 @@ class ActionController extends Controller
     }
 
     return $this->render('SD6ProductionAppBundle:Action:ajouter.html.twig', array(
-      'formAnnonce' => $formAnnonce->createView(),
-      'formMembre' => $formMembre->createView(),
-      'formCategorie' => $formCategorie->createView(),
+      'formAdvert' => $formAdvert->createView(),
+      'formMember' => $formMember->createView(),
+      'formCategory' => $formCategory->createView(),
       'formImage' => $formImage->createView(),
     ));
   }
 
-  /*Editer et supprimer annonce*/
-  public function editerAnnonceAction(Request $request, $slugAnnonce)
+  /*Editer et supprimer advert*/
+  public function editeAdvertAction(Request $request, $slugAdvert)
   {
     $em = $this->getDoctrine()->getManager();
-    $annonce = $em->getRepository('SD6ProductionAppBundle:Annonce')->findOneBySlug($slugAnnonce);
+    $advert = $em->getRepository('SD6ProductionAppBundle:Advert')->findOneBySlug($slugAdvert);
 
-    $formAnnonce = $this->get('form.factory')->create(new AnnonceType(), $annonce);
-    $formAnnonce->handleRequest($request);
+    $formAdvert = $this->get('form.factory')->create(new AdvertType(), $advert);
+    $formAdvert->handleRequest($request);
 
-    if ($formAnnonce->isValid()) {
+    if ($formAdvert->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $em->persist($annonce);
+      $em->persist($advert);
       $em->flush();
 
       $request->getSession()->getFlashBag()->add('succes', 'Annonce modifiée.');
@@ -99,13 +99,13 @@ class ActionController extends Controller
     }
 
     return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
-      'formAnnonce' => $formAnnonce->createView(),
-      'annonce' => $annonce,
+      'formAdvert' => $formAdvert->createView(),
+      'advert' => $advert,
     ));
   }
 
   /*Editer image*/
-  public function editerImageAction(Request $request, $idImage)
+  public function editeImageAction(Request $request, $idImage)
   {
     $em = $this->getDoctrine()->getManager();
     $image = $em->getRepository('SD6ProductionAppBundle:Image')->findOneById($idImage);
@@ -130,69 +130,71 @@ class ActionController extends Controller
   }
 
 
-  /*Editer membre*/
-  public function editerMembreAction(Request $request, $idMembre)
+  /*Editer member*/
+  public function editeMemberAction(Request $request, $idMember)
   {
     $em = $this->getDoctrine()->getManager();
-    $membre = $em->getRepository('SD6ProductionAppBundle:Membre')->findOneById($idMembre);
+    $member = $em->getRepository('SD6ProductionAppBundle:Member')->findOneById($idMember);
 
-    $formMembre = $this->get('form.factory')->create(new MembreType(), $membre);
-    $formMembre->handleRequest($request);
+    $formMember = $this->get('form.factory')->create(new MemberType(), $member);
+    $formMember->handleRequest($request);
 
-    if ($formMembre->isValid()) {
+    if ($formMember->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $em->persist($membre);
+      $em->persist($member);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('succes', 'Membre modifiée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Member modifiée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
     return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
-      'formMembre' => $formMembre->createView(),
-      'membre' => $membre,
+      'formMember' => $formMember->createView(),
+      'member' => $member,
     ));
   }
 
 
-  /*Editer categorie*/
-  public function editerCategorieAction(Request $request, $idCategorie)
+  /*Editer category*/
+  public function editeCategoryAction(Request $request, $idCategory)
   {
     $em = $this->getDoctrine()->getManager();
-    $categorie = $em->getRepository('SD6ProductionAppBundle:Categorie')->findOneById($idCategorie);
+    $category = $em->getRepository('SD6ProductionAppBundle:Category')->findOneById($idCategory);
 
-    $formCategorie = $this->get('form.factory')->create(new CategorieType(), $categorie);
-    $formCategorie->handleRequest($request);
+    $formCategory = $this->get('form.factory')->create(new CategoryType(), $category);
+    $formCategory->handleRequest($request);
 
-    if ($formCategorie->isValid()) {
+    if ($formCategory->isValid()) {
       $em = $this->getDoctrine()->getManager();
-      $em->persist($categorie);
+      $em->persist($category);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('succes', 'Categorie modifiée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Category modifiée.');
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
     return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
-      'formCategorie' => $formCategorie->createView(),
-      'categorie' => $categorie,
+      'formCategory' => $formCategory->createView(),
+      'category' => $category,
     ));
   }
 
-  /*Supprimer un element : annonce, image, membre ou categorie*/
-  public function supprimerAction($typeElement, $numElement, Request $request)
+  /*Supprimer un element : advert, image, member ou category*/
+  public function deleteAction($typeElement, $numElement, Request $request)
   {
+    $em = $this->getDoctrine()->getManager();
+
     //Regarde le type d'Entity à supprimer
-    if ($typeElement == 'annonce') {
-      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Annonce')->find($numElement);
+    if ($typeElement == 'advert') {
+      $elementDelete = $em->getRepository('SD6ProductionAppBundle:Advert')->find($numElement);
     }elseif ($typeElement == 'equipe') {
-      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Membre')->find($numElement);
-    }elseif ($typeElement == 'galerie-photos') {
-      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Image')->find($numElement);
-    }elseif ($typeElement == 'categorie') {
-      $elementSupp = $em->getRepository('SD6ProductionAppBundle:Categorie')->find($numElement);
+      $elementDelete = $em->getRepository('SD6ProductionAppBundle:Member')->find($numElement);
+    }elseif ($typeElement == 'image') {
+      $elementDelete = $em->getRepository('SD6ProductionAppBundle:Image')->find($numElement);
+    }elseif ($typeElement == 'category') {
+      $elementDelete = $em->getRepository('SD6ProductionAppBundle:Category')->find($numElement);
     }
 
     $session = $request->getSession();
@@ -201,10 +203,10 @@ class ActionController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($elementSupp === null) {
+    if ($elementDelete === null) {
       throw new NotFoundHttpException("Element d'id ".$numElement." n'existe pas.");
     }else{
-      $em->remove($elementSupp);
+      $em->remove($elementDelete);
       $em->flush();
 
       $request->getSession()->getFlashBag()->add('succes', 'Element supprimé.');

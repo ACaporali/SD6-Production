@@ -4,53 +4,6 @@
     padding-left: 0px;
   }
 
-  .production-epingle{
-    [class^="col-"].contenu{
-      padding: 40px 0px;
-      background-color: $beigeH1Home;
-
-      img{
-        width: 100%;
-        height: auto;
-      }
-      .titre, .accroche, .date{
-        padding-left: 15px;
-        p{
-          color: #fff;
-        }
-      }
-
-      .titre{
-        h3{
-          a{
-            color: #fff
-          }
-        }
-      }
-
-      .bouton{
-        margin-left: 15px;
-        a{
-          padding:7px 14px;
-          border:1px solid #fff;
-          background-color:$beigeH1Home;
-          color:#fff;
-          text-decoration:none;
-        }
-
-        a:hover{
-          border:1px solid $beigeH1Home;
-          background-color:#fff;
-          color:$beige;
-        }
-      }
-    }
-
-    [class^="col-"].contenu:last-child{
-      margin-bottom: 40px;
-    }
-  }
-
   .grille{
     .contenu{
       margin: 1px 1px;

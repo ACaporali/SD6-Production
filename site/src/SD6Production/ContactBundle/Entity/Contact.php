@@ -24,9 +24,9 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $nom;
+    private $name;
 
     /**
      * @var string
@@ -38,9 +38,9 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="sujet", type="string", length=255)
+     * @ORM\Column(name="subject", type="string", length=255)
      */
-    private $sujet;
+    private $subject;
 
     /**
      * @var string
@@ -60,28 +60,29 @@ class Contact
         return $this->id;
     }
 
+
     /**
-     * Set nom
+     * Set name
      *
-     * @param string $nom
+     * @param string $name
      *
      * @return Contact
      */
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get name
      *
      * @return string
      */
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
@@ -109,27 +110,27 @@ class Contact
     }
 
     /**
-     * Set sujet
+     * Set subject
      *
-     * @param string $sujet
+     * @param string $subject
      *
      * @return Contact
      */
-    public function setSujet($sujet)
+    public function setSubject($subject)
     {
-        $this->sujet = $sujet;
+        $this->subject = $subject;
 
         return $this;
     }
 
     /**
-     * Get sujet
+     * Get subject
      *
      * @return string
      */
-    public function getSujet()
+    public function getSubject()
     {
-        return $this->sujet;
+        return $this->subject;
     }
 
     /**
@@ -156,4 +157,3 @@ class Contact
         return $this->message;
     }
 }
-

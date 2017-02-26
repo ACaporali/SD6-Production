@@ -18,8 +18,8 @@ class ImageType extends AbstractType
         ->add('alt','text', array('required' => false))
         ->add('file', 'file',array('required' => false))
         ->add('categories','entity', array( //Affiche la liste des catégories
-                'class'    => 'SD6ProductionAppBundle:Categorie',
-                'property' => 'nom',
+                'class'    => 'SD6ProductionAppBundle:Category',
+                'property' => 'name',
                 'multiple' => true))
         ->add('valider','submit')        ;
     }

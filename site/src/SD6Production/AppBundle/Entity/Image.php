@@ -51,7 +51,7 @@ class Image
    private $tempFilename;
 
    /**
-   * @ORM\ManyToMany(targetEntity="SD6Production\AppBundle\Entity\Categorie", cascade={"persist"})
+   * @ORM\ManyToMany(targetEntity="SD6Production\AppBundle\Entity\Category", cascade={"persist"})
    * @ORM\JoinColumn(nullable=false)
    */
    public $categories;
@@ -124,11 +124,11 @@ class Image
    /**
    * Add category
    *
-   * @param \SD6Production\AppBundle\Entity\Categorie $category
+   * @param \SD6Production\AppBundle\Entity\Category $category
    *
    * @return Image
    */
-   public function addCategory(\SD6Production\AppBundle\Entity\Categorie $category)
+   public function addCategory(\SD6Production\AppBundle\Entity\Category $category)
    {
       $this->categories[] = $category;
 
@@ -138,9 +138,9 @@ class Image
    /**
    * Remove category
    *
-   * @param \SD6Production\AppBundle\Entity\Categorie $category
+   * @param \SD6Production\AppBundle\Entity\Category $category
    */
-   public function removeCategory(\SD6Production\AppBundle\Entity\Categorie $category)
+   public function removeCategory(\SD6Production\AppBundle\Entity\Category $category)
    {
       $this->categories->removeElement($category);
    }

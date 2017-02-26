@@ -7,9 +7,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-use SD6Production\AppBundle\Entity\Categorie;
-use SD6Production\AppBundle\Entity\Annonce;
-use SD6Production\AppBundle\Entity\Membre;
+use SD6Production\AppBundle\Entity\Category;
+use SD6Production\AppBundle\Entity\Advert;
+use SD6Production\AppBundle\Entity\Member;
 use SD6Production\AppBundle\Entity\Image;
 
 class LoadFixtures implements FixtureInterface, ContainerAwareInterface
@@ -28,11 +28,11 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
 
    public function load(ObjectManager $manager)
    {
-      $this->loadCatImageAnnonce($manager);
-      $this->loadUtilMembre($manager);
+      $this->loadCatImageAdvert($manager);
+      $this->loadUtilMember($manager);
    }
 
-   private function loadCatImageAnnonce(ObjectManager $manager)
+   private function loadCatImageAdvert(ObjectManager $manager)
    {
       //Creation de catégories
       $names = array(
@@ -43,36 +43,40 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
          'Galerie'
       );
 
+      $categories= [];
       foreach ($names as $name) {
-         $categorie = new Categorie();
-         $categorie->setNom($name);
+         $category = new Category();
+         $category->setName($name);
 
-         $manager->persist($categorie);
+         array_push($categories, $category);
+         $manager->persist($category);
       }
+
+      $manager->flush();
 
       //Création d'une image
       $image = new Image;
       $image->setUrl('uploads/img/image.jpg');
       $manager->persist($image);
 
-      //Création d'annonces
-      $annonces = [];
+      //Création d'adverts
+      $adverts = [];
       for ($i=0; $i <20 ; $i++) {
-         $annonces[$i] = new Annonce;
-         $annonces[$i]->setTitre('L\'article '.$i.'');
-         $annonces[$i]->setContenu('Aliquam erat volutpat. Nunc auctor. Mauris pretium quam et urna. Fusce nibh. Duis risus. Curabitur sagittis hendrerit ante. Aliquam erat volutpat. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.');
-         $annonces[$i]->setAuteur('Alice');
-         $annonces[$i]->setDate(new \DateTime("now"));
-         $annonces[$i]->setPublie(true);
-         $annonces[$i]->setCategorie($categorie);
-         $annonces[$i]->setImage($image);
-         $annonces[$i]->setEpingle(false);
-         $manager->persist($annonces[$i]);
+         $adverts[$i] = new Advert;
+         $adverts[$i]->setTitle('L\'article '.$i.'');
+         $adverts[$i]->setContent('Aliquam erat volutpat. Nunc auctor. Mauris pretium quam et urna. Fusce nibh. Duis risus. Curabitur sagittis hendrerit ante. Aliquam erat volutpat. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.');
+         $adverts[$i]->setAuthor('Alice');
+         $adverts[$i]->setDate(new \DateTime("now"));
+         $adverts[$i]->setPublished(true);
+         $adverts[$i]->setCategory($categories[array_rand($categories)]);
+         $adverts[$i]->setImage($image);
+         $adverts[$i]->setPinned(false);
+         $manager->persist($adverts[$i]);
       }
       $manager->flush();
    }
 
-   private function loadUtilMembre(ObjectManager $manager)
+   private function loadUtilMember(ObjectManager $manager)
    {
       //Création d'un utilisateur admin
       $utilManager = $this->container->get('fos_user.user_manager');
@@ -104,13 +108,13 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
       $description = 'Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum.';
 
       foreach ($names as $name) {
-         $membre = new Membre();
-         $membre->setPrenom($name);
-         $membre->setPoste($poste);
-         $membre->setDescription($description);
-         $membre->setImage($image);
+         $member = new Member();
+         $member->setFirstName($name);
+         $member->setPost($poste);
+         $member->setDescription($description);
+         $member->setImage($image);
 
-         $manager->persist($membre);
+         $manager->persist($member);
       }
       $manager->flush();
    }

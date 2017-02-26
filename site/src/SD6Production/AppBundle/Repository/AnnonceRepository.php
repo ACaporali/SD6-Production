@@ -30,7 +30,7 @@ class AnnonceRepository extends EntityRepository
 		->getResult();
 	}
 
-	public function getAnnonceNb($nbAnnonce){
+	public function getAdvertNb($nbAnnonce){
 		$qb = $this->createQueryBuilder('a');
 
 		$qb->where('a.publie = :publie')
@@ -43,7 +43,7 @@ class AnnonceRepository extends EntityRepository
 		->getResult();
 	}
 
-	public function getAnnonceNbAvecCategorie($nbAnnonce, $categorieNoms){
+	public function getAdvertNbWithCategory($nbAnnonce, $categorieNoms){
 		$qb = $this->createQueryBuilder('a');
 
 		$qb->join('a.categorie', 'cat')

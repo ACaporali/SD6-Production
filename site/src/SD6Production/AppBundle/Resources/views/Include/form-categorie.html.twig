@@ -1,27 +1,27 @@
 <h3>Formulaire de categorie</h3>
 
 <div class="container">
-	{{ form_start(formCategorie) }}
+	{{ form_start(formCategory) }}
 
     {# Les erreurs générales du formulaire. #}
-    {% if form_errors(formCategorie) or form_errors(formCategorie.nom)%}
+    {% if form_errors(formCategory) or form_errors(formCategory.name)%}
 	    <div class="">
-		    {{ form_errors(formCategorie) }}
-		    {{ form_errors(formCategorie.nom) }}
+		    {{ form_errors(formCategory) }}
+		    {{ form_errors(formCategory.name) }}
 		</div>
 	{% endif %}
 
-    <div class="row">		
-		{{ form_label(formCategorie.nom, "Nom de la categorie", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}			
-		{{ form_widget(formCategorie.nom, {'attr': {'class': 'form-control'}}) }}		
-    </div>  
+    <div class="row">
+		{{ form_label(formCategory.name, "Nom de la categorie", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formCategory.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
 
   	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-  	{{ form_widget(formCategorie.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+  	{{ form_widget(formCategory.valider, {'attr': {'class': 'btn btn-primary'}}) }}
 
   	{# Génération automatique des champs pas encore écrits. #}
-  	{{ form_rest(formCategorie) }}
-  
+  	{{ form_rest(formCategory) }}
+
   	{# Fermeture de la balise <form> du formulaire HTML #}
-  	{{ form_end(formCategorie) }}
+  	{{ form_end(formCategory) }}
 </div>

@@ -11,8 +11,8 @@
 {% block site_body %}
 	<div class="bordures">
 	  	{{ parent() }}
-        {% if annonce is defined %}
-    	  	<h1>Editer {{annonce.titre}}</h1>
+        {% if advert is defined %}
+    	  	<h1>Editer {{advert.title}}</h1>
             <div class="form-annonce">
                 {{ include("SD6ProductionAppBundle:Include:form-annonce.html.twig") }}
             </div>
@@ -23,14 +23,14 @@
                 {{ include("SD6ProductionAppBundle:Include:form-image.html.twig") }}
             </div>
         {% endif %}
-        {% if membre is defined %}
-    	  	<h1>Editer membre n°{{membre.id}}</h1>
+        {% if member is defined %}
+    	  	<h1>Editer membre n°{{member.id}}</h1>
             <div class="form-annonce">
                 {{ include("SD6ProductionAppBundle:Include:form-membre.html.twig") }}
             </div>
         {% endif %}
-        {% if categorie is defined %}
-    	  	<h1>Editer categorie n°{{categorie.id}}</h1>
+        {% if category is defined %}
+    	  	<h1>Editer categorie n°{{category.id}}</h1>
             <div class="form-annonce">
                 {{ include("SD6ProductionAppBundle:Include:form-categorie.html.twig") }}
             </div>

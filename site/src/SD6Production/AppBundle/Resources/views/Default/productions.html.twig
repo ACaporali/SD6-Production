@@ -19,15 +19,15 @@
     <p class="text-center">Les productions représentes tous les projets que nous avons réalisé avec notre équipe. Dans le panel ci-dessous, vous pouvez y trouver une grande partie de nos productions de films, télévisuels, web series, mais aussi les clips musicaux et d'autres encore.</p>
   </div>
   <div class="row">
-    <div class="production-epingle">
-      {% if productionsEpingle %}
-        {% for productionEpingle in productionsEpingle %}
+    <div class="epingle">
+      {% if productionsPinned %}
+        {% for productionPinned in productionsPinned %}
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contenu">
           <div class="bordures">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <div class="image">
-                {% if productionEpingle.Image is not null %}
-                <img src="{{asset(productionEpingle.Image.Url)}}" alt="{{productionEpingle.Image.Alt}}">
+                {% if productionPinned.image is not null %}
+                <img src="{{asset(productionPinned.image.url)}}" alt="{{productionPinned.image.alt}}">
                 {% else %}
                 <p>Pas de visuel</p>
                 {% endif %}
@@ -36,24 +36,24 @@
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
               <div class="titre">
                 <h3>
-                  <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">
-                    {{productionEpingle.Titre}}
+                  <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': productionPinned.category.name, 'slugAdvert': productionPinned.slug}) }}">
+                    {{productionPinned.title}}
                   </a>
                 </h3>
                 <hr>
               </div>
               <div class="accroche">
-                <p>{{productionEpingle.Accroche|raw}}</p>
+                <p>{{productionPinned.taglines|raw}}</p>
               </div>
               {#<div class="date">
-                <p>{{productionEpingle.date|date('d M Y')}}</p>
+                <p>{{productionPinned.date|date('d M Y')}}</p>
               </div>#}
               <div class="bouton">
-                <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': productionEpingle.Categorie.nom, 'slugAnnonce': productionEpingle.slug}) }}">Voir plus</a>
+                <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': productionPinned.category.name, 'slugAdvert': productionPinned.slug}) }}">Voir plus</a>
                 {% if is_granted('ROLE_ADMIN') %}
                   <div class="row boutons-admin">
-                    <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': productionEpingle.slug})}}" class="editer">Editer</a>
-                    <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': productionEpingle.id})}}" class="supprimer">Supprimer</a>
+                    <a href="{{ path('sd6_production_app_edite_advert', {'slugAdvert': productionPinned.slug})}}" class="editer">Editer</a>
+                    <a href="{{ path('sd6_production_app_delete', {'typeElement': 'advert', 'numElement': productionPinned.id})}}" class="supprimer">Supprimer</a>
                   </div>
                 {% endif %}
               </div>
@@ -69,9 +69,9 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="contenu">
             <div class="image">
-              {% if production.Image is not null %}
-              <!--<a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': production.Categorie.nom, 'slugAnnonce': production.slug}) }}">-->
-              <img src="{{asset(production.Image.Url)}}" alt="{{production.Image.Alt}}">
+              {% if production.image is not null %}
+              <!--<a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': production.category.name, 'slugAdvert': production.slug}) }}">-->
+              <img src="{{asset(production.image.url)}}" alt="{{production.image.alt}}">
               <!--</a>-->
               {% else %}
               <p>Pas de visuel</p>
@@ -82,17 +82,17 @@
                 <div class="table-cell">
                   <div class="titre">
                     <h3>
-                      <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': production.Categorie.nom, 'slugAnnonce': production.slug}) }}">
-                        {{production.Titre}}
+                      <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': production.category.name, 'slugAdvert': production.slug}) }}">
+                        {{production.title}}
                       </a>
                     </h3>
                     <hr>
                   </div>
                   <div class="bouton">
-                    <a href="{{ path('sd6_production_app_details_annonce',{'typeAnnonce': production.Categorie.nom, 'slugAnnonce': production.slug}) }}">Voir plus</a>
+                    <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': production.category.name, 'slugAdvert': production.slug}) }}">Voir plus</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('sd6_production_app_editer_annonce', {'slugAnnonce': production.slug})}}" class="editer">Editer</a>
-                    <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': production.id})}}" class="supprimer">Supprimer</a>
+                    <a href="{{ path('sd6_production_app_edite_advert', {'slugAdvert': production.slug})}}" class="editer">Editer</a>
+                    <a href="{{ path('sd6_production_app_delete', {'typeElement': 'advert', 'numElement': production.id})}}" class="supprimer">Supprimer</a>
                     {% endif %}
                   </div>
                 </div>

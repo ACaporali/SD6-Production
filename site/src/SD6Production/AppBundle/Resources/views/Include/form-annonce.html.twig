@@ -1,92 +1,92 @@
 <h3>Formulaire d'annonce</h3>
 
 <div class="container">
-	{{ form_start(formAnnonce) }}
+	{{ form_start(formAdvert) }}
 
 	{# Les erreurs générales du formulaire. #}
-	{% if form_errors(formAnnonce) or form_errors(formAnnonce.titre) or form_errors(formAnnonce.contenu) or form_errors(formAnnonce.date) or form_errors(formAnnonce.auteur) or form_errors(formAnnonce.image)%}
+	{% if form_errors(formAdvert) or form_errors(formAdvert.title) or form_errors(formAdvert.content) or form_errors(formAdvert.date) or form_errors(formAdvert.author) or form_errors(formAdvert.image)%}
 	<div class="">
-		{{ form_errors(formAnnonce) }}
-		{{ form_errors(formAnnonce.titre) }}
-		{{ form_errors(formAnnonce.contenu) }}
-		{{ form_errors(formAnnonce.date) }}
-		{{ form_errors(formAnnonce.auteur) }}
-		{{ form_errors(formAnnonce.image.url) }}
-		{{ form_errors(formAnnonce.image.file) }}
+		{{ form_errors(formAdvert) }}
+		{{ form_errors(formAdvert.title) }}
+		{{ form_errors(formAdvert.content) }}
+		{{ form_errors(formAdvert.date) }}
+		{{ form_errors(formAdvert.author) }}
+		{{ form_errors(formAdvert.image.url) }}
+		{{ form_errors(formAdvert.image.file) }}
 	</div>
 	{% endif %}
 
 	<div class="row">
 		{# Génération du label. #}
-		{{ form_label(formAnnonce.categorie, "Categorie de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.category, "Categorie de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 		{# Génération de l'input. #}
-		{{ form_widget(formAnnonce.categorie, {'attr': {'class': 'browser-default'}}) }}
+		{{ form_widget(formAdvert.category, {'attr': {'class': 'browser-default'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAnnonce.titre, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.titre, {'attr': {'class': 'form-control'}}) }}
+		{{ form_label(formAdvert.title, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAdvert.title, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAnnonce.accroche, "Accroche de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.accroche, {'attr': {'class': 'form-control'}}) }}
+		{{ form_label(formAdvert.taglines, "Accroche de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAdvert.taglines, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAnnonce.contenu, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.contenu, {'attr': {'class': 'form-control'}}) }}
+		{{ form_label(formAdvert.content, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAdvert.content, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	{# Génération du label + error + widget pour un champ #}
 	<div class="row">
-		{{ form_label(formAnnonce.date, "Date", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.date, {'attr': {'class': 'formAnnonce-control date-date'}}) }}
+		{{ form_label(formAdvert.date, "Date", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAdvert.date, {'attr': {'class': 'formAnnonce-control date-date'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAnnonce.auteur, "Auteur", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formAnnonce.auteur, {'attr': {'class': 'form-control'}}) }}
+		{{ form_label(formAdvert.author, "Auteur", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formAdvert.author, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAnnonce.publie, "Etat Publie ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
-		{{ form_widget(formAnnonce.publie, {'attr': {'class': 'form-control checkbox_publie'}}) }}
+		{{ form_label(formAdvert.published, "Etat Publie ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_widget(formAdvert.published, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
 	<div class="row">
 		<div class="row">
-			{{ form_label(formAnnonce.image.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAnnonce.image.url, {'attr': {'class': 'form-control'}}) }}
+			{{ form_label(formAdvert.image.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_widget(formAdvert.image.url, {'attr': {'class': 'form-control'}}) }}
 		</div>
 
 		<div class="row">
-			{{ form_label(formAnnonce.image.alt, "Alt de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAnnonce.image.alt, {'attr': {'class': 'form-control'}}) }}
+			{{ form_label(formAdvert.image.alt, "Alt de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_widget(formAdvert.image.alt, {'attr': {'class': 'form-control'}}) }}
 		</div>
 
 		<div class="row">
-			{{ form_label(formAnnonce.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAnnonce.image.file, {'attr': {'class': 'form-control'}}) }}
+			{{ form_label(formAdvert.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_widget(formAdvert.image.file, {'attr': {'class': 'form-control'}}) }}
 		</div>
 
 		<div class="row">
-			{{ form_label(formAnnonce.image.categories, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAnnonce.image.categories, {'attr': {'class': 'form-control'}}) }}
+			{{ form_label(formAdvert.image.categories, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_widget(formAdvert.image.categories, {'attr': {'class': 'form-control'}}) }}
 		</div>
 	</div>
 
 	<div class="row">
-		{{ form_label(formAnnonce.epingle, "Epinglé en haut ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
-		{{ form_widget(formAnnonce.epingle, {'attr': {'class': 'form-control checkbox_publie'}}) }}
+		{{ form_label(formAdvert.pinned, "Epinglé en haut ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_widget(formAdvert.pinned, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
 	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-	{{ form_widget(formAnnonce.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+	{{ form_widget(formAdvert.valider, {'attr': {'class': 'btn btn-primary'}}) }}
 
 	{# Génération automatique des champs pas encore écrits.
-	{#{{ form_rest(formAnnonce) }}#}
+	{#{{ form_rest(formAdvert) }}#}
 
 	{# Fermeture de la balise <form> du formulaire HTML #}
-	{{ form_end(formAnnonce) }}
+	{{ form_end(formAdvert) }}
 	</div>

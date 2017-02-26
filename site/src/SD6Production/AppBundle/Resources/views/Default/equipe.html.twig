@@ -21,19 +21,19 @@
     </div>
     <div class="row">
       <div class="bordures">
-        {% for membre in listeMembres %}
+        {% for member in listeMembers %}
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 media">
           <div class="image media-left media-middle">
-            <img class="media-object img-rounded" src="{{asset(membre.Image.url)}}" alt="{{membre.Image.alt}}">
+            <img class="media-object img-rounded" src="{{asset(member.Image.url)}}" alt="{{member.Image.alt}}">
           </div>
           <div class="media-body">
-            <h4>{{membre.prenom}} {% if membre.nom is not null %}{{membre.nom}}{% endif %}, {{membre.poste}}</h4>
-            <p>{{membre.description}}</p>
+            <h4>{{member.firstName}} {% if member.name is not null %}{{member.name}}{% endif %}, {{member.post}}</h4>
+            <p>{{member.description}}</p>
           </div>
           {% if is_granted('ROLE_ADMIN') %}
           <div class="row boutons-admin">
-            <a href="{{ path('sd6_production_app_editer_membre', {'idMembre': membre.id})}}">Editer</a>
-            <a href="{{ path('sd6_production_app_supprimer', {'typeElement': 'annonce', 'numElement': annonce.id})}}" class="supprimer">Supprimer</a>
+            <a href="{{ path('sd6_production_app_edite_member', {'idMember': member.id})}}">Editer</a>
+            <a href="{{ path('sd6_production_app_delete', {'typeElement': 'equipe', 'numElement': member.id})}}" class="supprimer">Supprimer</a>
           </div>
           {% endif %}
         </div>

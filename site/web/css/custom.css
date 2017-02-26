@@ -93,6 +93,34 @@ footer {
 .alert {
   margin-bottom: 0px; }
 
+.epingle [class^="col-"].contenu {
+  padding: 40px 0px;
+  background-color: #DDCEBC; }
+  .epingle [class^="col-"].contenu img {
+    width: 100%;
+    height: auto; }
+  .epingle [class^="col-"].contenu .titre, .epingle [class^="col-"].contenu .accroche, .epingle [class^="col-"].contenu .date {
+    padding-left: 15px; }
+    .epingle [class^="col-"].contenu .titre p, .epingle [class^="col-"].contenu .accroche p, .epingle [class^="col-"].contenu .date p {
+      color: #fff; }
+  .epingle [class^="col-"].contenu .titre h3 a {
+    color: #fff; }
+  .epingle [class^="col-"].contenu .bouton {
+    margin-left: 15px; }
+    .epingle [class^="col-"].contenu .bouton a {
+      padding: 7px 14px;
+      border: 1px solid #fff;
+      background-color: #DDCEBC;
+      color: #fff;
+      text-decoration: none; }
+    .epingle [class^="col-"].contenu .bouton a:hover {
+      border: 1px solid #DDCEBC;
+      background-color: #fff;
+      color: #A99675; }
+
+.epingle [class^="col-"].contenu:last-child {
+  margin-bottom: 40px; }
+
 @font-face {
   font-family: 'Roboto regular';
   src: url("../fonts/roboto/Roboto-Regular.eot");
@@ -313,34 +341,6 @@ footer.row {
 .productions [class^="col-"] {
   padding-right: 0px;
   padding-left: 0px; }
-
-.productions .production-epingle [class^="col-"].contenu {
-  padding: 40px 0px;
-  background-color: #DDCEBC; }
-  .productions .production-epingle [class^="col-"].contenu img {
-    width: 100%;
-    height: auto; }
-  .productions .production-epingle [class^="col-"].contenu .titre, .productions .production-epingle [class^="col-"].contenu .accroche, .productions .production-epingle [class^="col-"].contenu .date {
-    padding-left: 15px; }
-    .productions .production-epingle [class^="col-"].contenu .titre p, .productions .production-epingle [class^="col-"].contenu .accroche p, .productions .production-epingle [class^="col-"].contenu .date p {
-      color: #fff; }
-  .productions .production-epingle [class^="col-"].contenu .titre h3 a {
-    color: #fff; }
-  .productions .production-epingle [class^="col-"].contenu .bouton {
-    margin-left: 15px; }
-    .productions .production-epingle [class^="col-"].contenu .bouton a {
-      padding: 7px 14px;
-      border: 1px solid #fff;
-      background-color: #DDCEBC;
-      color: #fff;
-      text-decoration: none; }
-    .productions .production-epingle [class^="col-"].contenu .bouton a:hover {
-      border: 1px solid #DDCEBC;
-      background-color: #fff;
-      color: #A99675; }
-
-.productions .production-epingle [class^="col-"].contenu:last-child {
-  margin-bottom: 40px; }
 
 .productions .grille .contenu {
   margin: 1px 1px; }
