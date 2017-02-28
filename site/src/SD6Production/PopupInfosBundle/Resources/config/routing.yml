@@ -1,0 +1,11 @@
+sd6_production_popup_infos_homepage:
+    path:     /
+    defaults: { _controller: SD6ProductionAppBundle:Default:index }
+
+sd6_production_popup_infos_create_cookies:
+    path:     /create-cookie
+    defaults: { _controller: SD6ProductionPopupInfosBundle:Cookies:createCookies }
+
+sd6_production_popup_infos_cgu_cookies:
+    path:     /conditions-generales-utilisation
+    defaults: { _controller: SD6ProductionPopupInfosBundle:Cookies:cguCookies }

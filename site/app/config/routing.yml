@@ -1,3 +1,7 @@
+sd6_production_popup_infos:
+    resource: "@SD6ProductionPopupInfosBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sd6_production_social:
     resource: "@SD6ProductionSocialBundle/Resources/config/routing.yml"
     prefix:   /

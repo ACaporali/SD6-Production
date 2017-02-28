@@ -93,6 +93,11 @@ footer {
 .alert {
   margin-bottom: 0px; }
 
+.epingle .glyphicon-pushpin {
+  position: absolute;
+  right: 5px;
+  top: 5px; }
+
 .epingle [class^="col-"].contenu {
   padding: 40px 0px;
   background-color: #DDCEBC; }
@@ -597,3 +602,29 @@ footer.row {
 .partage-boutons img {
   width: 40px;
   height: auto; }
+
+/*------General------*/
+/*scss alert utilisation cookie*/
+.infos-cookies {
+  position: fixed;
+  bottom: 0;
+  color: #cccccc;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  width: 100%;
+  z-index: 2; }
+  .infos-cookies p {
+    display: inline-block;
+    margin-bottom: 0px; }
+  .infos-cookies button {
+    color: #222222; }
+
+.popup-promo {
+  position: fixed;
+  right: 50px;
+  top: 190px;
+  background-color: #fff;
+  padding: 20px;
+  z-index: 11; }
+  .popup-promo label {
+    font-weight: normal; }

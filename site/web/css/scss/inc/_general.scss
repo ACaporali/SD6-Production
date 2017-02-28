@@ -121,6 +121,12 @@ footer{
 
 //Elements pinned en haut de page (productions et actualites)
 .epingle{
+  .glyphicon-pushpin{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
   [class^="col-"].contenu{
     padding: 40px 0px;
     background-color: $beigeH1Home;

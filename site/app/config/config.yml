@@ -100,8 +100,7 @@ swiftmailer:
    username:  sd6production@gmail.com
    password:  mot-de-passe-adresse-mail
 
-# app/config/routing.yml
+
+#Fos js routing, route exposee pour utiliser dans fichier app.js
 fos_js_routing:
-    #Fos js routing, route exposee pour utiliser dans fichier app.js
-fos_js_routing:
-    routes_to_expose: []
+    routes_to_expose: [sd6_production_popup_infos_create_cookies]

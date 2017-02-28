@@ -1,0 +1,4 @@
+services:
+#    sd6_production_popup_infos.example:
+#        class: SD6Production\PopupInfosBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

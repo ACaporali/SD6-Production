@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new SD6Production\ContactBundle\SD6ProductionContactBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new SD6Production\SocialBundle\SD6ProductionSocialBundle(),
+            new SD6Production\PopupInfosBundle\SD6ProductionPopupInfosBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
