@@ -9,3 +9,23 @@ sd6_production_popup_infos_create_cookies:
 sd6_production_popup_infos_cgu_cookies:
     path:     /conditions-generales-utilisation
     defaults: { _controller: SD6ProductionPopupInfosBundle:Cookies:cguCookies }
+
+sd6_production_popup_infos_create:
+    path:     /popup-pinned/create
+    defaults: { _controller: SD6ProductionPopupInfosBundle:Default:create }
+
+sd6_production_popup_infos_edite:
+    path:     /popup-pinned/edite/{idPopup}
+    defaults: { _controller: SD6ProductionPopupInfosBundle:Default:edite }
+    requirements:
+      idPopup: "[0-9-]+"
+
+sd6_production_popup_infos_delete:
+    path:     /popup-pinned/delete/{idPopup}
+    defaults: { _controller: SD6ProductionPopupInfosBundle:Default:delete }
+    requirements:
+      idPopup: "[0-9-]+"
+
+sd6_production_popup_infos_all:
+    path:     /popup-pinned/all
+    defaults: { _controller: SD6ProductionPopupInfosBundle:Default:all }

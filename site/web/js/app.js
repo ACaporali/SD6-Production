@@ -78,13 +78,13 @@ $( document ).ready(function(){
 
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
-	function creatCookie(name, value, element) {
+	function creatCookie(name, value, days, element) {
 		var getUrlCreateCookie = "." + Routing.generate('sd6_production_popup_infos_create_cookies');
 
 		$.ajax({
 			url : getUrlCreateCookie,
 			type : 'POST',
-			data: {name: name, value: value},
+			data: {name: name, value: value, days: days},
 			success : function(code_html, statut){
 				console.log('cookie créé !');
 				$(element).addClass('hide');
@@ -97,14 +97,19 @@ $( document ).ready(function(){
 
 	//Creation cookie si clique sur bouton "ok" msg utilisation cookie
 	$(document).on('click', ".infos-cookies button", function(event) {
-		creatCookie('ok_cookie', 'ok', '.infos-cookies');
+		creatCookie('ok_cookie', 'ok', 7, '.infos-cookies');
 	});
 
 	//Creation cookie si "ne plus afficher" la popup promotionnelle
 	$('.popup-promo #checkbox-promo').click(function() {
 		if ($(this).is(':checked')) {
-			creatCookie('hide_popup_promo', 'ok', '.popup-promo');
+			creatCookie('hide_popup_promo', 'ok', 7, '.popup-promo');
 		}
+	});
+
+	//Hide popup infos promo
+	$(document).on('click', ".popup-promo span", function(event) {
+		creatCookie('hide_popup_promo_close', 'ok', 1, '.popup-promo');
 	});
 
 });

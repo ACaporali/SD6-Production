@@ -22,10 +22,14 @@
 .popup-promo{
   position: fixed;
   right: 50px;
-  top: 190px;
+  top: 120px;
   background-color: #fff;
   padding: 20px;
   z-index: 11;
+
+  span{
+    float: right;
+  }
 
   label{
     font-weight: normal;

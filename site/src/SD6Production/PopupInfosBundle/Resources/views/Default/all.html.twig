@@ -1,0 +1,49 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Gestion popup - {{ parent() }}{% endblock %}
+
+{% block head %}
+{{ parent() }}
+<meta name="description" content="">
+<meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+{{ parent() }}
+
+<div class="form-popu-pinned">
+  <div class="bordures">
+    <h3>Toutes les popup pinned</h3>
+
+    <a href="{{path('sd6_production_popup_infos_create')}}">Ajouter</a>
+    {% if allPopup is not null %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Numéro</th>
+            <th>Tnitre</th>
+            <th>Publiée ?</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+          </tr>
+        </thead>
+        <tbody>          
+          {% for popup in allPopup %}
+          <tr>
+            <td>{{popup.id}}</td>
+            <td>{{popup.title}}</td>
+            <td>{% if popup.published == true %}oui{% else %}non{% endif %}</td>
+            <td><a href="{{path('sd6_production_popup_infos_edite',{idPopup: popup.id})}}">modifier</a></td>
+            <td><a href="{{path('sd6_production_popup_infos_delete',{idPopup: popup.id})}}">supprimer</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+    <p>Aucun popup.</p>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

@@ -18,16 +18,11 @@ class CookiesController extends Controller
 
     $name = $request->get('name');
     $value = $request->get('value');
+    $days = $request->get('days');
 
     $cookies = $request->cookies;
 
-    /*if ($cookies->has($name))
-    {
-      return $this->render('SD6ProductionPopupInfosBundle:Cookies:cookies_ok.html.twig');
-    }else{
-    }*/
-
-    $cookie = new Cookie($name, $value, (time() + 3600 * 24 * 7), '/');
+    $cookie = new Cookie($name, $value, (time() + 3600 * 24 * $days), '/');
     $response = new Response();
     $response->headers->setCookie($cookie);
     $response->send();

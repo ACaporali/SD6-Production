@@ -1,5 +1,14 @@
-<div class="popup-promo">
-  <p>{{title}}</p>
-  <p>{{content}}</p>
-  <input type="checkbox" id="checkbox-promo" value="checkbox-promo"><label for='checkbox-promo'>Ne plus afficher</label>
-</div>
+{% if popupPinned is not null %}
+  <div class="popup-promo">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <p>{{popupPinned.title}}</p>
+    <p>{{popupPinned.content|raw}}</p>
+    <input type="checkbox" id="checkbox-promo" value="checkbox-promo"><label for='checkbox-promo'>Ne plus afficher</label>
+    {% if is_granted('ROLE_ADMIN') %}
+      <div class="row boutons-admin">
+        <a href="{{ path('sd6_production_popup_infos_edite', {'idPopup': popupPinned.id})}}">Editer</a>
+        <a href="{{ path('sd6_production_popup_infos_delete', {'idPopup': popupPinned.id})}}" class="supprimer">Supprimer</a>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

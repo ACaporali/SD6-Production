@@ -18,8 +18,10 @@
       {% if app.request.cookies.get('ok_cookie') is null %}
       {{ include("SD6ProductionPopupInfosBundle:Cookies:cookies.html.twig") }}
       {% endif %}
-      {% if app.request.cookies.get('hide_popup_promo') is null %}
-      {{ render(controller("SD6ProductionPopupInfosBundle:Default:popupInfos")) }}
+      {% if app.request.cookies.get('hide_popup_promo_close') is null %}
+        {% if app.request.cookies.get('hide_popup_promo') is null %}
+        {{ render(controller("SD6ProductionPopupInfosBundle:Default:popupPinned")) }}
+        {% endif %}
       {% endif %}
         <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -44,6 +46,7 @@
                                 <li><a href="{{ path('sd6_production_app_add') }}">Ajouter</a></li>
                                 <li><a href="{{ path('fos_user_change_password') }}">Change mot de passe</a></li>
                                 <li><a href="{{ path('sd6_production_app_category') }}">Categorie</a></li>
+                                <li><a href="{{ path('sd6_production_popup_infos_all') }}">Popup infos</a></li>
                             </ul>
                         </li>
                     {% endif %}
