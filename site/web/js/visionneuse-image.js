@@ -21,6 +21,9 @@ $(document).on('click','.galerie-photos .photos ul li a img', function(e) {
     '</div>';
     //insert lightbox HTML into page
     $('body').append(lightbox);
+
+    //Image dans viewport du navigateur
+    $('#lightbox img').css('max-height', $(window).height()-100);
   }
 });
 
@@ -61,6 +64,9 @@ function boucleVisionneuse(sens) {
     $('#lightbox .contenu').html('<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><img src="' + imgSrcPremierDernierLi + '" /><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>');
     $('#lightbox').show();
   }
+
+  //Image dans viewport du navigateur
+  $('#lightbox img').css('max-height', $(window).height()-100);
 }
 
 //Image suivante

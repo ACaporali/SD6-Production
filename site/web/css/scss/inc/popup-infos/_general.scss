@@ -1,5 +1,9 @@
 /*------General------*/
 /*scss alert utilisation cookie*/
+h4{
+  font-weight: bold;
+}
+
 .infos-cookies{
   position: fixed;
   bottom: 0;
@@ -26,9 +30,14 @@
   background-color: #fff;
   padding: 20px;
   z-index: 11;
+  max-width: 320px;
 
   span{
     float: right;
+  }
+
+  span:hover{
+    cursor: pointer;
   }
 
   label{

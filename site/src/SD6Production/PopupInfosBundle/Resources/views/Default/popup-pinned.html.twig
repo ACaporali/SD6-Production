@@ -1,7 +1,7 @@
 {% if popupPinned is not null %}
   <div class="popup-promo">
     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    <p>{{popupPinned.title}}</p>
+    <h4>{{popupPinned.title}}</h4>
     <p>{{popupPinned.content|raw}}</p>
     <input type="checkbox" id="checkbox-promo" value="checkbox-promo"><label for='checkbox-promo'>Ne plus afficher</label>
     {% if is_granted('ROLE_ADMIN') %}
