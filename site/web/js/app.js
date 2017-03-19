@@ -72,10 +72,6 @@ $( document ).ready(function(){
 	})
 
 
-	/*------Equipe------*/
-	//$(".equipe .paralax").parallax("center", 2900, 0.1, true);
-
-
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
 	function creatCookie(name, value, days, element) {
@@ -86,8 +82,7 @@ $( document ).ready(function(){
 			type : 'POST',
 			data: {name: name, value: value, days: days},
 			success : function(code_html, statut){
-				console.log('cookie créé !');
-				$(element).addClass('hide');
+				$(element).remove();
 			},
 			error : function(resultat, statut, erreur){
 				alert(erreur);
@@ -112,4 +107,52 @@ $( document ).ready(function(){
 		creatCookie('hide_popup_promo_close', 'ok', 1, '.popup-promo');
 	});
 
+
+});
+
+
+/*---Animations in viewport---*/
+function inViewport($el) {
+    var elH = $el.outerHeight(),
+        H   = $(window).height(),
+        r   = $el[0].getBoundingClientRect(), t=r.top+150, b=r.bottom;
+    return Math.max(0, t>0? Math.min(elH, H-t) : (b<H?b:H));
+}
+
+
+
+(function($, win) {
+  $.fn.inViewport = function(cb) {
+     return this.each(function(i,el) {
+       function visPx(){
+         var elH = $(el).outerHeight(),
+             H = $(win).height(),
+             r = el.getBoundingClientRect(), t=r.top+150, b=r.bottom;
+         return cb.call(el, Math.max(0, t>0? Math.min(elH, H-t) : (b<H?b:H)));
+       }
+       visPx();
+       $(win).on("resize scroll", visPx);
+     });
+  };
+}(jQuery, window));
+
+$(".element-left").inViewport(function(px){
+  if(px) {
+    $(this).addClass("animation-from-left") ;
+    $( this ).css( "visibility", "visible" );
+  }
+});
+
+$(".element-right").inViewport(function(px){
+  if(px) {
+    $(this).addClass("animation-from-right") ;
+    $( this ).css( "visibility", "visible" );
+  }
+});
+
+$(".element-down").inViewport(function(px){
+  if(px) {
+    $(this).addClass("animation-from-down") ;
+    $( this ).css( "visibility", "visible" );
+  }
 });

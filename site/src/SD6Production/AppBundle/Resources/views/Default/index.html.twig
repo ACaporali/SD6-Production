@@ -26,25 +26,24 @@
       <h2 class="beige">SD6 Production</h2>
       <hr class="hr-beige">
       <div class="texte">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-1">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-1 element-left">
           <p>SD6 Production à pour principale fonction la <strong>réalisation d’œuvres cinématographiques (films), télévisuelles</strong>, ainsi que la composition de musiques et l’organisation d’événements.
-            A travers nos projets  nous mettons en avant <strong>Grenoble et ses alentours</strong> afin de valoriser la région si peu représentée dans ces milieux.</p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-2">
-            <p>Créée depuis quelques années SD6 Production ne cesse d’avancer et de progresser par la <strong>réalisation de multiples projets</strong> aux thèmes variés. La diversité de ces derniers nous a également permis de nous faire connaitre d’avantage dans ces domaines artistiques.</p>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn">
-            <a href="{{ path('sd6_production_app_equipe') }}" class="btn btn-default">Voir plus</a>
-          </div>
+          A travers nos projets  nous mettons en avant <strong>Grenoble et ses alentours</strong> afin de valoriser la région si peu représentée dans ces milieux.</p>
         </div>
-        <p></p>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-2 element-right">
+          <p>Créée depuis quelques années SD6 Production ne cesse d’avancer et de progresser par la <strong>réalisation de multiples projets</strong> aux thèmes variés. La diversité de ces derniers nous a également permis de nous faire connaitre d’avantage dans ces domaines artistiques.</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn">
+          <a href="{{ path('sd6_production_app_equipe') }}" class="btn btn-default">Voir plus</a>
+        </div>
       </div>
     </div>
-    <div class="row actualites">
-      <h2 class="beige">Dernières publications</h2>
-      <hr class="hr-beige">
-      {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
-    </div>
   </div>
+  <div class="row actualites">
+    <h2 class="beige">Dernières publications</h2>
+    <hr class="hr-beige">
+    {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+  </div>
+</div>
 
 {% endblock %}
