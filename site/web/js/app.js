@@ -1,8 +1,6 @@
 $( document ).ready(function(){
 	/*------General------*/
 	//Masque le loader
-	$('body .loader').fadeOut("slow");
-
 	$(".productions .grille [class*='col-']").hover(
 		function(){$(this).addClass("zoom-effet");}
 	);
@@ -108,6 +106,11 @@ $( document ).ready(function(){
 	});
 
 
+
+
+	/*------General------*/
+	//Masque le loader
+	$('body .loader').fadeOut("slow");
 });
 
 

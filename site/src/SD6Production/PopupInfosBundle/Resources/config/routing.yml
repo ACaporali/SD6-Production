@@ -3,7 +3,7 @@ sd6_production_popup_infos_homepage:
     defaults: { _controller: SD6ProductionAppBundle:Default:index }
 
 sd6_production_popup_infos_create_cookies:
-    path:     /create-cookie
+    path:     /admin/create-cookie
     defaults: { _controller: SD6ProductionPopupInfosBundle:Cookies:createCookies }
 
 sd6_production_popup_infos_cgu_cookies:
@@ -11,21 +11,21 @@ sd6_production_popup_infos_cgu_cookies:
     defaults: { _controller: SD6ProductionPopupInfosBundle:Cookies:cguCookies }
 
 sd6_production_popup_infos_create:
-    path:     /popup-pinned/create
+    path:     /admin/popup-pinned/create
     defaults: { _controller: SD6ProductionPopupInfosBundle:Default:create }
 
 sd6_production_popup_infos_edite:
-    path:     /popup-pinned/edite/{idPopup}
+    path:     /admin/popup-pinned/edite/{idPopup}
     defaults: { _controller: SD6ProductionPopupInfosBundle:Default:edite }
     requirements:
       idPopup: "[0-9-]+"
 
 sd6_production_popup_infos_delete:
-    path:     /popup-pinned/delete/{idPopup}
+    path:     /admin/popup-pinned/delete/{idPopup}
     defaults: { _controller: SD6ProductionPopupInfosBundle:Default:delete }
     requirements:
       idPopup: "[0-9-]+"
 
 sd6_production_popup_infos_all:
-    path:     /popup-pinned/all
+    path:     /admin/popup-pinned/all
     defaults: { _controller: SD6ProductionPopupInfosBundle:Default:all }

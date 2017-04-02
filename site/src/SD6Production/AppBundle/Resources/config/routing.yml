@@ -1,33 +1,33 @@
 sd6_production_app_add:
-    path:     /add
+    path:     /admin/add
     defaults: { _controller: SD6ProductionAppBundle:Action:add }
 
 sd6_production_app_edite_advert:
-    path:     annonce/edite/{slugAdvert}
+    path:     /admin/annonce/edite/{slugAdvert}
     defaults: { _controller: SD6ProductionAppBundle:Action:editeAdvert }
     requirements:
         slugAdvert: "[a-zA-Z0-9-]+"
 
 sd6_production_app_edite_image:
-    path:     image/edite/{idImage}
+    path:     /admin/image/edite/{idImage}
     defaults: { _controller: SD6ProductionAppBundle:Action:editeImage }
     requirements:
       idImage: "[0-9-]+"
 
 sd6_production_app_edite_member:
-    path:     membre/edite/{idMember}
+    path:     /admin/membre/edite/{idMember}
     defaults: { _controller: SD6ProductionAppBundle:Action:editeMember }
     requirements:
       idMember: "[0-9-]+"
 
 sd6_production_app_edite_category:
-    path:     categorie/edite/{idCategory}
+    path:     /admin/categorie/edite/{idCategory}
     defaults: { _controller: SD6ProductionAppBundle:Action:editeCategory}
     requirements:
       idCategory: "[0-9-]+"
 
 sd6_production_app_delete:
-    path:     delete/{typeElement}/{numElement}
+    path:     /admin/delete/{typeElement}/{numElement}
     defaults: { _controller: SD6ProductionAppBundle:Action:delete}
     requirements:
       typeElement: "[a-zA-Z-]+"

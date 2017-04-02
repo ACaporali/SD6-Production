@@ -32,9 +32,7 @@ security:
                 target: /
 
     access_control:
-        #- { path: ^/add, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         - { path: ^/logout, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        #- { path: ^/edit, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        #- { path: ^/delete, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         - { path: ^/change-password, roles: ROLE_SUPER_ADMIN }
-        #- { path: ^/register, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/register, roles: ROLE_SUPER_ADMIN }
