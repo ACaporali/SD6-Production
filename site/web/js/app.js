@@ -73,7 +73,8 @@ $( document ).ready(function(){
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
 	function creatCookie(name, value, days, element) {
-		var getUrlCreateCookie = "./app_dev.php" + Routing.generate('sd6_production_popup_infos_create_cookies');
+		var res = $(location).attr('href').split("app_dev.php");
+		var getUrlCreateCookie = res[0]+"app_dev.php" + Routing.generate('sd6_production_popup_infos_create_cookies');
 
 		$.ajax({
 			url : getUrlCreateCookie,
