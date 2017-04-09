@@ -1,1 +1,1 @@
-fos.Router.setData({"base_url":"","routes":{"sd6_production_popup_infos_create_cookies":{"tokens":[["text","\/admin\/create-cookie"]],"defaults":[],"requirements":[],"hosttokens":[]}},"prefix":"","host":"localhost","scheme":"http"});
+fos.Router.setData({"base_url":"","routes":{"sd6_production_popup_infos_create_cookies":{"tokens":[["text","\/create-cookie"]],"defaults":[],"requirements":[],"hosttokens":[]}},"prefix":"","host":"localhost","scheme":"http"});

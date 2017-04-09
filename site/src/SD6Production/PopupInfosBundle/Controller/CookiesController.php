@@ -26,8 +26,7 @@ class CookiesController extends Controller
     $response = new Response();
     $response->headers->setCookie($cookie);
     $response->send();
-
-    return new Response();
+    return $response;
   }
 
   public function cguCookiesAction(Request $request)
