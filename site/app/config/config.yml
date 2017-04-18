@@ -96,9 +96,9 @@ ivory_ck_editor:
 
 #Configuration mail
 swiftmailer:
-   transport: gmail
-   username:  sd6production@gmail.com
-   password:  mot-de-passe-adresse-mail
+   transport: "%mailer_transport%"
+   username:  "%mailer_user%"
+   password:  "%mailer_password%"
 
 
 #Fos js routing, route exposee pour utiliser dans fichier app.js

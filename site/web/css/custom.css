@@ -159,7 +159,8 @@ footer {
       text-transform: uppercase;
       color: #DDCEBC;
       padding-left: 50px;
-      text-shadow: -3px -1px 0px #665f57; }
+      text-shadow: -3px -1px 0px #4e4944;
+      /*#665f57*/ }
       .accueil .visuel-activites .filtre .contenu p {
         font-size: 48px;
         letter-spacing: 3px; }
@@ -553,6 +554,27 @@ footer.row {
   100% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); } }
+
+.rs a:hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite; }
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
 /*------Prestations------*/
 .prestations .presentation {
