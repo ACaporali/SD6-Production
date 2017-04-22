@@ -1,8 +1,9 @@
 <?php
 
-namespace SD6Production\AppBundle\Controller;
+namespace SD6Production\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Advert;
@@ -14,7 +15,7 @@ use SD6Production\AppBundle\Form\CategoryType;
 use SD6Production\AppBundle\Entity\Image;
 use SD6Production\AppBundle\Form\ImageType;
 
-class ActionController extends Controller
+class DefaultController extends Controller
 {
   /*Ajouter un element : advert, image, member et category*/
   public function addAction(Request $request){
@@ -71,7 +72,7 @@ class ActionController extends Controller
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
-    return $this->render('SD6ProductionAppBundle:Action:ajouter.html.twig', array(
+    return $this->render('SD6ProductionAdminBundle:Default:ajouter.html.twig', array(
       'formAdvert' => $formAdvert->createView(),
       'formMember' => $formMember->createView(),
       'formCategory' => $formCategory->createView(),
@@ -98,7 +99,7 @@ class ActionController extends Controller
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
-    return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
+    return $this->render('SD6ProductionAdminBundle:Default:editer.html.twig', array(
       'formAdvert' => $formAdvert->createView(),
       'advert' => $advert,
     ));
@@ -123,7 +124,7 @@ class ActionController extends Controller
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
-    return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
+    return $this->render('SD6ProductionAdminBundle:Default:editer.html.twig', array(
       'formImage' => $formImage->createView(),
       'image' => $image,
     ));
@@ -149,7 +150,7 @@ class ActionController extends Controller
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
-    return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
+    return $this->render('SD6ProductionAdminBundle:Default:editer.html.twig', array(
       'formMember' => $formMember->createView(),
       'member' => $member,
     ));
@@ -175,7 +176,7 @@ class ActionController extends Controller
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
 
-    return $this->render('SD6ProductionAppBundle:Action:editer.html.twig', array(
+    return $this->render('SD6ProductionAdminBundle:Default:editer.html.twig', array(
       'formCategory' => $formCategory->createView(),
       'category' => $category,
     ));
@@ -213,5 +214,17 @@ class ActionController extends Controller
 
       return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
     }
+  }
+
+  public function categoryAction()
+  {
+    //Récupère toutes les catégories
+    $em = $this->getDoctrine()->getManager();
+
+    $listeCategories = $em->getRepository('SD6ProductionAppBundle:Category')->findAll();
+
+    return $this->render('SD6ProductionAdminBundle:Default:categorie.html.twig', array(
+      'listeCategories' => $listeCategories,
+    ));
   }
 }

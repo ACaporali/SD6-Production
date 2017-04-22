@@ -352,6 +352,8 @@ footer.row {
         color: #fff; }
       .navbar .container-fluid .navbar-collapse .nav li a:hover {
         color: #9d9d9d; }
+      .navbar .container-fluid .navbar-collapse .nav .dropdown-menu a {
+        color: #333; }
   .navbar .navbar-brand, .navbar .container-fluid > .navbar-header, .navbar .container-fluid {
     height: auto; }
 

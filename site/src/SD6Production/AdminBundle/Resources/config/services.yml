@@ -1,0 +1,4 @@
+services:
+#    sd6_production_admin.example:
+#        class: SD6Production\AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -14,25 +14,25 @@
         {% if advert is defined %}
     	  	<h1>Editer {{advert.title}}</h1>
             <div class="form-annonce">
-                {{ include("SD6ProductionAppBundle:Include:form-annonce.html.twig") }}
+                {{ include("SD6ProductionAdminBundle:Include:form-annonce.html.twig") }}
             </div>
         {% endif %}
         {% if image is defined %}
     	  	<h1>Editer image n°{{image.id}}</h1>
             <div class="form-annonce">
-                {{ include("SD6ProductionAppBundle:Include:form-image.html.twig") }}
+                {{ include("SD6ProductionAdminBundle:Include:form-image.html.twig") }}
             </div>
         {% endif %}
         {% if member is defined %}
     	  	<h1>Editer membre n°{{member.id}}</h1>
             <div class="form-annonce">
-                {{ include("SD6ProductionAppBundle:Include:form-membre.html.twig") }}
+                {{ include("SD6ProductionAdminBundle:Include:form-membre.html.twig") }}
             </div>
         {% endif %}
         {% if category is defined %}
     	  	<h1>Editer categorie n°{{category.id}}</h1>
             <div class="form-annonce">
-                {{ include("SD6ProductionAppBundle:Include:form-categorie.html.twig") }}
+                {{ include("SD6ProductionAdminBundle:Include:form-categorie.html.twig") }}
             </div>
         {% endif %}
 	</div>

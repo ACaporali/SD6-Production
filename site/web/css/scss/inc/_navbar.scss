@@ -33,6 +33,12 @@
 						color: #9d9d9d;
           }
         }
+
+				.dropdown-menu{
+					a{
+						color: $noirTxt;
+					}
+				}
       }
     }
   }

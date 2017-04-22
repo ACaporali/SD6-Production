@@ -5,13 +5,9 @@ namespace SD6Production\AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use SD6Production\AppBundle\Entity\Advert;
-use SD6Production\AppBundle\Form\AdvertType;
 use SD6Production\AppBundle\Entity\Member;
-use SD6Production\AppBundle\Form\MemberType;
 use SD6Production\AppBundle\Entity\Category;
-use SD6Production\AppBundle\Form\CategoryType;
 use SD6Production\AppBundle\Entity\Image;
-use SD6Production\AppBundle\Form\ImageType;
 
 class DefaultController extends Controller
 {
@@ -119,18 +115,6 @@ class DefaultController extends Controller
       'advert' => $advert,
       'advertPrevious' => $advertPrevious,
       'advertNext' => $advertNext
-    ));
-  }
-
-  public function categoryAction()
-  {
-    //Récupère toutes les catégories
-    $em = $this->getDoctrine()->getManager();
-
-    $listeCategories = $em->getRepository('SD6ProductionAppBundle:Category')->findAll();
-
-    return $this->render('SD6ProductionAppBundle:Default:categorie.html.twig', array(
-      'listeCategories' => $listeCategories,
     ));
   }
 

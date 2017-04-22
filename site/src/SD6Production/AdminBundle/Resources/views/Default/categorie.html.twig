@@ -15,7 +15,7 @@
     <hr class="hr-beige">
 		<div class="bordures">
 	  	<div class="row">
-		  	<a href="{{ path('sd6_production_app_add') }}">Ajouter une categorie</a>
+		  	<a href="{{ path('sd6_production_admin_add') }}">Ajouter une categorie</a>
         <div class="liste">
           <table class="table">
             <thead>
@@ -31,12 +31,12 @@
                     <td>{{category.name}}</td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{path('sd6_production_app_edite_category', {'idCategory': category.id})}}">Modifier</a>
+                        <a href="{{path('sd6_production_admin_edite_category', {'idCategory': category.id})}}">Modifier</a>
                       </div>
                     </td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{ path('sd6_production_app_delete', {'typeElement': 'category', 'numElement': category.id})}}" class="supprimer">Supprimer</a>
+                        <a href="{{ path('sd6_production_admin_delete', {'typeElement': 'category', 'numElement': category.id})}}" class="supprimer">Supprimer</a>
                       </div>
                     </td>
                   </tr>

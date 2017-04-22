@@ -33,8 +33,8 @@
           </div>
           {% if is_granted('ROLE_ADMIN') %}
           <div class="row boutons-admin">
-            <a href="{{ path('sd6_production_app_edite_member', {'idMember': member.id})}}">Editer</a>
-            <a href="{{ path('sd6_production_app_delete', {'typeElement': 'equipe', 'numElement': member.id})}}" class="supprimer">Supprimer</a>
+            <a href="{{ path('sd6_production_admin_edite_member', {'idMember': member.id})}}">Editer</a>
+            <a href="{{ path('sd6_production_admin_delete', {'typeElement': 'equipe', 'numElement': member.id})}}" class="supprimer">Supprimer</a>
           </div>
           {% endif %}
         </div>

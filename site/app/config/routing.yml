@@ -1,3 +1,7 @@
+sd6_production_admin:
+    resource: "@SD6ProductionAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
 sd6_production_popup_infos:
     resource: "@SD6ProductionPopupInfosBundle/Resources/config/routing.yml"
     prefix:   /
