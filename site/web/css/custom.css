@@ -193,6 +193,12 @@ footer {
     height: auto; }
   .annonce div[class^="col-"] .contenu {
     border: 1px solid #d1d1d1; }
+    .annonce div[class^="col-"] .contenu .image {
+      height: 230px; }
+      .annonce div[class^="col-"] .contenu .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
     .annonce div[class^="col-"] .contenu .texte {
       padding: 0px 15px 15px 15px; }
       .annonce div[class^="col-"] .contenu .texte .titre h3 a {
@@ -205,6 +211,8 @@ footer {
         color: #A99675; }
       .annonce div[class^="col-"] .contenu .texte .accroche {
         font-size: 15px; }
+        .annonce div[class^="col-"] .contenu .texte .accroche p {
+          height: 66px; }
     .annonce div[class^="col-"] .contenu .bouton {
       text-align: center; }
       .annonce div[class^="col-"] .contenu .bouton a {
@@ -369,14 +377,19 @@ footer.row {
   padding-left: 0px; }
 
 .productions .grille .contenu {
-  margin: 1px 1px; }
-  .productions .grille .contenu .image img {
-    display: block;
-    position: relative;
-    -webkit-transition: all .4s linear;
-    transition: all .4s linear;
-    width: 100%;
-    height: auto; }
+  margin: 1px 1px;
+  height: 200px; }
+  .productions .grille .contenu .image {
+    height: 100%;
+    width: 100%; }
+    .productions .grille .contenu .image img {
+      display: block;
+      position: relative;
+      -webkit-transition: all .4s linear;
+      transition: all .4s linear;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
   .productions .grille .contenu .overlay {
     width: 100%;
     height: 100%;

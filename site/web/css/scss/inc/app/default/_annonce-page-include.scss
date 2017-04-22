@@ -11,6 +11,16 @@
     .contenu{
     	border: 1px solid #d1d1d1;
 
+      .image{
+        height: 230px;
+
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
       .texte{
         padding: 0px 15px 15px 15px;
         .titre{
@@ -31,6 +41,9 @@
 
         .accroche{
         	font-size: 15px;
+          p{
+            height: 66px;
+          }
         }
       }
 
