@@ -15,7 +15,7 @@
     <div class="row">
       <div class="contenu col-xs-12 col-sm-8 col-md-8 col-lg-8">
         <h1>{{advert.title}}</h1>
-        {% if is_granted('ROLE_ADMIN') %}
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <a href="{{ path('sd6_production_admin_edite_advert', {'slugAdvert': advert.slug})}}" class="editer">Editer</a>
         {% endif %}
         <div class="image">

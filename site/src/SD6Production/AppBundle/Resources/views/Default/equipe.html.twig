@@ -31,7 +31,7 @@
             <h4>{{member.firstName}} {% if member.name is not null %}{{member.name}}{% endif %}, {{member.post}}</h4>
             <p>{{member.description}}</p>
           </div>
-          {% if is_granted('ROLE_ADMIN') %}
+          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
           <div class="row boutons-admin">
             <a href="{{ path('sd6_production_admin_edite_member', {'idMember': member.id})}}">Editer</a>
             <a href="{{ path('sd6_production_admin_delete', {'typeElement': 'equipe', 'numElement': member.id})}}" class="supprimer">Supprimer</a>

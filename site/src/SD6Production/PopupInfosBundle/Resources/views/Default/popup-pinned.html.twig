@@ -4,7 +4,7 @@
     <h4>{{popupPinned.title}}</h4>
     <p>{{popupPinned.content|raw}}</p>
     <input type="checkbox" id="checkbox-promo" value="checkbox-promo"><label for='checkbox-promo'>Ne plus afficher</label>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
       <div class="row boutons-admin">
         <a href="{{ path('sd6_production_popup_infos_edite', {'idPopup': popupPinned.id})}}">Editer</a>
         <a href="{{ path('sd6_production_popup_infos_delete', {'idPopup': popupPinned.id})}}" class="supprimer">Supprimer</a>

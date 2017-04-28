@@ -207,8 +207,7 @@ footer {
       .annonce div[class^="col-"] .contenu .texte .titre h3 a:first-letter {
         text-transform: uppercase; }
       .annonce div[class^="col-"] .contenu .texte .titre h3 a:hover {
-        text-decoration: none;
-        color: #A99675; }
+        text-decoration: none; }
       .annonce div[class^="col-"] .contenu .texte .accroche {
         font-size: 15px; }
         .annonce div[class^="col-"] .contenu .texte .accroche p {
@@ -274,6 +273,11 @@ footer.row {
     display: block;
     color: #818181;
     cursor: pointer; }
+  footer.row .rs div {
+    display: inline-block;
+    position: relative;
+    width: 45px;
+    height: 36px; }
   footer.row .rs img {
     width: 35px;
     height: auto;
@@ -373,15 +377,17 @@ footer.row {
     padding-bottom: 25px; } }
 
 .productions [class^="col-"] {
-  padding-right: 0px;
-  padding-left: 0px; }
+  /*padding-right: 0px;
+    padding-left: 0px;*/
+  margin-bottom: 30px; }
 
 .productions .grille .contenu {
   margin: 1px 1px;
   height: 200px; }
   .productions .grille .contenu .image {
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    overflow: hidden; }
     .productions .grille .contenu .image img {
       display: block;
       position: relative;
@@ -391,7 +397,7 @@ footer.row {
       height: 100%;
       object-fit: cover; }
   .productions .grille .contenu .overlay {
-    width: 100%;
+    width: calc(100% - 30px);
     height: 100%;
     position: absolute;
     overflow: hidden;
@@ -401,7 +407,8 @@ footer.row {
     background-color: rgba(0, 0, 0, 0.5);
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-    text-align: center; }
+    text-align: center;
+    margin: 0px 15px; }
     .productions .grille .contenu .overlay .texte {
       display: table;
       width: 100%;
@@ -425,8 +432,6 @@ footer.row {
             width: 22px;
             background-color: #fff;
             margin-bottom: 10px; }
-          .productions .grille .contenu .overlay .texte .table-cell .titre h3:hover a {
-            color: #A99675; }
         .productions .grille .contenu .overlay .texte .table-cell .accroche, .productions .grille .contenu .overlay .texte .table-cell .date {
           color: #fff;
           padding: 0px 10px; }
@@ -572,8 +577,6 @@ footer.row {
 
 .rs a:hover {
   position: absolute;
-  top: 50%;
-  left: 50%;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite; }

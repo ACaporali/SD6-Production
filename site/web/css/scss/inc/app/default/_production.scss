@@ -1,7 +1,8 @@
 .productions{
   [class^="col-"]{
-    padding-right: 0px;
-    padding-left: 0px;
+    /*padding-right: 0px;
+    padding-left: 0px;*/
+    margin-bottom: 30px;
   }
 
   .grille{
@@ -11,6 +12,7 @@
       .image{
         height: 100%;
         width: 100%;
+        overflow: hidden;
 
         img{
           display:block;
@@ -23,7 +25,7 @@
         }
       }
       .overlay{
-        width:100%;
+        width:calc(100% - 30px);
         height:100%;
         position:absolute;
         overflow:hidden;
@@ -34,6 +36,7 @@
         -webkit-transition:all .4s ease-in-out;
         transition:all .4s ease-in-out;
         text-align: center;
+        margin: 0px 15px;
 
         .texte{
           display: table;
@@ -63,12 +66,6 @@
                 width: 22px;
                 background-color: #fff;
                 margin-bottom: 10px;
-              }
-
-              h3:hover{
-                a{
-                  color: $beige;
-                }
               }
             }
 

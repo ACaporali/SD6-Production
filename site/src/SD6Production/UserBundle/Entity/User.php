@@ -1,17 +1,17 @@
 <?php
 
-namespace SD6Production\UtilisateurBundle\Entity;
+namespace SD6Production\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * Utilisateur
+ * User
  *
- * @ORM\Table(name="utilisateur")
- * @ORM\Entity(repositoryClass="SD6Production\UtilisateurBundle\Repository\UtilisateurRepository")
+ * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="SD6Production\UserBundle\Repository\UserRepository")
  */
-class Utilisateur extends BaseUser
+class User extends BaseUser
 {
     /**
      * @var int
@@ -23,19 +23,17 @@ class Utilisateur extends BaseUser
     protected $id;
 
     /**
-    * @var string
-    *
-    * @ORM\Column(name="name", type="string", length=128, nullable=true)
-    */
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
     private $name;
-
-
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -43,11 +41,11 @@ class Utilisateur extends BaseUser
     }
 
     /**
-     * Set nom
+     * Set name
      *
      * @param string $name
      *
-     * @return Utilisateur
+     * @return User
      */
     public function setName($name)
     {
