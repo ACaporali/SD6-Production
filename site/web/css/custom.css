@@ -274,10 +274,11 @@ footer.row {
     color: #818181;
     cursor: pointer; }
   footer.row .rs div {
-    display: inline-block;
+    display: table-cell;
     position: relative;
     width: 45px;
-    height: 36px; }
+    height: 36px;
+    text-align: center; }
   footer.row .rs img {
     width: 35px;
     height: auto;
@@ -579,7 +580,8 @@ footer.row {
   position: absolute;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
-  animation: spin 4s linear infinite; }
+  animation: spin 4s linear infinite;
+  left: 0; }
 
 @-moz-keyframes spin {
   100% {
