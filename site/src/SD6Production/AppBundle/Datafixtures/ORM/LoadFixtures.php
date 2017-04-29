@@ -86,7 +86,7 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
       $util->setPlainPassword('admin');
       //$util->setPassword('3NCRYPT3D-V3R51ON');
       $util->setEnabled(true);
-      $util->setRoles(array('ROLE_ADMIN'));
+      $util->setRoles(array('ROLE_SUPER_ADMIN'));
 
       $utilManager->updateUser($util, true);
 

@@ -1,6 +1,6 @@
 {% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
 
-{% block title %}Categorie - {{ parent() }}{% endblock %}
+{% block title %}Compte - {{ parent() }}{% endblock %}
 
 {% block head %}
   {{ parent() }}
@@ -11,32 +11,36 @@
 {% block site_body %}
 	<div class="categorie">
   	{{ parent() }}
-  	<h1 class="beige text-center">Categorie</h1>
+  	<h1 class="beige text-center">Comptes</h1>
     <hr class="hr-beige">
 		<div class="bordures">
 	  	<div class="row">
-		  	<a href="{{ path('sd6_production_admin_add') }}">Ajouter une categorie</a>
+		  	<a href="{{ path('fos_user_registration_register') }}">Ajouter un compte</a>
         <div class="liste">
           <table class="table">
             <thead>
               <tr>
                 <th>Nom</th>
+                <th>Role</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
               </tr>
             </thead>
             <tbody>
-              {% for category in listeCategories %}
+              {% for user in users %}
                   <tr>
-                    <td>{{category.name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{% for role in user.roles %}
+                      <p>{{role}}</p>
+                    {% endfor %}</td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{path('sd6_production_admin_edite_category', {'idCategory': category.id})}}">Modifier</a>
+                        <a href="{{path('sd6_production_admin_edite_account', {'idAccount': user.id})}}">Modifier</a>
                       </div>
                     </td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{ path('sd6_production_admin_delete', {'typeElement': 'category', 'numElement': category.id})}}" class="supprimer">Supprimer</a>
+                        <a href="{{ path('sd6_production_admin_delete_account', {'numAccount': user.id})}}" class="supprimer">Supprimer</a>
                       </div>
                     </td>
                   </tr>

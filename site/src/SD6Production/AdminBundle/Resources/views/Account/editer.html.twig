@@ -1,0 +1,22 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Editer - {{ parent() }}{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+	<div class="bordures">
+	  	{{ parent() }}
+        {% if category is defined %}
+    	  	<h1>Editer categorie n°{{category.id}}</h1>
+            <div class="form-category">
+                {{ include("SD6ProductionAdminBundle:Include:form-categorie.html.twig") }}
+            </div>
+        {% endif %}
+	</div>
+
+{% endblock %}

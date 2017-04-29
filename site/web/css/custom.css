@@ -369,6 +369,11 @@ footer.row {
         color: #333; }
   .navbar .navbar-brand, .navbar .container-fluid > .navbar-header, .navbar .container-fluid {
     height: auto; }
+  .navbar .dropdown-submenu:hover ul {
+    display: block;
+    top: 0;
+    left: 100%;
+    position: absolute; }
 
 @media (min-width: 768px) {
   .navbar {
