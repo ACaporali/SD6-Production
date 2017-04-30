@@ -16,39 +16,16 @@ class AccountController extends Controller
   {
     //Récupère toutes les catégories
     $em = $this->get('fos_user.user_manager');
-
     $users = $em->findUsers();
+
+    $userConnected = $this->get('security.token_storage')->getToken()->getUser();
 
     return $this->render('SD6ProductionAdminBundle:Account:account.html.twig', array(
       'users' => $users,
+      'userConnected' => $userConnected
     ));
   }
-
-  /*Editer account*/
-  public function editeAction(Request $request, $idAccount)
-  {
-    $em = $this->get('fos_user.user_manager');
-    $account = $em->findOneById($idAccount);
-
-    $formAccount = $this->get('form.factory')->create(new CategoryType(), $account);
-    $formAccount->handleRequest($request);
-
-    if ($formAccount->isValid()) {
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($account);
-      $em->flush();
-
-      $request->getSession()->getFlashBag()->add('succes', 'Compte modifiée.');
-
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-    }
-
-    return $this->render('SD6ProductionAdminBundle:Account:editer.html.twig', array(
-      'formAccount' => $formAccount->createView(),
-      'account' => $account,
-    ));
-  }
-
+  
   /*Supprimer une account*/
   public function deleteAction($numAccount, Request $request)
   {

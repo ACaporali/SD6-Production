@@ -2,12 +2,6 @@ sd6_production_admin_account_index:
   path: /
   defaults: { _controller: SD6ProductionAdminBundle:Account:account }
 
-sd6_production_admin_edite_account:
-    path:     /edite/{idAccount}
-    defaults: { _controller: SD6ProductionAdminBundle:Account:edite}
-    requirements:
-      idAccount: "[0-9-]+"
-
 sd6_production_admin_add_account:
     path:     /add/
     defaults: { _controller: SD6ProductionAdminBundle:Account:add}
