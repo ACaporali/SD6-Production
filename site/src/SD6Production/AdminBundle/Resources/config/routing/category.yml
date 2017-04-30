@@ -1,0 +1,19 @@
+sd6_production_admin_edite_category:
+    path:     /categorie/edite/{idCategory}
+    defaults: { _controller: SD6ProductionAdminBundle:Category:edite}
+    requirements:
+      idCategory: "[0-9-]+"
+
+sd6_production_admin_add_category:
+    path:     /categorie/add/
+    defaults: { _controller: SD6ProductionAdminBundle:Category:add}
+
+sd6_production_admin_delete_category:
+  path:     /categorie/delete/{numCategory}
+  defaults: { _controller: SD6ProductionAdminBundle:Category:delete}
+  requirements:
+    numCategory: "[0-9-]+"
+
+sd6_production_admin_category_index:
+    path:     /categorie
+    defaults: { _controller: SD6ProductionAdminBundle:Category:category }

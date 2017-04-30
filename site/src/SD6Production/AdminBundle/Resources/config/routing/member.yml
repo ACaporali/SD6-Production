@@ -1,0 +1,19 @@
+sd6_production_admin_member_index:
+  path: /
+  defaults: { _controller: SD6ProductionAdminBundle:Member:member }
+
+sd6_production_admin_edite_member:
+    path:     /edite/{idMember}
+    defaults: { _controller: SD6ProductionAdminBundle:Member:edite }
+    requirements:
+      idMember: "[0-9-]+"
+
+sd6_production_admin_add_member:
+    path:     /add/
+    defaults: { _controller: SD6ProductionAdminBundle:Member:add}
+
+sd6_production_admin_delete_member:
+  path:     /delete/{numMember}
+  defaults: { _controller: SD6ProductionAdminBundle:Member:delete}
+  requirements:
+    numMember: "[0-9-]+"

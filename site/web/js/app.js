@@ -21,8 +21,10 @@ $( document ).ready(function(){
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 50) {
 			nav.addClass("nav-fixed");
+			$('.body').css('margin-top', nav.height());
 		} else {
 			nav.removeClass("nav-fixed");
+			$('.body').css('margin-top', '0');
 		}
 	});
 

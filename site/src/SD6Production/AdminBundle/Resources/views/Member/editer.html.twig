@@ -11,10 +11,10 @@
 {% block site_body %}
 	<div class="bordures">
 	  	{{ parent() }}
-        {% if category is defined %}
-    	  	<h1>Editer categorie n°{{category.id}}</h1>
-            <div class="form-category">
-                {{ include("SD6ProductionAdminBundle:Include:form-categorie.html.twig") }}
+        {% if member is defined %}
+    	  	<h1>Editer Membre n°{{member.id}}</h1>
+            <div class="form-membre">
+                {{ include("SD6ProductionAdminBundle:Include:form-membre.html.twig") }}
             </div>
         {% endif %}
 	</div>

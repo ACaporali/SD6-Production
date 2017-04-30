@@ -14,12 +14,6 @@ sd6_production_admin_edite_image:
     requirements:
       idImage: "[0-9-]+"
 
-sd6_production_admin_edite_member:
-    path:     /membre/edite/{idMember}
-    defaults: { _controller: SD6ProductionAdminBundle:Default:editeMember }
-    requirements:
-      idMember: "[0-9-]+"
-
 sd6_production_admin_delete:
   path:     /delete/{typeElement}/{numElement}
   defaults: { _controller: SD6ProductionAdminBundle:Default:delete}
@@ -27,25 +21,13 @@ sd6_production_admin_delete:
     typeElement: "[a-zA-Z-]+"
     numElement: "[0-9-]+"
 
-sd6_production_admin_edite_category:
-    path:     /categorie/edite/{idCategory}
-    defaults: { _controller: SD6ProductionAdminBundle:Category:edite}
-    requirements:
-      idCategory: "[0-9-]+"
-
-sd6_production_admin_add_category:
-    path:     /categorie/add/
-    defaults: { _controller: SD6ProductionAdminBundle:Category:add}
-
-sd6_production_admin_delete_category:
-  path:     /categorie/delete/{numCategory}
-  defaults: { _controller: SD6ProductionAdminBundle:Category:delete}
-  requirements:
-    numCategory: "[0-9-]+"
+sd6_production_admin_member:
+    resource: "@SD6ProductionAdminBundle/Resources/config/routing/member.yml"
+    prefix:   /membre
 
 sd6_production_admin_category:
-    path:     /categorie
-    defaults: { _controller: SD6ProductionAdminBundle:Category:category }
+    resource: "@SD6ProductionAdminBundle/Resources/config/routing/category.yml"
+    prefix:   /categorie
 
 sd6_production_admin_account:
   resource: "@SD6ProductionAdminBundle/Resources/config/routing/account.yml"
