@@ -61,7 +61,7 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
 
       //Création d'adverts
       $adverts = [];
-      for ($i=0; $i <20 ; $i++) {
+      for ($i=0; $i <2 ; $i++) {
          $adverts[$i] = new Advert;
          $adverts[$i]->setTitle('L\'article '.$i.'');
          $adverts[$i]->setContent('Aliquam erat volutpat. Nunc auctor. Mauris pretium quam et urna. Fusce nibh. Duis risus. Curabitur sagittis hendrerit ante. Aliquam erat volutpat. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.');
