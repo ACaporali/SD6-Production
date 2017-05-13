@@ -1,6 +1,6 @@
 {% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
 
-{% block title %}Ajout - {{ parent() }}{% endblock %}
+{% block title %}Ajout image- {{ parent() }}{% endblock %}
 
 {% block head %}
   	{{ parent() }}
@@ -10,16 +10,9 @@
 
 {% block site_body %}
   	{{ parent() }}
-  	<p>Annonce</p>
-  	<p>Image</p>
-
    	<div class="all-form">
       <div class="bordures">
-        <div class="form-annonce">
-          {{ include("SD6ProductionAdminBundle:Include:form-annonce.html.twig") }}
-        </div>
-        <hr>
-        <div class="form-image">
+        <div class="form-categorie">
           {{ include("SD6ProductionAdminBundle:Include:form-image.html.twig") }}
         </div>
       </div>

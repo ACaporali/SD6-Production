@@ -1,0 +1,22 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Editer - {{ parent() }}{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+	<div class="bordures">
+	  	{{ parent() }}
+        {% if image is defined %}
+    	  	<h1>Editer image n°{{image.id}}</h1>
+            <div class="form-image">
+                {{ include("SD6ProductionAdminBundle:Include:form-image.html.twig") }}
+            </div>
+        {% endif %}
+	</div>
+
+{% endblock %}

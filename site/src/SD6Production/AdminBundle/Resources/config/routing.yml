@@ -32,3 +32,7 @@ sd6_production_admin_category:
 sd6_production_admin_account:
   resource: "@SD6ProductionAdminBundle/Resources/config/routing/account.yml"
   prefix:   /compte
+
+sd6_production_admin_image:
+    resource: "@SD6ProductionAdminBundle/Resources/config/routing/image.yml"
+    prefix:   /image

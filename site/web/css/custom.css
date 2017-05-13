@@ -369,11 +369,6 @@ footer.row {
         color: #333; }
   .navbar .navbar-brand, .navbar .container-fluid > .navbar-header, .navbar .container-fluid {
     height: auto; }
-  .navbar .dropdown-submenu:hover ul {
-    display: block;
-    top: 0;
-    left: 100%;
-    position: absolute; }
 
 @media (min-width: 768px) {
   .navbar {
@@ -683,3 +678,8 @@ h4 {
     cursor: pointer; }
   .popup-promo label {
     font-weight: normal; }
+
+/*Index image AdminBundle*/
+.liste [class^="col-"] img {
+  width: 100%;
+  height: auto; }

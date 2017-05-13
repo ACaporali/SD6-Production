@@ -44,6 +44,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour {{ app.user.username }} <span class="caret"></span></a>
               <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                 <li><a href="{{ path('sd6_production_admin_add') }}">Ajouter</a></li>
+                <li><a href="{{ path('sd6_production_admin_image_index') }}">Image</a></li>
                 <li><a href="{{ path('sd6_production_admin_account_index')}}">Compte</a></li>
                 <li><a href="{{ path('sd6_production_admin_member_index') }}">Membres</a></li>
                 {% if is_granted('ROLE_SUPER_ADMIN') %}<li><a href="{{ path('sd6_production_admin_category_index') }}">Categories</a></li>{% endif %}

@@ -1,0 +1,35 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Image - {{ parent() }}{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+	<div class="categorie">
+  	{{ parent() }}
+  	<h1 class="beige text-center">Image</h1>
+    <hr class="hr-beige">
+		<div class="bordures">
+	  	<div class="row">
+		  	<a href="{{ path('sd6_production_admin_add_image') }}">Ajouter une image</a>
+        <div class="liste">
+          {% for image in images %}
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <img src="{{asset(image.url)}}" alt="{{image.alt}}">
+            <div class="boutons-admin">
+              <a href="{{path('sd6_production_admin_edite_image', {'idImage': image.id})}}">Modifier</a>
+              <a href="{{ path('sd6_production_admin_delete_image', {'numImage': image.id})}}" class="supprimer">Supprimer</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+		  </div>
+	  </div>
+	</div>
+
+{% endblock %}
