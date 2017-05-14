@@ -73,17 +73,17 @@ class CategoryController extends Controller
   }
 
   /*Supprimer une category*/
-  public function deleteAction($numCategory, Request $request)
+  public function deleteAction($idCategory, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
 
-    $category = $em->getRepository('SD6ProductionAppBundle:Category')->find($numCategory);
+    $category = $em->getRepository('SD6ProductionAppBundle:Category')->find($idCategory);
 
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($numCategory === null) {
-      throw new NotFoundHttpException("Element d'id ".$numCategory." n'existe pas.");
+    if ($idCategory === null) {
+      throw new NotFoundHttpException("Element d'id ".$idCategory." n'existe pas.");
     }else{
       $em->remove($category);
       $em->flush();

@@ -73,17 +73,17 @@ class MemberController extends Controller
   }
 
   /*Supprimer un member*/
-  public function deleteAction($numMember, Request $request)
+  public function deleteAction($idMember, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
 
-    $member = $em->getRepository('SD6ProductionAppBundle:Member')->find($numMember);
+    $member = $em->getRepository('SD6ProductionAppBundle:Member')->find($idMember);
 
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($numMember === null) {
-      throw new NotFoundHttpException("Element d'id ".$numMember." n'existe pas.");
+    if ($idMember === null) {
+      throw new NotFoundHttpException("Element d'id ".$idMember." n'existe pas.");
     }else{
       $em->remove($member);
       $em->flush();

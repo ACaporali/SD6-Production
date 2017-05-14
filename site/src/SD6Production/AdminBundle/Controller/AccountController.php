@@ -27,14 +27,14 @@ class AccountController extends Controller
   }
   
   /*Supprimer une account*/
-  public function deleteAction($numAccount, Request $request)
+  public function deleteAction($idAccount, Request $request)
   {
     $em = $this->get('fos_user.user_manager');
-    $account = $em->findUserBy(array('id'=>$numAccount));
+    $account = $em->findUserBy(array('id'=>$idAccount));
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($numAccount === null) {
-      throw new NotFoundHttpException("Element d'id ".$numAccount." n'existe pas.");
+    if ($idAccount === null) {
+      throw new NotFoundHttpException("Element d'id ".$idAccount." n'existe pas.");
     }else{
       $em->deleteUser($account);
 

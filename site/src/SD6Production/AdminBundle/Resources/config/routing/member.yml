@@ -13,7 +13,7 @@ sd6_production_admin_add_member:
     defaults: { _controller: SD6ProductionAdminBundle:Member:add}
 
 sd6_production_admin_delete_member:
-  path:     /delete/{numMember}
+  path:     /delete/{idMember}
   defaults: { _controller: SD6ProductionAdminBundle:Member:delete}
   requirements:
-    numMember: "[0-9-]+"
+    idMember: "[0-9-]+"

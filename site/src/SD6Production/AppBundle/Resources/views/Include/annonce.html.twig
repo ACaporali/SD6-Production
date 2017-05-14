@@ -30,8 +30,8 @@
 				<a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': advert.category.name, 'slugAdvert': advert.slug}) }}">Voir plus</a>
 				{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 					<div class="row boutons-admin">
-						<a href="{{ path('sd6_production_admin_edite_advert', {'slugAdvert': advert.slug})}}" class="editer">Editer</a>
-						<a href="{{ path('sd6_production_admin_delete', {'typeElement': 'advert', 'numElement': advert.id})}}" class="supprimer">Supprimer</a>
+						<a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': advert.id})}}" class="editer">Editer</a>
+						<a href="{{ path('sd6_production_admin_delete_advert', {'idAdvert': advert.id})}}" class="supprimer">Supprimer</a>
 					</div>
 				{% endif %}
 			</div>

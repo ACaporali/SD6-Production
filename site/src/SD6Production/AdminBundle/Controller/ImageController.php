@@ -73,17 +73,17 @@ class ImageController extends Controller
   }
 
   /*Supprimer une image*/
-  public function deleteAction($numImage, Request $request)
+  public function deleteAction($idImage, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
 
-    $image = $em->getRepository('SD6ProductionAppBundle:Image')->find($numImage);
+    $image = $em->getRepository('SD6ProductionAppBundle:Image')->find($idImage);
 
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($numImage === null) {
-      throw new NotFoundHttpException("Element d'id ".$numImage." n'existe pas.");
+    if ($idImage === null) {
+      throw new NotFoundHttpException("Element d'id ".$idImage." n'existe pas.");
     }else{
       $em->remove($image);
       $em->flush();

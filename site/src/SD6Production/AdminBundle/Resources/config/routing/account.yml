@@ -7,7 +7,7 @@ sd6_production_admin_add_account:
     defaults: { _controller: SD6ProductionAdminBundle:Account:add}
 
 sd6_production_admin_delete_account:
-  path:     /delete/{numAccount}
+  path:     /delete/{idAccount}
   defaults: { _controller: SD6ProductionAdminBundle:Account:delete}
   requirements:
-    numAccount: "[0-9-]+"
+    idAccount: "[0-9-]+"

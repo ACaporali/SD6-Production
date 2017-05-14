@@ -23,16 +23,20 @@ sd6_production_admin_delete:
 
 sd6_production_admin_member:
     resource: "@SD6ProductionAdminBundle/Resources/config/routing/member.yml"
-    prefix:   /membre
+    prefix:   /membres
 
 sd6_production_admin_category:
     resource: "@SD6ProductionAdminBundle/Resources/config/routing/category.yml"
-    prefix:   /categorie
+    prefix:   /categories
 
 sd6_production_admin_account:
   resource: "@SD6ProductionAdminBundle/Resources/config/routing/account.yml"
-  prefix:   /compte
+  prefix:   /comptes
 
 sd6_production_admin_image:
     resource: "@SD6ProductionAdminBundle/Resources/config/routing/image.yml"
-    prefix:   /image
+    prefix:   /images
+
+sd6_production_admin_advert:
+    resource: "@SD6ProductionAdminBundle/Resources/config/routing/advert.yml"
+    prefix:   /annonces

@@ -1,6 +1,6 @@
 {% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
 
-{% block title %}Categorie - {{ parent() }}{% endblock %}
+{% block title %}Categories - {{ parent() }}{% endblock %}
 
 {% block head %}
   {{ parent() }}
@@ -11,7 +11,7 @@
 {% block site_body %}
 	<div class="categorie">
   	{{ parent() }}
-  	<h1 class="beige text-center">Categorie</h1>
+  	<h1 class="beige text-center">Categories</h1>
     <hr class="hr-beige">
 		<div class="bordures">
 	  	<div class="row">
@@ -36,7 +36,7 @@
                     </td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{ path('sd6_production_admin_delete_category', {'numCategory': category.id})}}" class="supprimer">Supprimer</a>
+                        <a href="{{ path('sd6_production_admin_delete_category', {'idCategory': category.id})}}" class="supprimer">Supprimer</a>
                       </div>
                     </td>
                   </tr>

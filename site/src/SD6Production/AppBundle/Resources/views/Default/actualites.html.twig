@@ -49,7 +49,7 @@
               <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': actualitePinned.category.name, 'slugAdvert': actualitePinned.slug}) }}">Voir plus</a>
               {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 <div class="row boutons-admin">
-                  <a href="{{ path('sd6_production_admin_edite_advert', {'slugAdvert': actualitePinned.slug})}}" class="editer">Editer</a>
+                  <a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': actualitePinned.id})}}" class="editer">Editer</a>
                   <a href="{{ path('sd6_production_admin_delete', {'typeElement': 'advert', 'numElement': actualitePinned.id})}}" class="supprimer">Supprimer</a>
                 </div>
               {% endif %}
