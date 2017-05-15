@@ -27,7 +27,24 @@ footer.row{
   	width: 35px;
   	height: auto;
     margin-right: 5px;
-  }
+    }
+
+    .lien{
+  		margin-right: 5px;
+  	}
+
+  	a{
+  		width: 35px;
+  		height: 35px;
+  	}
+
+  	a:hover{
+  		position: absolute;
+  		-webkit-animation:balance 0.5s  ;
+  		-moz-animation:balance 0.5s  ;
+  		animation:balance 0.5s  ;
+  		left: 3px;
+  	}
   }
 
   .copyright{
