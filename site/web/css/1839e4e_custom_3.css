@@ -283,6 +283,17 @@ footer.row {
     width: 35px;
     height: auto;
     margin-right: 5px; }
+  footer.row .rs .lien {
+    margin-right: 5px; }
+  footer.row .rs a {
+    width: 35px;
+    height: 35px; }
+  footer.row .rs a:hover {
+    position: absolute;
+    -webkit-animation: balance 0.5s;
+    -moz-animation: balance 0.5s;
+    animation: balance 0.5s;
+    left: 3px; }
   footer.row .copyright {
     padding-top: 10px;
     text-align: center;
@@ -369,11 +380,6 @@ footer.row {
         color: #333; }
   .navbar .navbar-brand, .navbar .container-fluid > .navbar-header, .navbar .container-fluid {
     height: auto; }
-  .navbar .dropdown-submenu:hover ul {
-    display: block;
-    top: 0;
-    left: 100%;
-    position: absolute; }
 
 @media (min-width: 768px) {
   .navbar {
@@ -473,10 +479,27 @@ footer.row {
 
 .contact .contenu {
   background-color: #fff; }
-  .contact .contenu .reseaux-sociaux a img {
+  .contact .contenu .reseaux-sociaux div {
+    display: table-cell;
+    position: relative;
+    width: 45px;
+    height: 36px;
+    text-align: center; }
+  .contact .contenu .reseaux-sociaux img {
     width: 35px;
     height: auto;
     margin-right: 5px; }
+  .contact .contenu .reseaux-sociaux .lien {
+    margin-right: 5px; }
+  .contact .contenu .reseaux-sociaux a {
+    width: 35px;
+    height: 35px; }
+  .contact .contenu .reseaux-sociaux a:hover {
+    position: absolute;
+    -webkit-animation: balance 0.5s;
+    -moz-animation: balance 0.5s;
+    animation: balance 0.5s;
+    left: 3px; }
   .contact .contenu .formulaire form {
     margin-bottom: 10px; }
     .contact .contenu .formulaire form .form-group {
@@ -581,25 +604,39 @@ footer.row {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); } }
 
-.rs a:hover {
-  position: absolute;
-  -webkit-animation: spin 4s linear infinite;
-  -moz-animation: spin 4s linear infinite;
-  animation: spin 4s linear infinite;
-  left: 0; }
-
-@-moz-keyframes spin {
+@-moz-keyframes balance {
+  25% {
+    -moz-transform: rotate(-10deg); }
+  50% {
+    -moz-transform: rotate(0deg); }
+  75% {
+    -moz-transform: rotate(10deg); }
   100% {
-    -moz-transform: rotate(360deg); } }
+    -moz-transform: rotate(0deg); } }
 
-@-webkit-keyframes spin {
+@-webkit-keyframes balance {
+  25% {
+    -webkit-transform: rotate(-10deg); }
+  50% {
+    -webkit-transform: rotate(0deg); }
+  75% {
+    -webkit-transform: rotate(10deg); }
   100% {
-    -webkit-transform: rotate(360deg); } }
+    -webkit-transform: rotate(0deg); } }
 
-@keyframes spin {
+@keyframes balance {
+  25% {
+    -webkit-transform: rotate(-25deg);
+    transform: rotate(-10deg); }
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  75% {
+    -webkit-transform: rotate(25deg);
+    transform: rotate(10deg); }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); } }
 
 /*------Prestations------*/
 .prestations .presentation {
@@ -683,3 +720,8 @@ h4 {
     cursor: pointer; }
   .popup-promo label {
     font-weight: normal; }
+
+/*Index image AdminBundle*/
+.liste [class^="col-"] img {
+  width: 100%;
+  height: auto; }

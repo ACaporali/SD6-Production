@@ -13,6 +13,12 @@ DirectoryIndex app.php
 
 # Disabling MultiViews prevents unwanted negotiation, e.g. "/app" should not resolve
 # to the front controller "/app.php" but be rewritten to "/app.php/app".
+#AuthUserFile /home/sdproducok/.htpasswd
+#AuthGroupFile /dev/null
+#AuthName "Accès Restreint"
+#AuthType Basic
+#require valid-user
+
 <IfModule mod_negotiation.c>
     Options -MultiViews
 </IfModule>

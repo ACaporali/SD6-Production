@@ -34,7 +34,7 @@
           {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
           <div class="row boutons-admin">
             <a href="{{ path('sd6_production_admin_edite_member', {'idMember': member.id})}}">Editer</a>
-            <a href="{{ path('sd6_production_admin_delete', {'typeElement': 'equipe', 'numElement': member.id})}}" class="supprimer">Supprimer</a>
+            <a href="{{ path('sd6_production_admin_delete_member', {'idMember': member.id})}}" class="supprimer">Supprimer</a>
           </div>
           {% endif %}
         </div>
