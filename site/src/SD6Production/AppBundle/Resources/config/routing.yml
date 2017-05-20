@@ -32,3 +32,7 @@ sd6_production_app_details_advert:
     requirements:
         typeAdvert: "[a-zA-Z]+"
         slugAdvert: "[a-zA-Z0-9-]+"
+
+sd6_production_app_mentions_legales:
+    path:     /mentions-legales
+    defaults: { _controller: SD6ProductionAppBundle:Default:mentionsLegales }

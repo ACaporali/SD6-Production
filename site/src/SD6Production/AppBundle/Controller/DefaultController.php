@@ -133,4 +133,9 @@ class DefaultController extends Controller
       'listeActualites' => $listeActualites
     ));
   }
+
+  public function mentionsLegalesAction()
+  {
+    return $this->render('SD6ProductionAppBundle:Default:mentions-legales.html.twig');
+  }
 }
