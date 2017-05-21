@@ -15,7 +15,8 @@
     <hr class="hr-beige">
 		<div class="bordures">
 	  	<div class="row">
-		  	<a href="{{ path('sd6_production_admin_add_advert') }}">Ajouter une annonce</a>
+		  	<a href="{{ path('sd6_production_admin_add_advert', {'type': 'autre'}) }}">Ajouter une annonce</a>
+        <a href="{{ path('sd6_production_admin_add_advert', {'type': 'casting'}) }}">Ajouter un casting</a>
         <div class="liste">
           <table class="table">
             <thead>

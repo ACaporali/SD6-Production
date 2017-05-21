@@ -12,10 +12,15 @@ use Gedmo\Mapping\Annotation as Gedmo;
 *
 * @ORM\Table(name="advert")
 * @ORM\Entity(repositoryClass="SD6Production\AppBundle\Repository\AdvertRepository")
+* @ORM\InheritanceType("JOINED")
+* @ORM\DiscriminatorColumn(name="discr", type="string")
+* @ORM\DiscriminatorMap({"autre" = "Advert", "casting" = "AdvertCasting"})
 * @ORM\HasLifecycleCallbacks()
 */
 class Advert
 {
+  const ADVERT_AUTRE = 'Autre';
+  const ADVERT_CASTING = 'Casting';
   /**
   * @Gedmo\Slug(fields={"title"})
   * @ORM\Column(name="slug", type="string", length=255, unique=true)
@@ -371,5 +376,19 @@ class Advert
     if ($this->taglines == null) {
       $this->taglines = substr($this->content,0,124).'...';
     }
+  }
+
+  /**
+   * @return string
+   */
+  public function getTypeAdvert(){
+    return self::ADVERT_AUTRE;
+  }
+
+  /**
+   * @return bool
+   */
+  public function isCasting(){
+    return $this instanceof AdvertCasting;
   }
 }

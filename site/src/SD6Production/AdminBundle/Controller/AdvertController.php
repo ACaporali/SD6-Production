@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Advert;
+use SD6Production\AppBundle\Entity\AdvertCasting;
 use SD6Production\AppBundle\Form\AdvertType;
 
 
@@ -25,8 +26,13 @@ class AdvertController extends Controller
   }
 
   /*Ajouter advert*/
-  public function addAction(Request $request){
-    $advert = new Advert();
+  public function addAction(Request $request, $type){
+    if ($type == 'autre') {
+      $advert = new Advert();
+    }else{
+      $advert = new AdvertCasting();
+    }
+
     $formAdvert = $this->get('form.factory')->create(new AdvertType(), $advert);
 
     $formAdvert->handleRequest($request);

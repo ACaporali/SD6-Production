@@ -10,4 +10,22 @@ namespace SD6Production\AppBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getCategory($category){
+		$qb = $this->createQueryBuilder('cat');
+
+    $qb->where('cat.name = :catName')
+		->setParameter('catName', $category);
+
+		return $qb;
+	}
+
+  public function getCategoryWithout($category){
+		$qb = $this->createQueryBuilder('cat');
+
+		$qb->where($qb->expr()->notIn('cat.name', "'".$category."'"));
+
+		$qb->orderBy('cat.name', 'ASC');
+
+		return $qb;
+	}
 }

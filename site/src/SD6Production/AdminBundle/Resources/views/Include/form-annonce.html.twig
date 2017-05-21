@@ -17,6 +17,12 @@
 	{% endif %}
 
 	<div class="row">
+		{% if formAdvert.vars.data.isCasting %}
+			{{ form_row(formAdvert.closure) }}
+		{% endif %}
+	</div>
+
+	<div class="row">
 		{# Génération du label. #}
 		{{ form_label(formAdvert.category, "Categorie de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 		{# Génération de l'input. #}

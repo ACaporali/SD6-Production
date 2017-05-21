@@ -5,6 +5,10 @@ namespace SD6Production\AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class AdvertType extends AbstractType
 {
@@ -21,12 +25,39 @@ class AdvertType extends AbstractType
     ->add('author', 'text')
     ->add('date', 'date')
     ->add('published', 'checkbox', array('required' => false))// Element non obligatoire dans le form
-    ->add('category', 'entity', array( //Affiche la liste des catégories
-       'class'    => 'SD6ProductionAppBundle:Category',
-       'property' => 'name',
-       'multiple' => false))
     ->add('image', new ImageType(), array('required' => false)) // Imbriqué le form image dans celui-ci
-    ->add('pinned', 'checkbox', array('required' => false))
+    ->add('pinned', 'checkbox', array('required' => false));
+
+    $builder->addEventListener(
+      FormEvents::PRE_SET_DATA, function ( FormEvent $event ){
+        $advert = $event->getData();
+        $form = $event->getForm();
+
+        //Ajout du champs pour les castings
+        if ($advert->isCasting()) {
+          $form
+          ->add('closure', 'date')
+          ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
+             'class'    => 'SD6ProductionAppBundle:Category',
+             'query_builder' => function (EntityRepository $er) {
+                return $er->getCategory('Casting');
+              },
+             'property' => 'name',
+             'multiple' => false));
+        }else{
+          $form
+          ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
+             'class'    => 'SD6ProductionAppBundle:Category',
+             'query_builder' => function (EntityRepository $er) {
+                return $er->getCategoryWithout('Casting');
+              },
+             'property' => 'name',
+             'multiple' => false));
+        }
+      }
+    );
+
+    $builder
     ->add('valider','submit');
   }
 
