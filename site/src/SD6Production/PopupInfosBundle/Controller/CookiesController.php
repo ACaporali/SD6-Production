@@ -28,9 +28,4 @@ class CookiesController extends Controller
     $response->send();
     return $response;
   }
-
-  public function cguCookiesAction(Request $request)
-  {
-    return $this->render('SD6ProductionPopupInfosBundle:Cookies:cgu.html.twig');
-  }
 }
