@@ -57,7 +57,7 @@ $( document ).ready(function(){
 
 	//Affiche le message alert sur supprimer une annonce, membre, photo ou categorie
 	$(document).on('click', ".boutons-admin .supprimer", function(event) {
-		var dialogue = alertMessage("Supprimer cet éléments ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
+		var dialogue = alertMessage("Supprimer cet élément ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
 		var localtion = ($(event.target).closest( 'div.boutons-admin' ));
 		$(this).after(dialogue);
 		console.log(dialogue);
