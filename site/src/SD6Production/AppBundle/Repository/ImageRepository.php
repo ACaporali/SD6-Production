@@ -12,20 +12,4 @@ use Doctrine\ORM\EntityRepository;
 */
 class ImageRepository extends EntityRepository
 {
-	public function getImageGalerie(){
-		$qb = $this->createQueryBuilder('i');
-
-		$qb
-		->join('i.categories', 'cat')
-		->addSelect('cat');
-
-		$qb->where('cat.name = :catGalerie')
-		->setParameter('catGalerie', 'Galerie');
-
-		$qb->orderBy('i.id', 'DESC');
-
-		return $qb
-		->getQuery()
-		->getResult();
-	}
 }

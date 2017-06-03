@@ -81,10 +81,11 @@ class DefaultController extends Controller
   {
     //Récupère les images de la galerie
     $em = $this->getDoctrine()->getManager();
-    $listeImagesGalerie = $em->getRepository('SD6ProductionAppBundle:Image')->getImageGalerie();
+    $category = $em->getRepository('SD6ProductionAppBundle:Category')->findOneByName('Galerie');
+    $images = $em->getRepository('SD6ProductionAppBundle:Image')->findBy(array("category" => $category), array('id' => 'DESC'));
 
     return $this->render('SD6ProductionAppBundle:Default:photos.html.twig', array(
-      'listeImagesGalerie' => $listeImagesGalerie,
+      'images' => $images,
     ));
   }
 

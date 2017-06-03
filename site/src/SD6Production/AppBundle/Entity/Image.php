@@ -16,213 +16,202 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 */
 class Image
 {
-   /**
-   * @var int
-   *
-   * @ORM\Column(name="id", type="integer")
-   * @ORM\Id
-   * @ORM\GeneratedValue(strategy="AUTO")
-   */
-   private $id;
+  /**
+  * @var int
+  *
+  * @ORM\Column(name="id", type="integer")
+  * @ORM\Id
+  * @ORM\GeneratedValue(strategy="AUTO")
+  */
+  private $id;
 
-   /**
-   * @var string
-   *
-   * @ORM\Column(name="url", type="text", nullable=true)
-   */
-   private $url;
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="url", type="text", nullable=true)
+  */
+  private $url;
 
-   /**
-   * @var string
-   *
-   * @ORM\Column(name="alt", type="string", length=255, nullable=true)
-   */
-   private $alt;
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="alt", type="string", length=255, nullable=true)
+  */
+  private $alt;
 
-   /**
-   * @Assert\File(
-   *     maxSize = "8192k",
-   *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif"},
-   *     mimeTypesMessage = "Taille ou format de l'image incorrect. Max taille : 1024k, format : jepg, jpg, png, gif."
-   * )
-   */
-   private $file;
+  /**
+  * @Assert\File(
+  *     maxSize = "8192k",
+  *     mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif"},
+  *     mimeTypesMessage = "Taille ou format de l'image incorrect. Max taille : 1024k, format : jepg, jpg, png, gif."
+  * )
+  */
+  private $file;
 
-   private $tempFilename;
+  private $tempFilename;
 
-   /**
-   * @ORM\ManyToMany(targetEntity="SD6Production\AppBundle\Entity\Category", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=true)
-   */
-   public $categories;
+  /**
+  * @ORM\ManyToOne(targetEntity="SD6Production\AppBundle\Entity\Category", cascade={"persist"})
+  * @ORM\JoinColumn(nullable=true)
+  */
+  public $category;
 
 
 
-   public function __construct()
-   {
-      $this->categories = new ArrayCollection();
-   }
+  public function __construct()
+  {
+  }
 
-   /**
-   * Get id
-   *
-   * @return int
-   */
-   public function getId()
-   {
-      return $this->id;
-   }
+  /**
+  * Get id
+  *
+  * @return int
+  */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-   /**
-   * Set url
-   *
-   * @param string $url
-   *
-   * @return Image
-   */
-   public function setUrl($url)
-   {
-      $this->url = $url;
+  /**
+  * Set url
+  *
+  * @param string $url
+  *
+  * @return Image
+  */
+  public function setUrl($url)
+  {
+    $this->url = $url;
 
-      return $this;
-   }
+    return $this;
+  }
 
-   /**
-   * Get url
-   *
-   * @return string
-   */
-   public function getUrl()
-   {
-      return $this->url;
-   }
+  /**
+  * Get url
+  *
+  * @return string
+  */
+  public function getUrl()
+  {
+    return $this->url;
+  }
 
-   /**
-   * Set alt
-   *
-   * @param string $alt
-   *
-   * @return Image
-   */
-   public function setAlt($alt)
-   {
-      $this->alt = $alt;
+  /**
+  * Set alt
+  *
+  * @param string $alt
+  *
+  * @return Image
+  */
+  public function setAlt($alt)
+  {
+    $this->alt = $alt;
 
-      return $this;
-   }
+    return $this;
+  }
 
-   /**
-   * Get alt
-   *
-   * @return string
-   */
-   public function getAlt()
-   {
-      return $this->alt;
-   }
+  /**
+  * Get alt
+  *
+  * @return string
+  */
+  public function getAlt()
+  {
+    return $this->alt;
+  }
 
-   /**
-   * Add category
-   *
-   * @param \SD6Production\AppBundle\Entity\Category $category
-   *
-   * @return Image
-   */
-   public function addCategory(\SD6Production\AppBundle\Entity\Category $category)
-   {
-      $this->categories[] = $category;
+  public function getFile()
+  {
+    return $this->file;
+  }
 
-      return $this;
-   }
+  public function setFile(UploadedFile $file = null)
+  {
+    $this->file = $file;
+  }
 
-   /**
-   * Remove category
-   *
-   * @param \SD6Production\AppBundle\Entity\Category $category
-   */
-   public function removeCategory(\SD6Production\AppBundle\Entity\Category $category)
-   {
-      $this->categories->removeElement($category);
-   }
+  /**
+  * @ORM\PrePersist()
+  * @ORM\PreUpdate()
+  */
+  public function preUpload()
+  {
+    if ($this->file === null) {
+      return;
+    }
 
-   /**
-   * Get categories
-   *
-   * @return \Doctrine\Common\Collections\Collection
-   */
-   public function getCategories()
-   {
-      return $this->categories;
-   }
+    $nom = $this->file->getClientOriginalName();
 
-   public function getFile()
-   {
-      return $this->file;
-   }
+    $this->url = "uploads/img/".$nom;
 
-   public function setFile(UploadedFile $file = null)
-   {
-      $this->file = $file;
-   }
+    if ($this->alt === null) {
+      $this->alt = $this->file->getClientOriginalName();
+    }
+  }
 
-   /**
-   * @ORM\PrePersist()
-   * @ORM\PreUpdate()
-   */
-   public function preUpload()
-   {
-      if ($this->file === null) {
-         return;
-      }
+  /**
+  * @ORM\PostPersist()
+  * @ORM\PostUpdate()
+  */
+  public function upload()
+  {
+    if ($this->file === null) {
+      return;
+    }
 
-      $nom = $this->file->getClientOriginalName();
+    $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+  }
 
-      $this->url = "uploads/img/".$nom;
+  /**
+  * @ORM\PreRemove()
+  */
+  public function preRemoveUpload()
+  {
+    $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
+  }
 
-      if ($this->alt === null) {
-         $this->alt = $this->file->getClientOriginalName();
-      }
-   }
+  /**
+  * @ORM\PostRemove()
+  */
+  public function removeUpload()
+  {
+    if (file_exists($this->tempFilename)) {
 
-   /**
-   * @ORM\PostPersist()
-   * @ORM\PostUpdate()
-   */
-   public function upload()
-   {
-      if ($this->file === null) {
-         return;
-      }
+      unlink($this->tempFilename);
+    }
+  }
 
-      $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
-   }
+  public function getUploadDir()
+  {
+    return 'uploads/img';
+  }
 
-   /**
-   * @ORM\PreRemove()
-   */
-   public function preRemoveUpload()
-   {
-      $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
-   }
+  protected function getUploadRootDir()
+  {
+    return __DIR__.'/../../../../dev/'.$this->getUploadDir();
+  }
 
-   /**
-   * @ORM\PostRemove()
-   */
-   public function removeUpload()
-   {
-      if (file_exists($this->tempFilename)) {
+    /**
+     * Set category
+     *
+     * @param \SD6Production\AppBundle\Entity\Category $category
+     *
+     * @return Image
+     */
+    public function setCategory(\SD6Production\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
 
-         unlink($this->tempFilename);
-      }
-   }
+        return $this;
+    }
 
-   public function getUploadDir()
-   {
-      return 'uploads/img';
-   }
-
-   protected function getUploadRootDir()
-   {
-      return __DIR__.'/../../../../dev/'.$this->getUploadDir();
-   }
+    /**
+     * Get category
+     *
+     * @return \SD6Production\AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

@@ -22,7 +22,8 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
   public function getCategoryWithout($category){
 		$qb = $this->createQueryBuilder('cat');
 
-		$qb->where($qb->expr()->notIn('cat.name', "'".$category."'"));
+		$qb->where($qb->expr()->notIn('cat.name', ':category'))
+    ->setParameter('category', $category);
 
 		$qb->orderBy('cat.name', 'ASC');
 

@@ -15,13 +15,13 @@
     <hr class="hr-beige">
     <div class="photos row">
       <ul>
-        {% for imagesGalerie in listeImagesGalerie %}
+        {% for image in images %}
           <li class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <a href="{{ asset(''~imagesGalerie.url~'')}}" title="{{imagesGalerie.alt}}" class="contenu" data-numelement="{{imagesGalerie.id}}" ><img src="{{ asset(''~imagesGalerie.url~'')}}" alt="{{imagesGalerie.alt}}"></a>
+            <a href="{{ asset(''~image.url~'')}}" title="{{image.alt}}" class="contenu" data-numelement="{{image.id}}" ><img src="{{ asset(''~image.url~'')}}" alt="{{image.alt}}"></a>
             {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
               <div class="row boutons-admin">
-                <a href="{{ path('sd6_production_admin_edite_image', {'idImage': imagesGalerie.id})}}">Editer</a>
-                <a href="{{ path('sd6_production_admin_delete_image', {'idImage': imagesGalerie.id})}}" class="supprimer">Supprimer</a>
+                <a href="{{ path('sd6_production_admin_edite_image', {'idImage': image.id})}}">Editer</a>
+                <a href="{{ path('sd6_production_admin_delete_image', {'idImage': image.id})}}" class="supprimer">Supprimer</a>
               </div>
             {% endif %}
           </li>

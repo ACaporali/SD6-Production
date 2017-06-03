@@ -19,7 +19,7 @@ class ImageType extends AbstractType
     ->add('url','text', array('required' => false))
     ->add('alt','text', array('required' => false))
     ->add('file', 'file',array('required' => false))
-    ->add('categories', EntityType::class, array( //Affiche la liste des catégories
+    ->add('category', EntityType::class, array( //Affiche la catégorie 'Galerie'
       'class'    => 'SD6ProductionAppBundle:Category',
       'query_builder' => function (EntityRepository $er) {
         return $er->getCategory('Galerie');

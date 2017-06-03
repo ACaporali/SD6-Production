@@ -4,7 +4,7 @@
 	{{ form_start(formImage) }}
 
 	{# Les erreurs générales du formulaire. #}
-	{% if form_errors(formImage) or form_errors(formImage.url) or form_errors(formImage.alt) or form_errors(formImage.categories)%}
+	{% if form_errors(formImage) or form_errors(formImage.url) or form_errors(formImage.alt) or form_errors(formImage.category)%}
 	<div class="">
 		{{ form_errors(formImage) }}
 		{{ form_errors(formImage.url) }}
@@ -27,8 +27,8 @@
 	</div>
 
 	<div class="row">
-		{{ form_label(formImage.categories, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-		{{ form_widget(formImage.categories, {'attr': {'class': 'form-control'}}) }}
+		{{ form_label(formImage.category, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formImage.category, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}

@@ -39,7 +39,7 @@ class AdvertType extends AbstractType
         ->add('closure', 'date', array(
           'label' => 'Date de cloture'
         ))
-        ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
+        ->add('category', EntityType::class, array( //Affiche la catégorie 'Casting'
           'class'    => 'SD6ProductionAppBundle:Category',
           'query_builder' => function (EntityRepository $er) {
             return $er->getCategory('Casting');
@@ -49,10 +49,10 @@ class AdvertType extends AbstractType
         );
       }else{
         $form
-        ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
+        ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas 'Casting' et 'Galerie'
           'class'    => 'SD6ProductionAppBundle:Category',
           'query_builder' => function (EntityRepository $er) {
-            return $er->getCategoryWithout('Casting');
+            return $er->getCategoryWithout(array('Casting', 'Galerie'));
           },
           'property' => 'name',
           'multiple' => false));
