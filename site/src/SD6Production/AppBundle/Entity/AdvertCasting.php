@@ -21,6 +21,7 @@ class AdvertCasting extends Advert
 
   public function __construct() {
     parent::__construct();
+    $this->closure = new \Datetime();
   }
 
   /**

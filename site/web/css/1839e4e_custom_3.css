@@ -180,6 +180,18 @@ footer {
     text-align: right; }
   .accueil .presentation .texte .btn {
     text-align: center; }
+    .accueil .presentation .texte .btn a {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #333;
+      color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #333;
+      text-decoration: none; }
+    .accueil .presentation .texte .btn a:hover {
+      background-color: #A99675;
+      border: 1px solid #A99675; }
 
 @media (max-width: 767px) {
   .accueil .presentation .texte .col-1 {
@@ -300,6 +312,8 @@ footer.row {
     background-color: #151515;
     font-style: italic;
     color: #444444; }
+    footer.row .copyright a {
+      color: #444444; }
   footer.row .coordonnees, footer.row .plan, footer.row .rs {
     margin-bottom: 20px;
     color: #818181; }

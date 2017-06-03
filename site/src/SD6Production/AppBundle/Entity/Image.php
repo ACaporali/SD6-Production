@@ -52,7 +52,7 @@ class Image
 
    /**
    * @ORM\ManyToMany(targetEntity="SD6Production\AppBundle\Entity\Category", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
+   * @ORM\JoinColumn(nullable=true)
    */
    public $categories;
 

@@ -21,38 +21,41 @@ class AdvertType extends AbstractType
     ->add('title', 'text')
     ->add('taglines', 'text', array('required' => false))
     ->add('content', 'ckeditor', array(
-  'config' => array('toolbar' => 'full')))
-    ->add('author', 'text')
-    ->add('date', 'date')
-    ->add('published', 'checkbox', array('required' => false))// Element non obligatoire dans le form
-    ->add('image', new ImageType(), array('required' => false)) // Imbriqué le form image dans celui-ci
-    ->add('pinned', 'checkbox', array('required' => false));
+      'config' => array('toolbar' => 'full')))
+      ->add('author', 'text')
+      ->add('date', 'date')
+      ->add('published', 'checkbox', array('required' => false))// Element non obligatoire dans le form
+      ->add('image', new ImageType(), array('required' => false)) // Imbriqué le form image dans celui-ci
+      ->add('pinned', 'checkbox', array('required' => false)
+    );
 
-    $builder->addEventListener(
-      FormEvents::PRE_SET_DATA, function ( FormEvent $event ){
-        $advert = $event->getData();
-        $form = $event->getForm();
+    $builder->addEventListener(FormEvents::PRE_SET_DATA, function ( FormEvent $event ){
+      $advert = $event->getData();
+      $form = $event->getForm();
 
-        //Ajout du champs pour les castings
-        if ($advert->isCasting()) {
-          $form
-          ->add('closure', 'date')
-          ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
-             'class'    => 'SD6ProductionAppBundle:Category',
-             'query_builder' => function (EntityRepository $er) {
-                return $er->getCategory('Casting');
-              },
-             'property' => 'name',
-             'multiple' => false));
-        }else{
-          $form
-          ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
-             'class'    => 'SD6ProductionAppBundle:Category',
-             'query_builder' => function (EntityRepository $er) {
-                return $er->getCategoryWithout('Casting');
-              },
-             'property' => 'name',
-             'multiple' => false));
+      //Ajout du champs pour les castings
+      if ($advert->isCasting()) {
+        $form
+        ->add('closure', 'date', array(
+          'label' => 'Date de cloture'
+        ))
+        ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
+          'class'    => 'SD6ProductionAppBundle:Category',
+          'query_builder' => function (EntityRepository $er) {
+            return $er->getCategory('Casting');
+          },
+          'property' => 'name',
+          'multiple' => false)
+        );
+      }else{
+        $form
+        ->add('category', EntityType::class, array( //Affiche la liste des catégories mais pas Casting
+          'class'    => 'SD6ProductionAppBundle:Category',
+          'query_builder' => function (EntityRepository $er) {
+            return $er->getCategoryWithout('Casting');
+          },
+          'property' => 'name',
+          'multiple' => false));
         }
       }
     );
@@ -78,6 +81,4 @@ class AdvertType extends AbstractType
   {
     return 'sd6production_appbundle_advert';
   }
-
-
 }
