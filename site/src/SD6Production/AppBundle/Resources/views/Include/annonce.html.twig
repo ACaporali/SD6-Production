@@ -10,6 +10,11 @@
 				{% else %}
 				<p>Pas de visuel</p>
 				{% endif %}
+				{% if advert.closure is defined %}
+					{% if date(advert.closure) < date('now') %}
+					<p class="fermer">Fermer</p>
+					{% endif %}
+				{% endif %}
 			</div>
 			<div class="texte">
 				<div class="titre">

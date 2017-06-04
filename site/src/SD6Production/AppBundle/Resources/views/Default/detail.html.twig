@@ -28,6 +28,13 @@
         <div class="infos">
           <p><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Publié le {{advert.date|date('d M Y')}} | par {{advert.author}}</p>
         </div>
+        {% if advert.closure is defined %}
+          {% if date(advert.closure) < date('now') %}
+          <div class="fermer text-center">
+    					<p>Le recrutement est fermer</p>
+          </div>
+          {% endif %}
+        {% endif %}
         <div class="texte">
           <p>{{advert.content|raw}}</p>
         </div>
