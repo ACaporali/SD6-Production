@@ -29,9 +29,9 @@
           <p><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Publié le {{advert.date|date('d M Y')}} | par {{advert.author}}</p>
         </div>
         {% if advert.closure is defined %}
-          {% if date(advert.closure) < date('now') %}
-          <div class="ferme text-center">
-    					<p>Le recrutement est fermé</p>
+          {% if advert.closure|date('Y/m/d') < "now"|date('Y/m/d') %}
+          <div class="text-center">
+    				<p class="ferme">Le recrutement est fermé</p>
           </div>
           {% endif %}
         {% endif %}

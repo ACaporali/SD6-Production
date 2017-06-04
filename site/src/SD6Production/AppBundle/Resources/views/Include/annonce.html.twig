@@ -11,7 +11,7 @@
 				<p>Pas de visuel</p>
 				{% endif %}
 				{% if advert.closure is defined %}
-					{% if date(advert.closure) < date('now') %}
+					{% if advert.closure|date('Y/m/d') < "now"|date('Y/m/d') %}
 					<p class="ferme">Fermé</p>
 					{% endif %}
 				{% endif %}
