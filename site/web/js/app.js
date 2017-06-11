@@ -63,6 +63,31 @@ $( document ).ready(function(){
 		console.log(dialogue);
 	});
 
+	$(document).on('click', ".actualites .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+		supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_actualites');
+		console.log(id);
+	});
+
+	function supprimerElement(id, route, redirection){
+		var baseUrl = "." + Routing.generate(route);
+		var fullUrl = baseUrl + "/"+ id;
+		console.log(baseUrl);
+		console.log(fullUrl);
+		$.ajax({
+      url : fullUrl,
+      type : 'POST',
+      data: {id: id},
+      success : function(code_html, statut){
+        location.href = "." + Routing.generate(redirection);
+      },
+
+      error : function(resultat, statut, erreur){
+        alert(erreur);
+      }
+  	});
+	}
+
 
 
 	/*------liste annonces------*/
@@ -75,8 +100,8 @@ $( document ).ready(function(){
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
 	function creatCookie(name, value, days, element) {
-		var res = $(location).attr('href').split("app_dev.php");
-		var getUrlCreateCookie = res[0]+"app_dev.php" + Routing.generate('sd6_production_popup_infos_create_cookies');
+		var res = $(location).attr('href').split(".fr");
+		var getUrlCreateCookie = res[0]+".fr" + Routing.generate('sd6_production_popup_infos_create_cookies');
 
 		$.ajax({
 			url : getUrlCreateCookie,

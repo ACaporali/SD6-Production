@@ -218,6 +218,14 @@ footer {
         width: 100%;
         height: 100%;
         object-fit: cover; }
+      .annonce div[class^="col-"] .contenu .image .ferme {
+        position: absolute;
+        top: 0;
+        color: #ff0000;
+        font-size: 20px;
+        text-transform: uppercase;
+        border: 1px solid #ff0000;
+        padding: 2px 5px; }
     .annonce div[class^="col-"] .contenu .texte {
       padding: 0px 15px 15px 15px; }
       .annonce div[class^="col-"] .contenu .texte .titre h3 a {
@@ -254,6 +262,11 @@ footer {
   max-width: 100%;
   height: auto;
   max-height: 300px; }
+
+.detail .contenu .ferme {
+  text-transform: uppercase;
+  color: #ff0000;
+  font-size: 20px; }
 
 .detail .contenu .infos p {
   color: #7C7C7C;

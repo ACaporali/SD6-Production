@@ -72,7 +72,7 @@ $( document ).ready(function(){
 
 	//Affiche le message alert sur supprimer une annonce, membre, photo ou categorie
 	$(document).on('click', ".boutons-admin .supprimer", function(event) {
-		var dialogue = alertMessage("Supprimer cet éléments ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
+		var dialogue = alertMessage("Supprimer cet élément ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
 		var localtion = ($(event.target).closest( 'div.boutons-admin' ));
 		$(this).after(dialogue);
 		console.log(dialogue);
@@ -90,8 +90,8 @@ $( document ).ready(function(){
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
 	function creatCookie(name, value, days, element) {
-		var res = $(location).attr('href').split("app_dev.php");
-		var getUrlCreateCookie = res[0]+"app_dev.php" + Routing.generate('sd6_production_popup_infos_create_cookies');
+		var res = $(location).attr('href').split(".fr");
+		var getUrlCreateCookie = res[0]+".fr" + Routing.generate('sd6_production_popup_infos_create_cookies');
 
 		$.ajax({
 			url : getUrlCreateCookie,
@@ -187,7 +187,7 @@ $(document).on('click','.galerie-photos .photos ul li a img', function(e) {
 
   if ($('#lightbox').length > 0) { // #lightbox exists
     //insert img tag with clicked link's href as src value
-    $('#lightbox .contenu').html('<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><img src="' + imageSrc + '" /><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>');
+    $('#lightbox .contenu').html('<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><img style="max-height: '+ ($(window).height()-100) +'px;" src="' + imageSrc + '" /><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>');
     $('#lightbox').show();
   }else { //#lightbox does not exist
     //create HTML markup for lightbox window
@@ -196,7 +196,7 @@ $(document).on('click','.galerie-photos .photos ul li a img', function(e) {
       '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></div>' +
       '<div class="contenu col-xs-12 col-sm-10 col-sm-offset-1">' + //insert clicked link's href into img src
         '<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>'+
-        '<img src="' + imageSrc+'" />' +
+        '<img style="max-height: '+ ($(window).height()-100) +'px;" src="' + imageSrc+'" />' +
         '<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'+
       '</div>' +
     '</div>';
@@ -204,11 +204,12 @@ $(document).on('click','.galerie-photos .photos ul li a img', function(e) {
     $('body').append(lightbox);
 
     //Image dans viewport du navigateur
-    $('#lightbox img').css('max-height', $(window).height()-100);
+    //$('#lightbox img').css('max-height', $(window).height()-100);
+    console.log('li');
   }
 });
 
-//Click anywhere on the page to get rid of lightbox window
+//Hide la lightbox si clique sur croix en haut à droite
 $(document).on('click', '#lightbox span.glyphicon-remove-circle', function(){
   $('#lightbox').hide();
 });
@@ -248,6 +249,7 @@ function boucleVisionneuse(sens) {
 
   //Image dans viewport du navigateur
   $('#lightbox img').css('max-height', $(window).height()-100);
+  console.log('lu');
 }
 
 //Image suivante

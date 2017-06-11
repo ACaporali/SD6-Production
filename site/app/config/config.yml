@@ -109,4 +109,4 @@ swiftmailer:
 
 #Fos js routing, route exposee pour utiliser dans fichier app.js
 fos_js_routing:
-    routes_to_expose: [sd6_production_popup_infos_create_cookies]
+    routes_to_expose: [sd6_production_popup_infos_create_cookies, sd6_production_admin_delete_advert, sd6_production_app_actualites]

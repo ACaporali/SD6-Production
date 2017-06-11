@@ -57,7 +57,7 @@ $( document ).ready(function(){
 
 	//Affiche le message alert sur supprimer une annonce, membre, photo ou categorie
 	$(document).on('click', ".boutons-admin .supprimer", function(event) {
-		var dialogue = alertMessage("Supprimer cet éléments ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
+		var dialogue = alertMessage("Supprimer cet élément ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
 		var localtion = ($(event.target).closest( 'div.boutons-admin' ));
 		$(this).after(dialogue);
 		console.log(dialogue);
@@ -75,8 +75,8 @@ $( document ).ready(function(){
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
 	function creatCookie(name, value, days, element) {
-		var res = $(location).attr('href').split("app_dev.php");
-		var getUrlCreateCookie = res[0]+"app_dev.php" + Routing.generate('sd6_production_popup_infos_create_cookies');
+		var res = $(location).attr('href').split(".fr");
+		var getUrlCreateCookie = res[0]+".fr" + Routing.generate('sd6_production_popup_infos_create_cookies');
 
 		$.ajax({
 			url : getUrlCreateCookie,
