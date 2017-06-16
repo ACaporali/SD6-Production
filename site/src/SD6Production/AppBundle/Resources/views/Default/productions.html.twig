@@ -54,7 +54,7 @@
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                   <div class="row boutons-admin">
                     <a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': productionPinned.id})}}" class="editer">Editer</a>
-                    <a href="{{ path('sd6_production_admin_delete_advert', {'idAdvert': productionPinned.id})}}" class="supprimer">Supprimer</a>
+                    <a href="" class="supprimer" data-id="{{productionPinned.id}}">Supprimer</a>
                   </div>
                 {% endif %}
               </div>
@@ -92,8 +92,10 @@
                   <div class="bouton">
                     <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': production.category.name, 'slugAdvert': production.slug}) }}">Voir plus</a>
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    <a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': production.id})}}" class="editer">Editer</a>
-                    <a href="{{ path('sd6_production_admin_delete_advert', {'idAdvert': production.id})}}" class="supprimer">Supprimer</a>
+                    <div class="boutons-admin">
+                      <a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': production.id})}}" class="editer">Editer</a>
+                      <a href="" class="supprimer" data-id="{{production.id}}">Supprimer</a>
+                    </div>
                     {% endif %}
                   </div>
                 </div>

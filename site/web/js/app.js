@@ -69,6 +69,30 @@ $( document ).ready(function(){
 		console.log(id);
 	});
 
+	$(document).on('click', ".productions .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+		supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_productions');
+		console.log(id);
+	});
+
+	$(document).on('click', ".equipe .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+		supprimerElement(id, 'sd6_production_admin_delete_member', 'sd6_production_app_equipe');
+		console.log(id);
+	});
+
+	$(document).on('click', ".galerie-photos .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+		supprimerElement(id, 'sd6_production_admin_delete_image', 'sd6_production_app_photos');
+		console.log(id);
+	});
+
+	$(document).on('click', ".casting .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+		supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_casting');
+		console.log(id);
+	});
+
 	function supprimerElement(id, route, redirection){
 		var baseUrl = "." + Routing.generate(route);
 		var fullUrl = baseUrl + "/"+ id;
