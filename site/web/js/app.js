@@ -93,6 +93,42 @@ $( document ).ready(function(){
 		console.log(id);
 	});
 
+	$(document).on('click', ".admin-annonces .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+		supprimerElementAdmin(id, 'sd6_production_admin_delete_advert', 'sd6_production_admin_advert_index');
+		console.log(id);
+	});
+
+	$(document).on('click', ".admin-images .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+		supprimerElementAdmin(id, 'sd6_production_admin_delete_image', 'sd6_production_admin_image_index');
+		console.log(id);
+	});
+
+	$(document).on('click', ".admin-comptes .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+		supprimerElementAdmin(id, 'sd6_production_admin_delete_account', 'sd6_production_admin_account_index');
+		console.log(id);
+	});
+
+	$(document).on('click', ".admin-membres .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+		supprimerElementAdmin(id, 'sd6_production_admin_delete_member', 'sd6_production_admin_member_index');
+		console.log(id);
+	});
+
+	$(document).on('click', ".admin-categories .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+		supprimerElementAdmin(id, 'sd6_production_admin_delete_category', 'sd6_production_admin_category_index');
+		console.log(id);
+	});
+
+	$(document).on('click', ".popup-pinned .alert-supprimer button.alert-btn1", function(event) {
+		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+		supprimerElementAdmin(id, 'sd6_production_popup_infos_delete', 'sd6_production_popup_infos_all');
+		console.log(id);
+	});
+
 	function supprimerElement(id, route, redirection){
 		var baseUrl = "." + Routing.generate(route);
 		var fullUrl = baseUrl + "/"+ id;
@@ -104,6 +140,25 @@ $( document ).ready(function(){
       data: {id: id},
       success : function(code_html, statut){
         location.href = "." + Routing.generate(redirection);
+      },
+
+      error : function(resultat, statut, erreur){
+        alert(erreur);
+      }
+  	});
+	}
+
+	function supprimerElementAdmin(id, route, redirection){
+		var baseUrl = "../.." + Routing.generate(route);
+		var fullUrl = baseUrl + "/"+ id;
+		console.log(baseUrl);
+		console.log(fullUrl);
+		$.ajax({
+      url : fullUrl,
+      type : 'POST',
+      data: {id: id},
+      success : function(code_html, statut){
+        location.href = "../.." + Routing.generate(redirection);
       },
 
       error : function(resultat, statut, erreur){

@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block site_body %}
-	<div class="categorie">
+	<div class="admin-annonces">
   	{{ parent() }}
   	<h1 class="beige text-center">Annonces</h1>
     <hr class="hr-beige">
@@ -39,7 +39,7 @@
                     </td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{ path('sd6_production_admin_delete_advert', {'idAdvert': advert.id})}}" class="supprimer">Supprimer</a>
+                        <a href="#" class="supprimer" data-id="{{advert.id}}">Supprimer</a>
                       </div>
                     </td>
                   </tr>

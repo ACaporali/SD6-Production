@@ -11,7 +11,7 @@
 {% block site_body %}
 {{ parent() }}
 
-<div class="form-popu-pinned">
+<div class="popup-pinned">
   <div class="bordures">
     <h3>Toutes les popup pinned</h3>
 
@@ -34,7 +34,11 @@
             <td>{{popup.title}}</td>
             <td>{% if popup.published == true %}oui{% else %}non{% endif %}</td>
             <td><a href="{{path('sd6_production_popup_infos_edite',{idPopup: popup.id})}}">modifier</a></td>
-            <td><a href="{{path('sd6_production_popup_infos_delete',{idPopup: popup.id})}}">supprimer</a></td>
+            <td>
+              <div class="boutons-admin">
+                <a href="#" class="supprimer" data-id="{{popup.id}}" class="supprimer">Supprimer</a>
+              </div>
+            </td>
           </tr>
           {% endfor %}
         </tbody>

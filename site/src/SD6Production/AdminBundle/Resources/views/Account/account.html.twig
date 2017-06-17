@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block site_body %}
-	<div class="categorie">
+	<div class="admin-comptes">
   	{{ parent() }}
   	<h1 class="beige text-center">Comptes</h1>
     <hr class="hr-beige">
@@ -41,7 +41,7 @@
                     {% endfor %}</td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="" class="supprimer" data-id="{{user.id}}" class="supprimer">Supprimer</a>
+                        <a href="#" class="supprimer" data-id="{{user.id}}" class="supprimer">Supprimer</a>
                       </div>
                     </td>
                   </tr>
