@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Category;
 use SD6Production\AppBundle\Form\CategoryType;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class CategoryController extends Controller
@@ -38,7 +39,7 @@ class CategoryController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Catégorie enregistrée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_category_index'));
 
     }
 
@@ -61,9 +62,9 @@ class CategoryController extends Controller
       $em->persist($category);
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('succes', 'Category modifiée.');
+      $request->getSession()->getFlashBag()->add('succes', 'Categorie modifiée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_category_index'));
     }
 
     return $this->render('SD6ProductionAdminBundle:Category:editer.html.twig', array(
@@ -90,7 +91,7 @@ class CategoryController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Element supprimé.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return new Response();
     }
   }
 }

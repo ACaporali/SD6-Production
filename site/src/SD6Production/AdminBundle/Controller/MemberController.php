@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Member;
 use SD6Production\AppBundle\Form\MemberType;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class MemberController extends Controller
@@ -38,7 +39,7 @@ class MemberController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Membre enregistrée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_member_index'));
 
     }
 
@@ -63,7 +64,7 @@ class MemberController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Membre modifiée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_member_index'));
     }
 
     return $this->render('SD6ProductionAdminBundle:Member:editer.html.twig', array(
@@ -90,7 +91,7 @@ class MemberController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Element supprimé.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return new Response();
     }
   }
 }

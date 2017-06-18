@@ -9,6 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Advert;
 use SD6Production\AppBundle\Entity\AdvertCasting;
 use SD6Production\AppBundle\Form\AdvertType;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class AdvertController extends Controller
@@ -44,7 +45,7 @@ class AdvertController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Annonce enregistrée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_advert_index'));
 
     }
 
@@ -69,7 +70,7 @@ class AdvertController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Annonce modifiée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_advert_index'));
     }
 
     return $this->render('SD6ProductionAdminBundle:Advert:editer.html.twig', array(
@@ -96,7 +97,7 @@ class AdvertController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Element supprimé.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return new Response();
     }
   }
 }

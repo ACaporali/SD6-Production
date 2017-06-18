@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Image;
 use SD6Production\AppBundle\Form\ImageType;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class ImageController extends Controller
@@ -38,8 +39,7 @@ class ImageController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Image enregistrée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
-
+      return $this->redirect($this->generateUrl('sd6_production_admin_image_index'));
     }
 
     return $this->render('SD6ProductionAdminBundle:Image:ajouter.html.twig', array(
@@ -63,7 +63,7 @@ class ImageController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Image modifiée.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return $this->redirect($this->generateUrl('sd6_production_admin_image_index'));
     }
 
     return $this->render('SD6ProductionAdminBundle:Image:editer.html.twig', array(
@@ -90,7 +90,7 @@ class ImageController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Element supprimé.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return new Response();
     }
   }
 }

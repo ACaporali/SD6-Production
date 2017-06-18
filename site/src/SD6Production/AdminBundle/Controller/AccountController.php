@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SD6Production\AppBundle\Entity\Category;
 use SD6Production\AppBundle\Form\CategoryType;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class AccountController extends Controller
@@ -25,7 +26,7 @@ class AccountController extends Controller
       'userConnected' => $userConnected
     ));
   }
-  
+
   /*Supprimer une account*/
   public function deleteAction($idAccount, Request $request)
   {
@@ -40,7 +41,7 @@ class AccountController extends Controller
 
       $request->getSession()->getFlashBag()->add('succes', 'Compte '.$account->getEmail().' supprimé.');
 
-      return $this->redirect($this->generateUrl('sd6_production_app_homepage'));
+      return new Response();
     }
   }
 }
