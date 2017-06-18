@@ -63,7 +63,7 @@ class DefaultController extends Controller
     $em = $this->getDoctrine()->getManager();
     $listeAdverts = $em ->getRepository('SD6ProductionAppBundle:Advert')->getAdvertCategories('Actualites');
 
-    //Regarde si il y a des production épinglés (productions en haut de page)
+    //Regarde si il y a des actualités épinglés (productions en haut de page)
     $actualitesPinned = [];
     foreach ($listeAdverts as $key => $advert) {
       if ($advert->getPinned() == 1 ) {
@@ -95,8 +95,17 @@ class DefaultController extends Controller
     $em = $this->getDoctrine()->getManager();
     $listeAdverts = $em->getRepository('SD6ProductionAppBundle:Advert')->getAdvertCategories('Casting');
 
+    //Regarde si il y a des casting épinglés (productions en haut de page)
+    $castingsPinned = [];
+    foreach ($listeAdverts as $key => $advert) {
+      if ($advert->getPinned() == 1 ) {
+        $castingsPinned[] = $advert;
+      }
+    }
+
     return $this->render('SD6ProductionAppBundle:Default:casting.html.twig', array(
       'listeAdverts' => $listeAdverts,
+      'castingsPinned' => $castingsPinned
     ));
   }
 

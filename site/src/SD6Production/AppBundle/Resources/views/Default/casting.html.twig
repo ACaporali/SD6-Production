@@ -19,6 +19,48 @@
           <p class="text-center">N'hésitez pas à <a href="{{ path('sd6_production_contact_contact') }}">nous contactez</a> si votre profil correspond aux demandes !</p>
         </div>
       </div>
+      <div class="epingle">
+        {% if castingsPinned %}
+          {% for castingPinned in castingsPinned %}
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contenu">
+            <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+            <div class="bordures">
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="image">
+                  {% if castingPinned.image is not null %}
+                  <img src="{{asset(castingPinned.image.url)}}" alt="{{castingPinned.image.alt}}">
+                  {% else %}
+                  <p>Pas de visuel</p>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="titre">
+                  <h3>
+                    <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': castingPinned.category.name, 'slugAdvert': castingPinned.slug}) }}">
+                      {{castingPinned.title}}
+                    </a>
+                  </h3>
+                  <hr>
+                </div>
+                <div class="accroche">
+                  <p>{{castingPinned.taglines|raw}}</p>
+                </div>
+                <div class="bouton">
+                  <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': castingPinned.category.name, 'slugAdvert': castingPinned.slug}) }}">Voir plus</a>
+                  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <div class="row boutons-admin">
+                      <a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': castingPinned.id})}}" class="editer">Editer</a>
+                      <a href="#" class="supprimer" data-id="{{castingPinned.id}}">Supprimer</a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
+      </div>
 	  	<div class="row">
         <div class="bordures">
           {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
