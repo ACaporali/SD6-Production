@@ -172,7 +172,8 @@ footer {
       /*#665f57*/ }
       .accueil .visuel-activites .filtre .contenu p {
         font-size: 48px;
-        letter-spacing: 3px; }
+        letter-spacing: 3px;
+        word-break: break-word; }
 
 .accueil .activites {
   background-color: #DDCEBC;
@@ -205,6 +206,10 @@ footer {
 @media (max-width: 767px) {
   .accueil .presentation .texte .col-1 {
     text-align: left; } }
+
+@media (max-width: 640px) {
+  .accueil .visuel-activites .filtre .contenu p {
+    font-size: 28px; } }
 
 /*------Annonce include page------*/
 .annonce div[class^="col-"] {

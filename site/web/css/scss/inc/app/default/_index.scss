@@ -25,6 +25,7 @@
         p{
         	font-size: 48px;
           letter-spacing: 3px;
+          word-break: break-word;
         }
       }
     }
@@ -78,6 +79,20 @@
       .texte{
         .col-1{
           text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px ){
+  .accueil{    
+    .visuel-activites{
+      .filtre{
+        .contenu{
+          p{
+            font-size: 28px;
+          }
         }
       }
     }
