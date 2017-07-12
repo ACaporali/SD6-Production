@@ -766,3 +766,8 @@ h4 {
 .liste [class^="col-"] img {
   width: 100%;
   height: auto; }
+
+/*Css general au bundle AdminBundle*/
+.image-bibliotheque img {
+  width: 100%;
+  height: auto; }

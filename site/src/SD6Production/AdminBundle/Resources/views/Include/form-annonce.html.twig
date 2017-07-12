@@ -1,3 +1,5 @@
+{% form_theme formAdvert 'form/fields.html.twig' %}
+
 <h3>Formulaire d'annonce</h3>
 
 <div class="container">
@@ -61,7 +63,7 @@
 	</div>
 
 	<div class="row">
-		<div class="row">
+		{#<div class="row">
 			{{ form_label(formAdvert.image.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 			{{ form_widget(formAdvert.image.url, {'attr': {'class': 'form-control'}}) }}
 		</div>
@@ -79,7 +81,9 @@
 		<div class="row">
 			{{ form_label(formAdvert.image.category, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 			{{ form_widget(formAdvert.image.category, {'attr': {'class': 'form-control'}}) }}
-		</div>
+		</div>#}
+		{{form_row(formAdvert.image)}}
+
 	</div>
 
 	<div class="row">
@@ -91,7 +95,7 @@
 	{{ form_widget(formAdvert.valider, {'attr': {'class': 'btn btn-primary'}}) }}
 
 	{# Génération automatique des champs pas encore écrits.
-	{#{{ form_rest(formAdvert) }}#}
+	{{ form_rest(formAdvert) }}
 
 	{# Fermeture de la balise <form> du formulaire HTML #}
 	{{ form_end(formAdvert) }}

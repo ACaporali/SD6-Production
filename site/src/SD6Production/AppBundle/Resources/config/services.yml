@@ -2,3 +2,8 @@ services:
 #    sd6_production_app.example:
 #        class: SD6Production\AppBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+  app.form.type.image:
+    class: SD6Production\AppBundle\Form\Type\ImageType
+    tags:
+      - { name: form.type, alias: SD6Production\AppBundle\Form\Type\ImageType }

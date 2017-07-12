@@ -8,6 +8,8 @@ imports:
 parameters:
     locale: fr
     blogger_blog.emails.contact_email: "%mailer_user%"
+    app.form.imageService:
+      em: 'doctrine.orm.entity_manager'
 
 framework:
     #esi:             ~

@@ -1,0 +1,22 @@
+<div class="container">
+	{{ form_start(formImage) }}
+
+	{# Les erreurs générales du formulaire. #}
+	{% if form_errors(formImage) or form_errors(formImage.url) %}
+	<div class="">
+		{{ form_errors(formImage) }}
+		{{ form_errors(formImage.url) }}
+	</div>
+	{% endif %}
+
+	<div class="row">
+		{{ form_label(formImage.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formImage.url, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+	{# Génération automatique des champs pas encore écrits. #}
+	{{ form_rest(formImage) }}
+
+	{# Fermeture de la balise <form> du formulaire HTML #}
+	{{ form_end(formImage) }}
+</div>

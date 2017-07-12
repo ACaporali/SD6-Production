@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use SD6Production\AppBundle\Form\Type\ImageType;
 
 class AdvertType extends AbstractType
 {
@@ -25,7 +26,28 @@ class AdvertType extends AbstractType
       ->add('author', 'text')
       ->add('date', 'date')
       ->add('published', 'checkbox', array('required' => false))// Element non obligatoire dans le form
-      ->add('image', new ImageType(), array('required' => false)) // Imbriqué le form image dans celui-ci
+      // ->add('image', EntityType::class, array( // Récupère le champ 'url' des images
+      //   'class'    => 'SD6ProductionAppBundle:Image',
+      //   'property' => 'url',
+      //   'multiple' => false,
+      //   'required' => false)
+      // )
+      /*->add('image', EntityType::class, array( // Récupère le champ 'url' des images
+        'class'    => 'SD6ProductionAppBundle:Image',
+        'query_builder' => function (EntityRepository $er) {
+            return $er->createQueryBuilder('i')
+              ->orderBy('i.url', 'ASC');
+        },
+        'property' => 'url',
+        'expanded' => true
+        //'choice_label' => 'url',
+        //'multiple' => false,
+        /*'required' => false*///)
+      //)
+      ->add('image', ImageType::class, array(
+        'label'    => false,
+        'choice_label' => 'url'
+      ))
       ->add('pinned', 'checkbox', array('required' => false)
     );
 
