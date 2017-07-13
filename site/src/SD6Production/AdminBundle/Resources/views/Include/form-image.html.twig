@@ -31,8 +31,10 @@
 		{{ form_widget(formImage.category, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
-	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-	{{ form_widget(formImage.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+	<div class="row">	
+		{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+		{{ form_widget(formImage.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+	</div>
 
 	{# Génération automatique des champs pas encore écrits. #}
 	{{ form_rest(formImage) }}

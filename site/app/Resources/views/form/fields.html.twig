@@ -2,9 +2,7 @@
 
 {% block image_widget %}
   {% spaceless %}
-    <div class="row">
-      <p>prout !</p>
-
+    <div class="">
       {% for child in form %}
         {% set images = child.parent.vars.images[loop.index0] %}
         <label for="{{child.vars.id}}" class="col-xs-6 col-md-3 col-lg-2 text-center" style="vertical-align: bottom; display: inline-block; float: none;">

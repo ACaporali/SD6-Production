@@ -63,27 +63,7 @@
 	</div>
 
 	<div class="row">
-		{#<div class="row">
-			{{ form_label(formAdvert.image.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAdvert.image.url, {'attr': {'class': 'form-control'}}) }}
-		</div>
-
-		<div class="row">
-			{{ form_label(formAdvert.image.alt, "Alt de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAdvert.image.alt, {'attr': {'class': 'form-control'}}) }}
-		</div>
-
-		<div class="row">
-			{{ form_label(formAdvert.image.file, "Image fichier", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAdvert.image.file, {'attr': {'class': 'form-control'}}) }}
-		</div>
-
-		<div class="row">
-			{{ form_label(formAdvert.image.category, "Catégorie de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-			{{ form_widget(formAdvert.image.category, {'attr': {'class': 'form-control'}}) }}
-		</div>#}
 		{{form_row(formAdvert.image)}}
-
 	</div>
 
 	<div class="row">
@@ -91,8 +71,10 @@
 		{{ form_widget(formAdvert.pinned, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
-	{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-	{{ form_widget(formAdvert.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+	<div class="row">
+		{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+		{{ form_widget(formAdvert.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+	</div>
 
 	{# Génération automatique des champs pas encore écrits.
 	{{ form_rest(formAdvert) }}
