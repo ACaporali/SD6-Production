@@ -5,6 +5,7 @@ namespace SD6Production\AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use SD6Production\AppBundle\Form\Type\ImageType;
 
 class MemberType extends AbstractType
 {
@@ -18,7 +19,10 @@ class MemberType extends AbstractType
     ->add('firstName', 'text')
     ->add('post', 'text')
     ->add('description', 'textarea', array('required' => false))
-    ->add('image', new ImageType(), array('required' => false))
+    ->add('image', ImageType::class, array(
+      'label'    => false,
+      'choice_label' => 'url'
+    ))
     ->add('valider','submit');
   }
 
