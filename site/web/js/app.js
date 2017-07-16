@@ -199,10 +199,13 @@ $( document ).ready(function(){
 		creatCookie('hide_popup_promo_close', 'ok', 1, '.popup-promo');
 	});
 
+	//Taille de la video de l'index
+	$('<style>video { width: '+$( window ).width()+'px; height: auto;}</style>').appendTo('head');
 
+	$( window ).resize(function() {
+	  $('<style>video { width: '+$( window ).width()+'px; height: auto;}</style>').appendTo('head');
+	});
 
-
-	/*------General------*/
 	//Masque le loader
 	$('body .loader').fadeOut("slow");
 });

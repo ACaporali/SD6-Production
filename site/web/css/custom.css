@@ -130,6 +130,10 @@ footer {
 .epingle [class^="col-"].contenu:last-child {
   margin-bottom: 40px; }
 
+.video {
+  height: 330px;
+  overflow: hidden; }
+
 #alertMessage {
   z-index: 10;
   position: fixed;
@@ -148,6 +152,10 @@ footer {
 @media (min-width: 992px) {
   .container {
     width: auto; } }
+
+@media (max-width: 767px) {
+  .video {
+    display: none; } }
 
 /*------Accueil------*/
 .accueil .visuel-activites {
@@ -279,6 +287,9 @@ footer {
   color: #7C7C7C;
   font-size: 13px;
   padding: 10px 0px; }
+
+.detail .contenu .partage-boutons a {
+  text-decoration: none; }
 
 .detail .contenu .precedent {
   float: left; }

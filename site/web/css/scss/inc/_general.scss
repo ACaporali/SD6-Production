@@ -178,6 +178,11 @@ footer{
   }
 }
 
+.video{
+  height: 330px;
+  overflow: hidden;
+}
+
 #alertMessage{
   z-index: 10;
   position: fixed;
@@ -199,5 +204,11 @@ footer{
 @media (min-width: 992px ){
   .container {
     width: auto;
+  }
+}
+
+@media (max-width: 767px ){
+  .video {
+    display: none;
   }
 }
