@@ -21,8 +21,7 @@ class AdvertType extends AbstractType
     $builder
     ->add('title', 'text')
     ->add('taglines', 'text', array('required' => false))
-    ->add('content', 'ckeditor', array(
-      'config' => array('toolbar' => 'full')))
+    ->add('content', 'ckeditor')
       ->add('author', 'text')
       ->add('date', 'date')
       ->add('published', 'checkbox', array('required' => false))// Element non obligatoire dans le form

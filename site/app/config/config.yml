@@ -98,10 +98,17 @@ stof_doctrine_extensions:
 #IvoryCKEditorBundle pour textarea form annonce
 ivory_ck_editor:
     enable: true
+    default_config: my_config
     configs:
-      my_config:
-         toolbar: full
-
+        my_config:
+            extraPlugins: "audio,youtube"
+    plugins:
+        audio:
+            path: 'ckeditor/plugins/Audio/'
+            filename: 'plugin.js'
+        youtube:
+            path: 'ckeditor/plugins/youtube/'
+            filename: 'plugin.js'
 #Configuration mail
 swiftmailer:
    transport: "%mailer_transport%"
