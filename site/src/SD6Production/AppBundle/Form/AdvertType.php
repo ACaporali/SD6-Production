@@ -26,27 +26,9 @@ class AdvertType extends AbstractType
       ->add('author', 'text')
       ->add('date', 'date')
       ->add('published', 'checkbox', array('required' => false))// Element non obligatoire dans le form
-      // ->add('image', EntityType::class, array( // Récupère le champ 'url' des images
-      //   'class'    => 'SD6ProductionAppBundle:Image',
-      //   'property' => 'url',
-      //   'multiple' => false,
-      //   'required' => false)
-      // )
-      /*->add('image', EntityType::class, array( // Récupère le champ 'url' des images
-        'class'    => 'SD6ProductionAppBundle:Image',
-        'query_builder' => function (EntityRepository $er) {
-            return $er->createQueryBuilder('i')
-              ->orderBy('i.url', 'ASC');
-        },
-        'property' => 'url',
-        'expanded' => true
-        //'choice_label' => 'url',
-        //'multiple' => false,
-        /*'required' => false*///)
-      //)
       ->add('image', ImageType::class, array(
         'label'    => false,
-        'choice_label' => 'url'
+        'choice_label' => 'alt'
       ))
       ->add('pinned', 'checkbox', array('required' => false)
     );

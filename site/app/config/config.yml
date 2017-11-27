@@ -97,8 +97,8 @@ stof_doctrine_extensions:
 
 #IvoryCKEditorBundle pour textarea form annonce
 ivory_ck_editor:
-   enable: true
-   configs:
+    enable: true
+    configs:
       my_config:
          toolbar: full
 

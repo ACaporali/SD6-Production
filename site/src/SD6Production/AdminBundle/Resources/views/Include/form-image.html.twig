@@ -4,12 +4,18 @@
 	{{ form_start(formImage) }}
 
 	{# Les erreurs générales du formulaire. #}
-	{% if form_errors(formImage) or form_errors(formImage.url) or form_errors(formImage.alt) or form_errors(formImage.category)%}
+	{% if form_errors(formImage) or form_errors(formImage.url) or form_errors(formImage.alt) or form_errors(formImage.category) or form_errors(formImage.date)%}
 	<div class="">
 		{{ form_errors(formImage) }}
 		{{ form_errors(formImage.url) }}
+		{{ form_errors(formImage.date) }}
 	</div>
 	{% endif %}
+
+	<div class="row">
+		{{ form_label(formImage.date, "Date", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_widget(formImage.date, {'attr': {'class': 'formAnnonce-control date-date'}}) }}
+	</div>
 
 	<div class="row">
 		{{ form_label(formImage.url, "Url de l'image", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
@@ -31,7 +37,7 @@
 		{{ form_widget(formImage.category, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
-	<div class="row">	
+	<div class="row">
 		{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
 		{{ form_widget(formImage.valider, {'attr': {'class': 'btn btn-primary'}}) }}
 	</div>

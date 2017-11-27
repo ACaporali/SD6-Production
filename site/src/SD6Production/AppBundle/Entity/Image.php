@@ -56,10 +56,20 @@ class Image
   */
   public $category;
 
+  /**
+  * @var \DateTime
+  *
+  * @ORM\Column(name="date", type="datetime")
+  * @Assert\DateTime(message="Date non valide.")
+  */
+  private $date;
+
 
 
   public function __construct()
   {
+    // Par défaut, la date de l'advert est la date d'aujourd'hui
+    $this->date = new \Datetime();
   }
 
   /**
@@ -213,5 +223,29 @@ class Image
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Image
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

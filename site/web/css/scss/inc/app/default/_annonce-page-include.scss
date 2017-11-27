@@ -38,6 +38,8 @@
             a{
               display: block;
             	color: $noirTxt;
+              height: 52px;
+              overflow: hidden;
             }
             a:first-letter{
             	text-transform: uppercase;
