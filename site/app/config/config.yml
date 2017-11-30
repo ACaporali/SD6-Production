@@ -101,6 +101,7 @@ ivory_ck_editor:
     default_config: my_config
     configs:
         my_config:
+            allowedContent : true #Garde la balise html 'audio'
             extraPlugins: "audio,youtube"
     plugins:
         audio:
