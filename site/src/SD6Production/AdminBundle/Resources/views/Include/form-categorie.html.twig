@@ -5,7 +5,7 @@
 
     {# Les erreurs générales du formulaire. #}
     {% if form_errors(formCategory) or form_errors(formCategory.name)%}
-	    <div class="">
+	    <div class="alert alert-danger">
 		    {{ form_errors(formCategory) }}
 		    {{ form_errors(formCategory.name) }}
 		</div>
@@ -16,7 +16,7 @@
 		{{ form_widget(formCategory.name, {'attr': {'class': 'form-control'}}) }}
     </div>
 
-		<div class="row">		
+		<div class="row">
 			{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
 			{{ form_widget(formCategory.valider, {'attr': {'class': 'btn btn-primary'}}) }}
 		</div>

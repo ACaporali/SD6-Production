@@ -5,7 +5,7 @@
 
 	{# Les erreurs générales du formulaire. #}
 	{% if form_errors(formImage) or form_errors(formImage.url) or form_errors(formImage.alt) or form_errors(formImage.category) or form_errors(formImage.date)%}
-	<div class="">
+	<div class="alert alert-danger">
 		{{ form_errors(formImage) }}
 		{{ form_errors(formImage.url) }}
 		{{ form_errors(formImage.date) }}

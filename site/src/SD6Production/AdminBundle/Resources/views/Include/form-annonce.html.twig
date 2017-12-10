@@ -6,15 +6,17 @@
 	{{ form_start(formAdvert) }}
 
 	{# Les erreurs générales du formulaire. #}
-	{% if form_errors(formAdvert) or form_errors(formAdvert.title) or form_errors(formAdvert.content) or form_errors(formAdvert.date) or form_errors(formAdvert.author) or form_errors(formAdvert.image)%}
-	<div class="">
+	{% if form_errors(formAdvert) or form_errors(formAdvert.title) or form_errors(formAdvert.taglines) or form_errors(formAdvert.content) or form_errors(formAdvert.date) or form_errors(formAdvert.published) or form_errors(formAdvert.author) or form_errors(formAdvert.image) or form_errors(formAdvert.pinned) or form_errors(formAdvert.metaDescription)%}
+	<div class="alert alert-danger">
 		{{ form_errors(formAdvert) }}
 		{{ form_errors(formAdvert.title) }}
+		{{ form_errors(formAdvert.taglines) }}
 		{{ form_errors(formAdvert.content) }}
-		{{ form_errors(formAdvert.date) }}
 		{{ form_errors(formAdvert.author) }}
-		{{ form_errors(formAdvert.image.url) }}
-		{{ form_errors(formAdvert.image.file) }}
+		{{ form_errors(formAdvert.date) }}
+		{{ form_errors(formAdvert.published) }}
+		{{ form_errors(formAdvert.pinned) }}
+		{{ form_errors(formAdvert.metaDescription) }}
 	</div>
 	{% endif %}
 
@@ -70,6 +72,12 @@
 	<div class="row">
 		{{ form_label(formAdvert.pinned, "Epinglé en haut ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
 		{{ form_widget(formAdvert.pinned, {'attr': {'class': 'form-control checkbox_publie'}}) }}
+	</div>
+
+	<h3>SEO de la page</h3>
+	<div class="row">
+		{{ form_label(formAdvert.metaDescription, " Meta description de la page", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_widget(formAdvert.metaDescription, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
 	<div class="row">

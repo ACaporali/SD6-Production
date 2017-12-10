@@ -3,7 +3,7 @@
 
 	{# Les erreurs générales du formulaire. #}
 	{% if form_errors(formImage) or form_errors(formImage.url) %}
-	<div class="">
+	<div class="alert alert-danger">
 		{{ form_errors(formImage) }}
 		{{ form_errors(formImage.url) }}
 	</div>

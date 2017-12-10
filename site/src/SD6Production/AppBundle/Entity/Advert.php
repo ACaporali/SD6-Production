@@ -39,7 +39,7 @@ class Advert
   /**
   * @var string
   *
-  * @ORM\Column(name="title", type="string", length=255)
+  * @ORM\Column(name="title", type="string", length=80)
   * @Assert\Length(
   *      min = 4,
   *      max = 80,
@@ -67,7 +67,7 @@ class Advert
   /**
   * @var string
   *
-  * @ORM\Column(name="author", type="string", length=255)
+  * @ORM\Column(name="author", type="string", length=30)
   * @Assert\Length(
   *      min = 2,
   *      max = 30,
@@ -110,6 +110,19 @@ class Advert
   * @ORM\Column(name="pinned", type="boolean", nullable=true)
   */
   private $pinned;
+
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="metaDescription", type="string", length=155, nullable=true)
+  * @Assert\Length(
+  *      min = 50,
+  *      max = 155,
+  *      minMessage = "La méta déscription doit faire {{ limit }} caractères mini",
+  *      maxMessage = "La méta déscription doit faire {{ limit }} caractères maxi."
+  * )
+  */
+  private $metaDescription;
 
   public function __construct()
   {
@@ -391,4 +404,28 @@ class Advert
   public function isCasting(){
     return $this instanceof AdvertCasting;
   }
+
+    /**
+     * Set metaDescription
+     *
+     * @param string $metaDescription
+     *
+     * @return Advert
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get metaDescription
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
 }

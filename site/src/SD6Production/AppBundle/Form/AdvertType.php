@@ -29,8 +29,8 @@ class AdvertType extends AbstractType
         'label'    => false,
         'choice_label' => 'alt'
       ))
-      ->add('pinned', 'checkbox', array('required' => false)
-    );
+      ->add('pinned', 'checkbox', array('required' => false))
+      ->add('metaDescription', 'text');
 
     $builder->addEventListener(FormEvents::PRE_SET_DATA, function ( FormEvent $event ){
       $advert = $event->getData();

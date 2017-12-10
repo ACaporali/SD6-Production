@@ -7,7 +7,7 @@
 
     {# Les erreurs générales du formulaire. #}
     {% if form_errors(formMember) or form_errors(formMember.name) or form_errors(formMember.firstName) or form_errors(formMember.post) or form_errors(formMember.description) or form_errors(formMember.image)%}
-	    <div class="">
+	    <div class="alert alert-danger">
 		    {{ form_errors(formMember) }}
 		    {{ form_errors(formMember.name) }}
 		    {{ form_errors(formMember.firstName) }}
