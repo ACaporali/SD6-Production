@@ -71,6 +71,25 @@
       }
     }
   }
+
+  .video{
+    position: relative;
+
+    .filtre{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    video{
+      height: 350px;
+      overflow: hidden;
+    }
+  }
 }
 
 @media (max-width: 767px ){

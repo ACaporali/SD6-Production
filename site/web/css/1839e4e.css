@@ -224,6 +224,17 @@ footer {
       background-color: #A99675;
       border: 1px solid #A99675; }
 
+.accueil .video {
+  position: relative; }
+  .accueil .video .filtre {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); }
+
 @media (max-width: 767px) {
   .accueil .presentation .texte .col-1 {
     text-align: left; } }
