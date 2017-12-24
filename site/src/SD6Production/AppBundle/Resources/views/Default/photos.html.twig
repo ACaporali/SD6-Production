@@ -14,8 +14,9 @@
     <h1 class="beige text-center">Galerie photos</h1>
     <hr class="hr-beige">
     <div class="photos row">
+      <ul>
         {% for image in images %}
-          <div>
+          <li class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <a href="{{ asset(''~image.url~'')}}" title="{{image.alt}}" class="contenu" data-numelement="{{image.id}}" ><img src="{{ asset(''~image.url~'')}}" alt="{{image.alt}}"></a>
             <div class="bouton">
               {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
@@ -25,8 +26,9 @@
               </div>
               {% endif %}
             </div>
-          </div>
+          </li>
         {% endfor %}
+      </ul>
     </div>
   </div>
 
