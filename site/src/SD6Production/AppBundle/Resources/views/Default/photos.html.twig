@@ -15,7 +15,7 @@
     <hr class="hr-beige">
     <div class="photos row">
         {% for image in images %}
-          <div>
+          <div class="photo">
             <a href="{{ asset(''~image.url~'')}}" title="{{image.alt}}" class="contenu" data-numelement="{{image.id}}" ><img src="{{ asset(''~image.url~'')}}" alt="{{image.alt}}"></a>
             <div class="bouton">
               {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
