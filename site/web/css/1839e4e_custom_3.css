@@ -321,15 +321,19 @@ footer {
   .equipe .membres [class*="col-"] {
     padding-bottom: 20px; }
     .equipe .membres [class*="col-"] .image {
-      width: 30%;
+      width: auto;
       height: auto; }
       .equipe .membres [class*="col-"] .image img {
-        width: 100%;
+        width: auto;
         height: auto;
-        max-height: 200px; }
+        max-height: 200px;
+        margin: 0 auto;
+        border-radius: 90%; }
     .equipe .membres [class*="col-"] .media-body {
-      width: 70%;
-      vertical-align: middle; }
+      text-align: center; }
+      .equipe .membres [class*="col-"] .media-body h4 {
+        font-size: 19px;
+        height: 44px; }
 
 /*------Footer------*/
 footer.row {
