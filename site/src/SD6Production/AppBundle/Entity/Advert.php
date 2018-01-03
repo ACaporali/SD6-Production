@@ -124,6 +124,14 @@ class Advert
   */
   private $metaDescription;
 
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="keywords", type="string", length=255)
+  * @Assert\NotBlank(message="Veuillez saisir des mots clé pour cet page")
+  */
+  private $keywords;
+
   public function __construct()
   {
     // Par défaut, la date de l'advert est la date d'aujourd'hui
@@ -427,5 +435,29 @@ class Advert
     public function getMetaDescription()
     {
         return $this->metaDescription;
+    }
+
+    /**
+     * Set keywords
+     *
+     * @param string $keywords
+     *
+     * @return Advert
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return string
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }
