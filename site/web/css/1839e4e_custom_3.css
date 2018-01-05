@@ -269,7 +269,8 @@ footer {
       .annonce div[class^="col-"] .contenu .texte .titre h3 a:hover {
         text-decoration: none; }
       .annonce div[class^="col-"] .contenu .texte .accroche {
-        font-size: 15px; }
+        font-size: 15px;
+        overflow: hidden; }
         .annonce div[class^="col-"] .contenu .texte .accroche p {
           height: 66px; }
     .annonce div[class^="col-"] .contenu .bouton {

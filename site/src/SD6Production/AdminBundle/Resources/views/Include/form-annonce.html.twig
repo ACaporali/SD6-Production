@@ -6,7 +6,7 @@
 	{{ form_start(formAdvert) }}
 
 	{# Les erreurs générales du formulaire. #}
-	{% if form_errors(formAdvert) or form_errors(formAdvert.title) or form_errors(formAdvert.taglines) or form_errors(formAdvert.content) or form_errors(formAdvert.date) or form_errors(formAdvert.published) or form_errors(formAdvert.author) or form_errors(formAdvert.image) or form_errors(formAdvert.pinned) or form_errors(formAdvert.metaDescription)%}
+	{% if form_errors(formAdvert) or form_errors(formAdvert.title) or form_errors(formAdvert.taglines) or form_errors(formAdvert.content) or form_errors(formAdvert.date) or form_errors(formAdvert.published) or form_errors(formAdvert.author) or form_errors(formAdvert.image) or form_errors(formAdvert.pinned) or form_errors(formAdvert.metaDescription) or form_errors(formAdvert.keywords)%}
 	<div class="alert alert-danger">
 		{{ form_errors(formAdvert) }}
 		{{ form_errors(formAdvert.title) }}
@@ -17,6 +17,7 @@
 		{{ form_errors(formAdvert.published) }}
 		{{ form_errors(formAdvert.pinned) }}
 		{{ form_errors(formAdvert.metaDescription) }}
+		{{ form_errors(formAdvert.keywords) }}
 	</div>
 	{% endif %}
 
@@ -28,39 +29,39 @@
 
 	<div class="row">
 		{# Génération du label. #}
-		{{ form_label(formAdvert.category, "Categorie de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.category, "Categorie de l'annonce", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
 		{# Génération de l'input. #}
 		{{ form_widget(formAdvert.category, {'attr': {'class': 'browser-default'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAdvert.title, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.title, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
 		{{ form_widget(formAdvert.title, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAdvert.taglines, "Accroche de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.taglines, "Accroche de l'annonce", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
 		{{ form_widget(formAdvert.taglines, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAdvert.content, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.content, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
 		{{ form_widget(formAdvert.content, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	{# Génération du label + error + widget pour un champ #}
 	<div class="row">
-		{{ form_label(formAdvert.date, "Date", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.date, "Date", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
 		{{ form_widget(formAdvert.date, {'attr': {'class': 'formAnnonce-control date-date'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAdvert.author, "Auteur", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_label(formAdvert.author, "Auteur", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
 		{{ form_widget(formAdvert.author, {'attr': {'class': 'form-control'}}) }}
 	</div>
 
 	<div class="row">
-		{{ form_label(formAdvert.published, "Etat Publie ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_label(formAdvert.published, "Etat Publie ?", {'label_attr': {'class': 'col-sm-6 control-label label_publie'}}) }}
 		{{ form_widget(formAdvert.published, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
@@ -70,13 +71,18 @@
 	</div>
 
 	<div class="row">
-		{{ form_label(formAdvert.pinned, "Epinglé en haut ?", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_label(formAdvert.pinned, "Epinglé en haut ?", {'label_attr': {'class': 'col-sm-6 control-label label_publie'}}) }}
 		{{ form_widget(formAdvert.pinned, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
 	<h3>SEO de la page</h3>
 	<div class="row">
-		{{ form_label(formAdvert.metaDescription, " Meta description de la page", {'label_attr': {'class': 'col-sm-3 control-label label_publie'}}) }}
+		{{ form_label(formAdvert.keywords, "Mots clé de la page (1 ou 2 mot-s)", {'label_attr': {'class': 'col-sm-6 control-label label_publie'}}) }}
+		{{ form_widget(formAdvert.keywords, {'attr': {'class': 'form-control checkbox_publie'}}) }}
+	</div>
+
+	<div class="row">
+		{{ form_label(formAdvert.metaDescription, "Meta description de la page", {'label_attr': {'class': 'col-sm-6 control-label label_publie'}}) }}
 		{{ form_widget(formAdvert.metaDescription, {'attr': {'class': 'form-control checkbox_publie'}}) }}
 	</div>
 
