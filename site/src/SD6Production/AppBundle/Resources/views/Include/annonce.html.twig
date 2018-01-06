@@ -11,7 +11,7 @@
 				<p>Pas de visuel</p>
 				{% endif %}
 				{% if advert.closure is defined %}
-					{% if advert.closure|date('Y/m/d') < "now"|date('Y/m/d') %}
+					{% if advert.closure| localizeddate('medium', 'none', app.request.locale) < "now"| localizeddate('medium', 'none', app.request.locale) %}
 					<p class="ferme">Fermé</p>
 					{% endif %}
 				{% endif %}
@@ -28,7 +28,7 @@
 					<p>{{advert.taglines|raw}}</p>
 				</div>
 				<div class="date">
-					<p>{{advert.date|date('d M Y')}}</p>
+					<p>{{advert.date| localizeddate('medium', 'none', app.request.locale)}}</p>
 				</div>
 			</div>
 			<div class="bouton">

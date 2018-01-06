@@ -120,3 +120,10 @@ swiftmailer:
 #Fos js routing, route exposee pour utiliser dans fichier app.js
 fos_js_routing:
     routes_to_expose: [sd6_production_popup_infos_create_cookies, sd6_production_admin_delete_advert, sd6_production_app_actualites, sd6_production_app_productions, sd6_production_admin_delete_member, sd6_production_app_equipe, sd6_production_admin_delete_image, sd6_production_app_photos, sd6_production_app_casting, sd6_production_admin_advert_index, sd6_production_admin_image_index, sd6_production_admin_delete_account, sd6_production_admin_account_index, sd6_production_admin_member_index, sd6_production_admin_delete_category, sd6_production_admin_category_index, sd6_production_popup_infos_delete, sd6_production_popup_infos_all]
+
+#Date en fr tamplate Twig
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
