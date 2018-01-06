@@ -157,7 +157,9 @@ footer {
 
 @media (max-width: 767px) {
   .video {
-    display: none; } }
+    display: none; }
+  .bordures {
+    width: 93%; } }
 
 /*------Accueil------*/
 .accueil .visuel-activites {
@@ -315,6 +317,11 @@ footer {
 
 .detail .contenu .suivant {
   float: right; }
+
+@media (max-width: 700px) {
+  .texte iframe {
+    width: 100% !important;
+    height: auto !important; } }
 
 /*------Equipe------*/
 .equipe .membres {
