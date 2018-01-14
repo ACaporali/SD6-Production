@@ -163,7 +163,7 @@ footer {
 
 /*------Accueil------*/
 .accueil .visuel-activites {
-  background-image: url("../../images/accueil/montage-accueil.png");
+  background-image: url("../../images/accueil/accueil.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -234,8 +234,10 @@ footer {
     text-align: left; } }
 
 @media (max-width: 640px) {
-  .accueil .visuel-activites .filtre .contenu p {
-    font-size: 28px; } }
+  .accueil .visuel-activites .filtre .contenu {
+    padding-left: 20px; }
+    .accueil .visuel-activites .filtre .contenu p {
+      font-size: 28px; } }
 
 /*------Annonce include page------*/
 .annonce div[class^="col-"] {
