@@ -1,0 +1,15 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Erreur - {{ parent() }}{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <meta name="description" content="SD6 Production page non trouvée">
+  <meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+<h1>Une erreur est survenue</h1>
+<p>Le serveur à répondu : "{{ status_code }} {{ status_text }}".</p>
+<p>Nous vous invitons à nous faire part de cette erreur et de <a href="{{ path('sd6_production_app_homepage') }}">retourner à l'accueil</a>. Merci pour votre compréhension.</p>
+{% endblock %}

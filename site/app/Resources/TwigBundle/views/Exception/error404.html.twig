@@ -1,0 +1,14 @@
+{% extends "SD6ProductionAppBundle:Include:layout.html.twig" %}
+
+{% block title %}Page non trouvée - {{ parent() }}{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <meta name="description" content="SD6 Production page non trouvée">
+  <meta name="keywords" content="">
+{% endblock %}
+
+{% block site_body %}
+<h1>Page non trouvée</h1>
+<p>La page que vous tentez d'afficher n'existe pas ou a été déplacée, nous vous invitons à <a href="{{ path('sd6_production_app_homepage') }}">retourner à l'accueil</a>. Merci pour votre compréhension.</p>
+{% endblock %}
