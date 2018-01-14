@@ -1,8 +1,14 @@
 /*-----Side-bar------*/
 .side-bar{
-    .actualites{
-        margin-top: 30px;
-    }
+  .actualites{
+      margin-top: 30px;
+  }
+
+  h4{
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
   a{
     display: block;
     padding: 5px 0px;
