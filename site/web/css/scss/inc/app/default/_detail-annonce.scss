@@ -29,9 +29,15 @@
       }
     }
 
-    .partage-boutons{
-      a{
-        text-decoration: none;
+    .partage{
+      background-color: $grisClair;
+      padding: 15px 20px;
+      margin: 30px 0px;
+
+      .partage-boutons{
+        a{
+          text-decoration: none;
+        }
       }
     }
 

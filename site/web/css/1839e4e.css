@@ -322,8 +322,12 @@ footer {
   font-size: 13px;
   padding: 10px 0px; }
 
-.detail .contenu .partage-boutons a {
-  text-decoration: none; }
+.detail .contenu .partage {
+  background-color: #F6F6F6;
+  padding: 15px 20px;
+  margin: 30px 0px; }
+  .detail .contenu .partage .partage-boutons a {
+    text-decoration: none; }
 
 .detail .contenu .precedent {
   float: left; }
