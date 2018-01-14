@@ -9,7 +9,9 @@
 {% endblock %}
 
 {% block site_body %}
-<h1>Une erreur est survenue</h1>
-<p>Le serveur à répondu : "{{ status_code }} {{ status_text }}".</p>
-<p>Nous vous invitons à nous faire part de cette erreur et de <a href="{{ path('sd6_production_app_homepage') }}">retourner à l'accueil</a>. Merci pour votre compréhension.</p>
+<div class="row">  
+  <h1>Une erreur est survenue</h1>
+  <p>Le serveur à répondu : "{{ status_code }} {{ status_text }}".</p>
+  <p>Nous vous invitons à nous faire part de cette erreur et de <a href="{{ path('sd6_production_app_homepage') }}">retourner à l'accueil</a>. Merci pour votre compréhension.</p>
+</div>
 {% endblock %}
