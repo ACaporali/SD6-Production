@@ -1,26 +1,26 @@
 <div class="partage-boutons">
   <!-- Email -->
-  <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{base_url}}/{{typeAdvert}}/{{slugAdvert}}">
+  <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 {{app.request.getSchemeAndHttpHost()}}/{{action}}/{{typeAdvert}}/{{slugAdvert}}">
     <img src="{{ asset('images/reseaux-sociaux/email.svg')}}" class="email" alt="email">
   </a>
 
   <!-- Facebook -->
-  <a href="http://www.facebook.com/sharer.php?u={{base_url}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
+  <a href="http://www.facebook.com/sharer/sharer.php?u={{app.request.getSchemeAndHttpHost()}}/{{action}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
     <img src="{{ asset('images/reseaux-sociaux/facebook.svg')}}" alt="facebook SD6 Production">
   </a>
 
   <!-- Twitter -->
-  <a href="https://twitter.com/share?url={{base_url}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
+  <a href="https://twitter.com/share?url={{app.request.getSchemeAndHttpHost()}}/{{action}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
     <img src="{{ asset('images/reseaux-sociaux/twitter.svg')}}" alt="twitter SD6 Production">
   </a>
 
   <!-- Google+ -->
-  <a href="https://plus.google.com/share?url={{base_url}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
+  <a href="https://plus.google.com/share?url={{app.request.getSchemeAndHttpHost()}}/{{action}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
     <img src="{{ asset('images/reseaux-sociaux/google_plus.svg')}}" alt="google plus SD6 Production">
   </a>
 
   <!-- LinkedIn -->
-  <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{base_url}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
+  <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{app.request.getSchemeAndHttpHost()}}/{{action}}/{{typeAdvert}}/{{slugAdvert}}" target="_blank">
     <img src="{{ asset('images/reseaux-sociaux/linkedin.svg')}}" alt="linkedin SD6 Production">
   </a>
 </div>

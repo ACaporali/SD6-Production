@@ -41,7 +41,7 @@
 
         <div class="partage">
           <p>Partager sur :</p>
-          {% include "SD6ProductionSocialBundle:Default:social-bar.html.twig" with {'typeAdvert': 'advert.category.name', 'slugAdvert': 'advert.slug'} %}
+          {% include "SD6ProductionSocialBundle:Default:social-bar.html.twig" with {'typeAdvert': advert.category.slug, 'slugAdvert': advert.slug} %}
         </div>
 
         <div class="row">
