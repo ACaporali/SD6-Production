@@ -5,15 +5,11 @@
     .objets{
       [class*="col-"]{
         text-align: center;
-        margin-bottom: 20px;
+        margin: 20px 0px;
 
         .icon{
           font-size: 42px;
           color: $beige;
-        }
-
-        .texte{
-          font-style: italic;
         }
       }
     }
@@ -29,11 +25,20 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 40px 0px;
+
+      .bordures{
+        margin: 20px auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+      }
     }
     p{
       text-align: center;
       color: #fff;
-      font-size: 18px;
+      text-transform: uppercase;
+      font-size: 23px;
+      letter-spacing: 2px;
+      line-height: 1.7;
     }
   }
 
@@ -50,9 +55,5 @@
         color: $beige;
       }
     }
-  }
-
-  .musicales{
-    background-color: $grisClair;
   }
 }

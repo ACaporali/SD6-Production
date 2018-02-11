@@ -147,6 +147,9 @@ footer {
 .epingle [class^="col-"].contenu:last-child {
   margin-bottom: 40px; }
 
+.background-gris {
+  background-color: #F6F6F6; }
+
 #alertMessage {
   z-index: 10;
   position: fixed;
@@ -207,24 +210,23 @@ footer {
     color: #fff;
     margin: 0; }
 
-.accueil .presentation {
-  background-color: #F6F6F6; }
-  .accueil .presentation .texte .col-1 {
-    text-align: right; }
-  .accueil .presentation .texte .btn {
-    text-align: center; }
-    .accueil .presentation .texte .btn a {
-      display: inline-block;
-      padding: 6px 12px;
-      background-color: #333;
-      color: #fff;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #333;
-      text-decoration: none; }
-    .accueil .presentation .texte .btn a:hover {
-      background-color: #A99675;
-      border: 1px solid #A99675; }
+.accueil .presentation .texte .col-1 {
+  text-align: right; }
+
+.accueil .presentation .texte .btn {
+  text-align: center; }
+  .accueil .presentation .texte .btn a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #333;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #333;
+    text-decoration: none; }
+  .accueil .presentation .texte .btn a:hover {
+    background-color: #A99675;
+    border: 1px solid #A99675; }
 
 .accueil .video {
   position: relative; }
@@ -239,6 +241,10 @@ footer {
   .accueil .video video {
     height: 350px;
     overflow: hidden; }
+
+.accueil .polyvalence .icon {
+  font-size: 42px;
+  color: #A99675; }
 
 @media (max-width: 767px) {
   .accueil .presentation .texte .col-1 {
@@ -777,12 +783,10 @@ footer.row {
   padding-top: 0px; }
   .prestations .presentation .objets [class*="col-"] {
     text-align: center;
-    margin-bottom: 20px; }
+    margin: 20px 0px; }
     .prestations .presentation .objets [class*="col-"] .icon {
       font-size: 42px;
       color: #A99675; }
-    .prestations .presentation .objets [class*="col-"] .texte {
-      font-style: italic; }
 
 .prestations .paralax {
   background: url("../../images/equipe/grenoble.jpg") center center no-repeat fixed;
@@ -793,10 +797,17 @@ footer.row {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 40px 0px; }
+    .prestations .paralax .filtre .bordures {
+      margin: 20px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px; }
   .prestations .paralax p {
     text-align: center;
     color: #fff;
-    font-size: 18px; }
+    text-transform: uppercase;
+    font-size: 23px;
+    letter-spacing: 2px;
+    line-height: 1.7; }
 
 .prestations .cinematographique-televisuel .center {
   text-align: center;
@@ -807,9 +818,6 @@ footer.row {
   margin-top: 20px; }
   .prestations .cinematographique-televisuel blockquote .texte {
     color: #A99675; }
-
-.prestations .musicales {
-  background-color: #F6F6F6; }
 
 /*-----Side-bar------*/
 .side-bar .actualites {

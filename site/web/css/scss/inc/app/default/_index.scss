@@ -43,8 +43,6 @@
   }
 
   .presentation{
-    background-color: $grisClair;
-
     .texte{
       .col-1{
         text-align: right;
@@ -90,6 +88,13 @@
       overflow: hidden;
     }
   }
+
+  .polyvalence{
+    .icon{
+      font-size: 42px;
+      color: #A99675;
+    }
+  }
 }
 
 @media (max-width: 767px ){
@@ -110,7 +115,7 @@
       .filtre{
         .contenu{
           padding-left: 20px;
-          
+
           p{
             font-size: 28px;
           }
