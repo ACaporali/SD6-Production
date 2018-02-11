@@ -165,17 +165,16 @@ $( document ).ready(function(){
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
 	function creatCookie(name, value, days, element) {
-		var res = $(location).attr('href').split(".php");
-		var getUrlCreateCookie = res[0]+".php" + Routing.generate('sd6_production_popup_infos_create_cookies');
+		var res = $(location).attr('href').split(".fr");
+		var getUrlCreateCookie = res[0]+".fr" + Routing.generate('sd6_production_popup_infos_create_cookies');
 
 		$.ajax({
 			url : getUrlCreateCookie,
 			type : 'POST',
 			data: {name: name, value: value, days: days},
 			success : function(code_html, statut){
-				//$(element).remove();
-				$(this).fadeOut(slow,function(){
-		        $(this).remove();
+				$(element).fadeOut("slow",function(){
+		        $(element).remove();
 		    })
 				console.log('cookie ok');
 			},
