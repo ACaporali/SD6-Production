@@ -4,8 +4,8 @@
 
 {% block head %}
 {{ parent() }}
-<meta name="description" content="Réalisation et Production de cinéma avec une équipe complète qui donne vie au 7ème art. SD6 Production oeuvre dans la production et réalisation de films, clips, séries ... ">
-<meta name="keywords" content="Production,cinéma,film,clip,audiovisuelle">
+<meta name="description" content="Réalisation et Production de cinéma avec une équipe complète qui donne vie au 7ème art. SD6 Production oeuvre dans la production et réalisation de films, clips, séries ... Acctuellement situé dans la région de Grenoble">
+<meta name="keywords" content="Production,film,audiovisuel,sd6 production">
 {% endblock %}
 
 {% block site_body %}
@@ -19,19 +19,19 @@
     </div>
   </div>
   <div class="row activites">
-    <h1>Réalisation et production de films - series - émissions TV - audiovisuelle</h1>
+    <h1>Réalisation et production de films - series - émissions TV - audiovisuels</h1>
   </div>
-  <div class="row presentation">
+  <div class="row presentation background-gris">
     <div class="bordures">
       <h2 class="beige">SD6 Production</h2>
       <hr class="hr-beige">
       <div class="texte">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-1 element-left">
-          <p>SD6 Production à pour principale fonction la <strong>réalisation d’œuvres de cinéma, télévisuelles, audiovisuelles</strong>, ainsi que la composition de musiques et l’organisation d’événements.
-          A travers nos projets nous créons un mouvement de personalités, lieux, concepts qui nous permet d'atteindre notre but.</p>
+          <p>SD6 Production a pour principale fonction la <strong>réalisation d’œuvres de cinéma, télévisuelles, audiovisuelles</strong>, ainsi que la composition de musiques et l’organisation d’événements.
+          A travers nos projets nous créons un mouvement de personnalités, lieux, concepts qui nous permet d'atteindre notre but.</p>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-2 element-right">
-          <p>Créée depuis quelques années SD6 Production ne cesse d’avancer et de progresser par la <strong>réalisation de multiples projets</strong> aux thèmes variés comme les films, clips musicaux, films publicitaire, etc. La diversité de ces derniers nous a également permis de nous faire connaitre d’avantage dans ces domaines artistiques.</p>
+          <p>Créée depuis quelques années SD6 Production ne cesse d’avancer et de progresser par la <strong>réalisation de multiples projets</strong> aux thèmes variés comme les films, clips musicaux, films publicitaires, etc. La diversité de ces derniers nous a également permis de nous faire connaitre d’avantage dans ces domaines artistiques.</p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn">
           <a href="{{ path('sd6_production_app_equipe') }}">Voir plus</a>
@@ -51,6 +51,42 @@
     <h2 class="beige">Dernières publications</h2>
     <hr class="hr-beige">
     {{ include("SD6ProductionAppBundle:Include:annonce.html.twig") }}
+  </div>
+  <div class="row polyvalence background-gris">
+    <div class="bordures">
+      <h2 class="beige">Notre polyvalence</h2>
+      <hr class="hr-beige">
+      <p class="text-center">SD6 Production maîtrise les 4 étapes de la chaîne de production :</p>
+      <div class="row">
+        <div class="text-center col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="icon">
+            <span class="glyphicon glyphicon glyphicon-send" aria-hidden="true"></span>
+          </div>
+          <p class="text-center">Développement d’une idée</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="icon">
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+          </div>
+          <p class="text-center">Pré-production</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="icon">
+            <span class="glyphicon glyphicon glyphicon-film" aria-hidden="true"></span>
+          </div>
+          <p class="text-center">Production</p>
+        </div>
+        <div class="text-center col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="icon">
+            <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>
+          </div>
+          <p class="text-center">Post-production</p>
+        </div>
+      </div>
+      <div class="">
+        <p class="text-justify">Nous mettons en oeuvre notre savoir-faire sur toutes les étapes de la gestion de production (scénario, tournage, montage, mixage son, effets spéciaux, etc). Que ce soit pour un projet cinématographique, film d'entreprise ou autres projets audiovisuels, nous déployons l’ensemble de <a href="{{ path('sd6_production_app_equipe') }}">notre équipe</a>, moyens techniques et créatifs afin d'obtenir un résultat final convainquant et qui répond pleinement aux besoins.</p>
+      </div>
+    </div>
   </div>
 </div>
 

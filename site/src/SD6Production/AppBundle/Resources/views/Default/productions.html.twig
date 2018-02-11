@@ -5,7 +5,7 @@
 {% block head %}
 {{ parent() }}
 <meta name="description" content="Réalisation et production de films, séries, clips, interviews. SD6 Production intervient avec toute son équipe constituée d'acteurs, maquilleurs, réalisateurs.">
-<meta name="keywords" content="">
+<meta name="keywords" content="SD6 production">
 {% endblock %}
 
 {% block site_body %}
@@ -16,8 +16,7 @@
     <hr class="hr-beige">
   </div>
   <div class="row bordures">
-    <p class="text-center">Les productions représentent tous les projets audiovisuels que nous avons réalisés avec notre équipe de production. Dans le panel ci-dessous, vous trouverez une grande partie de nos productions de films, productions télévisuels, web series, mais aussi les clips musicaux et d'autres encore.</p>
-    <p class="text-center">SD6 Production maîtrise toute la chaîne de production : le développement d’une idée, puis la pré-production, en suite la production et enfin la post-production. Nous mettons en oeuvre notre savoir-faire sur toutes les étapes de la gestion de production (scénario, tournage, montage, mixage son, effets spéciaux, etc).</p>
+    <p class="text-center">Les productions représentent tous les projets audiovisuels que nous avons réalisés avec <a href="{{ path('sd6_production_app_equipe') }}">notre équipe de production</a>. Dans le panel ci-dessous, vous trouverez une grande partie de nos productions de films, productions télévisuels, web séries, mais aussi les clips musicaux et d'autres encore.</p>
   </div>
   <div class="row">
     <div class="epingle">
@@ -102,11 +101,6 @@
         {% else %}
         <p>Pas de production disponible.</p>
         {% endfor %}
-      </div>
-    </div>
-    <div class="row bordures">
-      <div class="">
-        <p class="text-center">Que ce soit pour un projet cinématographique, film d'entreprise ou autres projets audiovisuels, nous mettons en oeuvre l’ensemble de <a href="{{ path('sd6_production_app_equipe') }}">notre équipe</a>, moyens techniques et créatifs afin d'obtenir un résultat final convainquant et qui répond pleinement aux besoins.</p>
       </div>
     </div>
   </div>
