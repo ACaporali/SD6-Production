@@ -9,6 +9,12 @@
 {% endblock %}
 
 {% block site_body %}
+{% for flash_message in app.session.flashBag.get('succes') %}
+<div class="alert alert-success">
+	<span class="pull-left glyphicon glyphicon-ok"></span>
+	<p>{{flash_message}}</p>
+</div>
+{% endfor %}
 <div class="contact">
   {{ parent() }}
   <h1 class="beige text-center">Contact</h1>

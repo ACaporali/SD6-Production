@@ -26,12 +26,8 @@ class DefaultController extends Controller
         ->setBody($this->renderView('SD6ProductionContactBundle:Default:gabaritMail.txt.twig', array('contact' => $contact)));
         $this->get('mailer')->send($message);
 
-        $session = $request->getSession();
-        $session->set('nouveauProduit', $message);
-        //$this->get('session')->setFlash('blogger-notice', 'Your contact enquiry was successfully sent. Thank you!');
+        $request->getSession()->getFlashBag()->add('succes', 'Message envoyé avec succès ! Merci.');
 
-        // Redirect - This is important to prevent users re-posting
-        // the form if they refresh the page
         return $this->redirect($this->generateUrl('sd6_production_contact_contact'));
       }
     }
