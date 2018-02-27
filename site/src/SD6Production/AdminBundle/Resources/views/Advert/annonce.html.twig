@@ -23,6 +23,7 @@
               <tr>
                 <th>Titre</th>
                 <th>Publié</th>
+                <th>Date publication</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
               </tr>
@@ -32,6 +33,7 @@
                   <tr>
                     <td>{{advert.title}}</td>
                     <td>{{advert.published}}</td>
+                    <td>{{advert.date| localizeddate('medium', 'none', app.request.locale)}}</td>
                     <td>
                       <div class="boutons-admin">
                         <a href="{{path('sd6_production_admin_edite_advert', {'idAdvert': advert.id})}}">Modifier</a>

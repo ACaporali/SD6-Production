@@ -19,7 +19,7 @@ class AdvertController extends Controller
     //Récupère toutes les catégories
     $em = $this->getDoctrine()->getManager();
 
-    $adverts = $em->getRepository('SD6ProductionAppBundle:Advert')->findAll();
+    $adverts = $em->getRepository('SD6ProductionAppBundle:Advert')->getAdvertAllOrderBy('date');
 
     return $this->render('SD6ProductionAdminBundle:Advert:annonce.html.twig', array(
       'adverts' => $adverts,

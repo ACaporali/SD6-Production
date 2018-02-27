@@ -59,4 +59,14 @@ class AdvertRepository extends \Doctrine\ORM\EntityRepository
 		->getQuery()
 		->getResult();
 	}
+
+  public function getAdvertAllOrderBy($orderBy){
+		$qb = $this->createQueryBuilder('a');
+
+		$qb->orderBy('a.'.$orderBy, 'DESC');
+
+		return $qb
+		->getQuery()
+		->getResult();
+	}
 }
