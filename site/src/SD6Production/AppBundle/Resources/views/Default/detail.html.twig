@@ -29,7 +29,7 @@
           <p><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Publié le {{advert.date| localizeddate('medium', 'none', app.request.locale)}} | par {{advert.author}}</p>
         </div>
         {% if advert.closure is defined %}
-          {% if advert.closure| localizeddate('medium', 'none', app.request.locale) < "now"| localizeddate('medium', 'none', app.request.locale) %}
+          {% if advert.closure|date('Ymd') < "now"|date('Ymd') %}
           <div class="text-center">
     				<p class="ferme">Le recrutement est fermé</p>
           </div>

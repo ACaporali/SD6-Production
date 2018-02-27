@@ -11,7 +11,7 @@
 				<p>Pas de visuel</p>
 				{% endif %}
 				{% if advert.closure is defined %}
-					{% if advert.closure| localizeddate('medium', 'none', app.request.locale) < "now"| localizeddate('medium', 'none', app.request.locale) %}
+					{% if advert.closure|date('Ymd') < "now"|date('Ymd') %}
 					<p class="ferme">Fermé</p>
 					{% endif %}
 				{% endif %}
