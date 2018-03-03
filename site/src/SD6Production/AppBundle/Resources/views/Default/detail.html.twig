@@ -6,6 +6,12 @@
 {{ parent() }}
 <meta name="description" content="{{advert.metaDescription}}">
 <meta name="keywords" content="{{advert.keywords}}">
+<!-- Meta tag for social media -->
+<meta property="og:url" content="{{app.request.uri}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{advert.title}}" />
+<meta property="og:description" content="{{advert.taglines}}" />
+<meta property="og:image" content="{{absolute_url(asset(advert.image.Url))}}"/>
 {% endblock %}
 
 {% block site_body %}
