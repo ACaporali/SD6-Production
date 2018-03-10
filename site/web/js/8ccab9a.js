@@ -43,139 +43,11 @@ $( document ).ready(function(){
 		}
 	});
 
-	//Message alerte
-	function alertMessage(titre, msg, btn1, btn2, classCss) {
-		msg = '<div class="bg-alert alert fade in '+classCss+'" id="alertMessage">'+
-		'<div class=" alert-info alert-dismissible alert-contenu" role="alert"> '+
-		'<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-		'<span aria-hidden="true">×</span>'+
-		'</button> '+
-		'<h4>'+titre+'</h4> '+
-		'<p>'+msg+'</p>';
-		if (btn1 != 'null') {
-			msg = msg + '<p> <button type="button" class="btn btn-info alert-btn1">'+btn1+'</button> ';
-		}
-		msg = msg + '<button type="button" class="btn btn-default alert-btn2" data-dismiss="alert">'+btn2+'</button> </p> '+
-		'</div></div>';
-		return msg;
-	}
-
-	//Retire le massage alert (popup) si click à coté
-	$(document).mouseup(function (e){
-		var container = $(".alert-contenu");
-
-		if (!container.is(e.target) && container.has(e.target).length === 0)
-		{
-			$("#alertMessage").hide();
-		}
-	});
-
-	//Affiche le message alert sur supprimer une annonce, membre, photo ou categorie
-	$(document).on('click', ".boutons-admin .supprimer", function(event) {
-		var dialogue = alertMessage("Supprimer cet élément ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
-		var localtion = ($(event.target).closest( 'div.boutons-admin' ));
-		$(this).after(dialogue);
-	});
-
-	$(document).on('click', ".actualites .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
-		supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_actualites');
-	});
-
-	$(document).on('click', ".productions .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
-		supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_productions');
-	});
-
-	$(document).on('click', ".equipe .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
-		supprimerElement(id, 'sd6_production_admin_delete_member', 'sd6_production_app_equipe');
-	});
-
-	$(document).on('click', ".galerie-photos .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
-		supprimerElement(id, 'sd6_production_admin_delete_image', 'sd6_production_app_photos');
-	});
-
-	$(document).on('click', ".casting .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
-		supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_casting');
-	});
-
-	$(document).on('click', ".admin-annonces .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
-		supprimerElementAdmin(id, 'sd6_production_admin_delete_advert', 'sd6_production_admin_advert_index');
-	});
-
-	$(document).on('click', ".admin-images .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
-		supprimerElementAdmin(id, 'sd6_production_admin_delete_image', 'sd6_production_admin_image_index');
-	});
-
-	$(document).on('click', ".admin-comptes .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
-		supprimerElementAdmin(id, 'sd6_production_admin_delete_account', 'sd6_production_admin_account_index');
-	});
-
-	$(document).on('click', ".admin-membres .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
-		supprimerElementAdmin(id, 'sd6_production_admin_delete_member', 'sd6_production_admin_member_index');
-	});
-
-	$(document).on('click', ".admin-categories .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
-		supprimerElementAdmin(id, 'sd6_production_admin_delete_category', 'sd6_production_admin_category_index');
-	});
-
-	$(document).on('click', ".popup-pinned .alert-supprimer button.alert-btn1", function(event) {
-		var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
-		supprimerElementAdmin(id, 'sd6_production_popup_infos_delete', 'sd6_production_popup_infos_all');
-	});
-
-	function supprimerElement(id, route, redirection){
-		var baseUrl = "." + Routing.generate(route);
-		var fullUrl = baseUrl + "/"+ id;
-
-		$.ajax({
-      url : fullUrl,
-      type : 'POST',
-      data: {id: id},
-      success : function(code_html, statut){
-        location.href = "." + Routing.generate(redirection);
-      },
-
-      error : function(resultat, statut, erreur){
-        alert(erreur);
-      }
-  	});
-	}
-
-	function supprimerElementAdmin(id, route, redirection){
-		var baseUrl = "../.." + Routing.generate(route);
-		var fullUrl = baseUrl + "/"+ id;
-
-		$.ajax({
-      url : fullUrl,
-      type : 'POST',
-      data: {id: id},
-      success : function(code_html, statut){
-        location.href = "../.." + Routing.generate(redirection);
-      },
-
-      error : function(resultat, statut, erreur){
-        alert(erreur);
-      }
-  	});
-	}
-
-
-
 	/*------liste annonces------*/
 	//Change les balises accroche annonce en p
 	$( ".annonce div[class^='col-'] .contenu .accroche" ).children().each(function(index){
 		$(this).replaceWith($('<p>' + $(this).text() + '</p>'))
 	})
-
 
 	/*------PopupInfosBundle------*/
 	//Creation d'un cookie (accepter utilisation cookies)
@@ -481,4 +353,130 @@ function L(a,c,b,d){var e,g=RegExp(/\[\]$/);if(b instanceof Array)p(b,function(b
 f.m=function(a,c,b){var d=this.i(a),e=c||{},g=r(e),h="",t=!0,k="";p(d.tokens,function(b){if("text"===b[0])h=b[1]+h,t=!1;else if("variable"===b[0]){var c=b[3]in d.defaults;if(!1===t||!c||b[3]in e&&e[b[3]]!=d.defaults[b[3]]){if(b[3]in e){var c=e[b[3]],k=b[3];k in g&&delete g[k]}else if(c)c=d.defaults[b[3]];else{if(t)return;throw Error('The route "'+a+'" requires the parameter "'+b[3]+'".');}if(!0!==c&&!1!==c&&""!==c||!t)k=encodeURIComponent(c).replace(/%2F/g,"/"),"null"===k&&null===c&&(k=""),h=b[1]+
 k+h;t=!1}else c&&(b=b[3],b in g&&delete g[b])}else throw Error('The token type "'+b[0]+'" is not supported.');});""===h&&(h="/");p(d.hosttokens,function(a){var b;if("text"===a[0])k=a[1]+k;else if("variable"===a[0]){if(a[3]in e){b=e[a[3]];var c=a[3];c in g&&delete g[c]}else a[3]in d.defaults&&(b=d.defaults[a[3]]);k=a[1]+b+k}});h=this.a.e+h;"_scheme"in d.requirements&&this.a.scheme!=d.requirements._scheme?h=d.requirements._scheme+"://"+(k||this.a.host)+h:"schemes"in d&&"undefined"!==typeof d.schemes[0]&&
 this.a.scheme!=d.schemes[0]?h=d.schemes[0]+"://"+(k||this.a.host)+h:k&&this.a.host!==k?h=this.a.scheme+"://"+k+h:!0===b&&(h=this.a.scheme+"://"+this.a.host+h);if(0<q(g)){var z,F=[];c=function(a,b){b="function"===typeof b?b():b;F.push(encodeURIComponent(a)+"\x3d"+encodeURIComponent(null===b?"":b))};for(z in g)L(this,z,g[z],c);h=h+"?"+F.join("\x26").replace(/%20/g,"+")}return h};m("fos.Router",K);m("fos.Router.setData",function(a){var c=K.g();c.k(a.base_url);c.h(a.routes);"prefix"in a&&c.l(a.prefix);c.a.host=a.host;c.a.scheme=a.scheme});K.getInstance=K.g;K.prototype.setRoutes=K.prototype.h;K.prototype.getRoutes=K.prototype.o;K.prototype.setBaseUrl=K.prototype.k;K.prototype.getBaseUrl=K.prototype.n;K.prototype.generate=K.prototype.m;K.prototype.setPrefix=K.prototype.l;K.prototype.getRoute=K.prototype.i;window.Routing=K.g();})();
+console.log('ici 123');
+//Message alerte
+function alertMessage(titre, msg, btn1, btn2, classCss) {
+  msg = '<div class="bg-alert alert fade in '+classCss+'" id="alertMessage">'+
+  '<div class=" alert-info alert-dismissible alert-contenu" role="alert"> '+
+  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+  '<span aria-hidden="true">×</span>'+
+  '</button> '+
+  '<h4>'+titre+'</h4> '+
+  '<p>'+msg+'</p>';
+  if (btn1 != 'null') {
+    msg = msg + '<p> <button type="button" class="btn btn-info alert-btn1">'+btn1+'</button> ';
+  }
+  msg = msg + '<button type="button" class="btn btn-default alert-btn2" data-dismiss="alert">'+btn2+'</button> </p> '+
+  '</div></div>';
+  return msg;
+}
+
+//Retire le massage alert (popup) si click à coté
+$(document).mouseup(function (e){
+  var container = $(".alert-contenu");
+
+  if (!container.is(e.target) && container.has(e.target).length === 0)
+  {
+    $("#alertMessage").hide();
+  }
+});
+
+//Affiche le message alert sur supprimer une annonce, membre, photo ou categorie
+$(document).on('click', ".boutons-admin .supprimer", function(event) {
+  var dialogue = alertMessage("Supprimer cet élément ?", "Voulez vous vraiment supprimer cet element ?", "Supprimer", "Annuler", "alert-supprimer");
+  var localtion = ($(event.target).closest( 'div.boutons-admin' ));
+  $(this).after(dialogue);
+});
+
+$(document).on('click', ".actualites .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+  supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_actualites');
+});
+
+$(document).on('click', ".productions .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+  supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_productions');
+});
+
+$(document).on('click', ".equipe .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+  supprimerElement(id, 'sd6_production_admin_delete_member', 'sd6_production_app_equipe');
+});
+
+$(document).on('click', ".galerie-photos .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+  supprimerElement(id, 'sd6_production_admin_delete_image', 'sd6_production_app_photos');
+});
+
+$(document).on('click', ".casting .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.bouton').find('a.supprimer').data('id');
+  supprimerElement(id, 'sd6_production_admin_delete_advert', 'sd6_production_app_casting');
+});
+
+$(document).on('click', ".admin-annonces .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+  supprimerElementAdmin(id, 'sd6_production_admin_delete_advert', 'sd6_production_admin_advert_index');
+});
+
+$(document).on('click', ".admin-images .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+  supprimerElementAdmin(id, 'sd6_production_admin_delete_image', 'sd6_production_admin_image_index');
+});
+
+$(document).on('click', ".admin-comptes .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+  supprimerElementAdmin(id, 'sd6_production_admin_delete_account', 'sd6_production_admin_account_index');
+});
+
+$(document).on('click', ".admin-membres .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+  supprimerElementAdmin(id, 'sd6_production_admin_delete_member', 'sd6_production_admin_member_index');
+});
+
+$(document).on('click', ".admin-categories .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+  supprimerElementAdmin(id, 'sd6_production_admin_delete_category', 'sd6_production_admin_category_index');
+});
+
+$(document).on('click', ".popup-pinned .alert-supprimer button.alert-btn1", function(event) {
+  var id = $(event.target).closest('div.boutons-admin').find('a.supprimer').data('id');
+  supprimerElementAdmin(id, 'sd6_production_popup_infos_delete', 'sd6_production_popup_infos_all');
+});
+
+function supprimerElement(id, route, redirection){
+  var baseUrl = "." + Routing.generate(route);
+  var fullUrl = baseUrl + "/"+ id;
+
+  $.ajax({
+    url : fullUrl,
+    type : 'POST',
+    data: {id: id},
+    success : function(code_html, statut){
+      location.href = "." + Routing.generate(redirection);
+    },
+
+    error : function(resultat, statut, erreur){
+      alert(erreur);
+    }
+  });
+}
+
+function supprimerElementAdmin(id, route, redirection){
+  var baseUrl = "../.." + Routing.generate(route);
+  var fullUrl = baseUrl + "/"+ id;
+
+  $.ajax({
+    url : fullUrl,
+    type : 'POST',
+    data: {id: id},
+    success : function(code_html, statut){
+      location.href = "../.." + Routing.generate(redirection);
+    },
+
+    error : function(resultat, statut, erreur){
+      alert(erreur);
+    }
+  });
+}
+
 fos.Router.setData({"base_url":"","routes":{"sd6_production_admin_member_index":{"tokens":[["text","\/admin\/membres\/"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_admin_delete_member":{"tokens":[["variable","\/","[0-9-]+","idMember"],["text","\/admin\/membres\/delete"]],"defaults":[],"requirements":{"idMember":"[0-9-]+"},"hosttokens":[]},"sd6_production_admin_delete_category":{"tokens":[["variable","\/","[0-9-]+","idCategory"],["text","\/admin\/categories\/delete"]],"defaults":[],"requirements":{"idCategory":"[0-9-]+"},"hosttokens":[]},"sd6_production_admin_category_index":{"tokens":[["text","\/admin\/categories\/"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_admin_account_index":{"tokens":[["text","\/admin\/comptes\/"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_admin_delete_account":{"tokens":[["variable","\/","[0-9-]+","idAccount"],["text","\/admin\/comptes\/delete"]],"defaults":[],"requirements":{"idAccount":"[0-9-]+"},"hosttokens":[]},"sd6_production_admin_delete_image":{"tokens":[["variable","\/","[0-9-]+","idImage"],["text","\/admin\/images\/delete"]],"defaults":[],"requirements":{"idImage":"[0-9-]+"},"hosttokens":[]},"sd6_production_admin_image_index":{"tokens":[["text","\/admin\/images\/"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_admin_delete_advert":{"tokens":[["variable","\/","[0-9-]+","idAdvert"],["text","\/admin\/annonces\/delete"]],"defaults":[],"requirements":{"idAdvert":"[0-9-]+"},"hosttokens":[]},"sd6_production_admin_advert_index":{"tokens":[["text","\/admin\/annonces\/"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_popup_infos_create_cookies":{"tokens":[["text","\/create-cookie"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_popup_infos_delete":{"tokens":[["variable","\/","[0-9-]+","idPopup"],["text","\/admin\/popup-pinned\/delete"]],"defaults":[],"requirements":{"idPopup":"[0-9-]+"},"hosttokens":[]},"sd6_production_popup_infos_all":{"tokens":[["text","\/admin\/popup-pinned\/all"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_app_productions":{"tokens":[["text","\/productions"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_app_equipe":{"tokens":[["text","\/equipe"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_app_actualites":{"tokens":[["text","\/actualites"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_app_photos":{"tokens":[["text","\/galerie-photos"]],"defaults":[],"requirements":[],"hosttokens":[]},"sd6_production_app_casting":{"tokens":[["text","\/casting"]],"defaults":[],"requirements":[],"hosttokens":[]}},"prefix":"","host":"localhost","scheme":"http"});

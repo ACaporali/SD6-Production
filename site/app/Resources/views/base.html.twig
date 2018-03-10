@@ -120,17 +120,30 @@
     </footer>
 
     {% block javascripts %}
-      {% javascripts  'js/jquery-3.1.1.min.js''js/bootstrap.min.js'
-      'js/blueimp-gallery.min.js'
-      'js/app.js'
-      'js/visionneuse-image.js'
-      'js/popup-pinned.js'
-      'js/jquery.parallax-1.1.3.js'
-      'bundles/fosjsrouting/js/router.js'
-      'js/fos_js_routes.js'%}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
-      {% endjavascripts  %}
-
+      {% if app.user %}{# si connection alors ajout fichier 'admin.js'#}
+        {% javascripts 'js/jquery/jquery-3.1.1.min.js''js/bootstrap/bootstrap.min.js'
+        'js/blueimp-gallery.min.js'
+        'js/custom/app.js'
+        'js/custom/visionneuse-image.js'
+        'js/custom/popup-pinned.js'
+        'js/jquery/jquery.parallax-1.1.3.js'
+        'bundles/fosjsrouting/js/router.js'
+        'js/custom/admin.js'
+        'js/fos_js_routes.js'%}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts  %}
+      {% else %}
+        {% javascripts 'js/jquery/jquery-3.1.1.min.js''js/bootstrap/bootstrap.min.js'
+        'js/blueimp-gallery.min.js'
+        'js/custom/app.js'
+        'js/custom/visionneuse-image.js'
+        'js/custom/popup-pinned.js'
+        'js/jquery/jquery.parallax-1.1.3.js'
+        'bundles/fosjsrouting/js/router.js'
+        'js/fos_js_routes.js'%}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts  %}
+      {% endif %}
       <script async src="https://www.youtube.com/iframe_api"></script>
     {% endblock %}
   </body>
