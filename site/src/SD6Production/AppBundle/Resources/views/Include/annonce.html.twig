@@ -4,7 +4,7 @@
 		<div class="contenu ombres">
 			<div class="image">
 				{% if advert.image is not null %}
-					<a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': advert.category.slug, 'slugAdvert': advert.slug}) }}">
+					<a href="{{ path('sd6_production_app_detail_advert',{'typeAdvert': advert.category.slug, 'slugAdvert': advert.slug}) }}">
 						<img src="{{asset(advert.image.url)}}" alt="{{advert.image.alt}}">
 					</a>
 				{% else %}
@@ -19,7 +19,7 @@
 			<div class="texte">
 				<div class="titre">
 					<h3>
-						<a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': advert.category.slug, 'slugAdvert': advert.slug}) }}">
+						<a href="{{ path('sd6_production_app_detail_advert',{'typeAdvert': advert.category.slug, 'slugAdvert': advert.slug}) }}">
 							{{advert.title}}
 						</a>
 					</h3>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="bouton">
-				<a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': advert.category.name, 'slugAdvert': advert.slug}) }}">Voir plus</a>
+				<a href="{{ path('sd6_production_app_detail_advert',{'typeAdvert': advert.category.name, 'slugAdvert': advert.slug}) }}">Voir plus</a>
 				{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 					<div class="row boutons-admin">
 						<a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': advert.id})}}" class="editer">Editer</a>

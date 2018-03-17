@@ -26,9 +26,9 @@ sd6_production_app_casting:
     path:     /casting
     defaults: { _controller: SD6ProductionAppBundle:Default:casting }
 
-sd6_production_app_details_advert:
+sd6_production_app_detail_advert:
     path:     /detail/{typeAdvert}/{slugAdvert}
-    defaults: { _controller: SD6ProductionAppBundle:Default:detailsAdvert }
+    defaults: { _controller: SD6ProductionAppBundle:Default:detailAdvert }
     requirements:
         typeAdvert: "[a-zA-Z]+"
         slugAdvert: "[a-zA-Z0-9-]+"
