@@ -20,6 +20,10 @@ class MemberController extends Controller
 
     $members = $em->getRepository('SD6ProductionAppBundle:Member')->findAll();
 
+    if(empty($members)){
+      throw new NotFoundHttpException("Oups, not found team members.");
+    }
+
     return $this->render('SD6ProductionAdminBundle:Member:membre.html.twig', array(
       'members' => $members,
     ));
@@ -54,6 +58,10 @@ class MemberController extends Controller
     $em = $this->getDoctrine()->getManager();
     $member = $em->getRepository('SD6ProductionAppBundle:Member')->findOneById($idMember);
 
+    if(!isset($idMember) || empty($member)){
+      throw new NotFoundHttpException("Oups, not found member #".$idMember);
+    }
+
     $formMember = $this->get('form.factory')->create(new MemberType(), $member);
     $formMember->handleRequest($request);
 
@@ -83,8 +91,8 @@ class MemberController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($idMember === null) {
-      throw new NotFoundHttpException("Element d'id ".$idMember." n'existe pas.");
+    if(!isset($idMember) || empty($member)){
+      throw new NotFoundHttpException("Oups, not found member #".$idMember);
     }else{
       $em->remove($member);
       $em->flush();

@@ -20,6 +20,10 @@ class ImageController extends Controller
 
     $images = $em->getRepository('SD6ProductionAppBundle:Image')->findAll();
 
+    if(empty($images)){
+      throw new NotFoundHttpException("Oups, not found pictures");
+    }
+
     return $this->render('SD6ProductionAdminBundle:Image:image.html.twig', array(
       'images' => $images
     ));
@@ -53,6 +57,10 @@ class ImageController extends Controller
     $em = $this->getDoctrine()->getManager();
     $image = $em->getRepository('SD6ProductionAppBundle:Image')->findOneById($idImage);
 
+    if(!isset($idImage) || empty($image)){
+      throw new NotFoundHttpException("Oups, not found picture #".$idImage);
+    }
+
     $formImage = $this->get('form.factory')->create(new ImageType(), $image);
     $formImage->handleRequest($request);
 
@@ -82,8 +90,8 @@ class ImageController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($idImage === null) {
-      throw new NotFoundHttpException("Element d'id ".$idImage." n'existe pas.");
+    if(!isset($idImage) || empty($image)){
+      throw new NotFoundHttpException("Oups, not found picture #".$idImage);
     }else{
       $em->remove($image);
       $em->flush();

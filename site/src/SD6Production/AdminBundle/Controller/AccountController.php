@@ -21,6 +21,10 @@ class AccountController extends Controller
 
     $userConnected = $this->get('security.token_storage')->getToken()->getUser();
 
+    if(empty($users) || empty($userConnected)){
+      throw new NotFoundHttpException("Oups, no users founded");
+    }
+
     return $this->render('SD6ProductionAdminBundle:Account:account.html.twig', array(
       'users' => $users,
       'userConnected' => $userConnected
@@ -34,8 +38,8 @@ class AccountController extends Controller
     $account = $em->findUserBy(array('id'=>$idAccount));
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($idAccount === null) {
-      throw new NotFoundHttpException("Element d'id ".$idAccount." n'existe pas.");
+    if (!isset($idAccount) || empty($account)) {
+      throw new NotFoundHttpException("Oups, not found user #".$idAccount);
     }else{
       $em->deleteUser($account);
 

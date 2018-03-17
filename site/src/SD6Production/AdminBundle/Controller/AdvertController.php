@@ -21,6 +21,10 @@ class AdvertController extends Controller
 
     $adverts = $em->getRepository('SD6ProductionAppBundle:Advert')->getAdvertAllOrderBy('date');
 
+    if(empty($adverts)){
+      throw new NotFoundHttpException("Oups, no advert founded");
+    }
+
     return $this->render('SD6ProductionAdminBundle:Advert:annonce.html.twig', array(
       'adverts' => $adverts,
     ));
@@ -60,6 +64,10 @@ class AdvertController extends Controller
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('SD6ProductionAppBundle:Advert')->findOneById($idAdvert);
 
+    if(!isset($idAdvert) || empty($advert)){
+      throw new NotFoundHttpException("Oups, not found advert #".$idAdvert);
+    }
+
     $formAdvert = $this->get('form.factory')->create(new AdvertType(), $advert);
     $formAdvert->handleRequest($request);
 
@@ -89,8 +97,8 @@ class AdvertController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($idAdvert === null) {
-      throw new NotFoundHttpException("Element d'id ".$idAdvert." n'existe pas.");
+    if(!isset($idAdvert) || empty($advert)){
+      throw new NotFoundHttpException("Oups, not found advert #".$idAdvert);
     }else{
       $em->remove($advert);
       $em->flush();

@@ -20,6 +20,10 @@ class CategoryController extends Controller
 
     $listeCategories = $em->getRepository('SD6ProductionAppBundle:Category')->findAll();
 
+    if(empty($listeCategories)){
+      throw new NotFoundHttpException("Oups, not found categories");
+    }
+
     return $this->render('SD6ProductionAdminBundle:Category:categorie.html.twig', array(
       'listeCategories' => $listeCategories,
     ));
@@ -54,6 +58,10 @@ class CategoryController extends Controller
     $em = $this->getDoctrine()->getManager();
     $category = $em->getRepository('SD6ProductionAppBundle:Category')->findOneById($idCategory);
 
+    if(!isset($idCategory) || empty($category)){
+      throw new NotFoundHttpException("Oups, not found category #".$idCategory);
+    }
+
     $formCategory = $this->get('form.factory')->create(new CategoryType(), $category);
     $formCategory->handleRequest($request);
 
@@ -83,8 +91,8 @@ class CategoryController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     // Si l'element n'existe pas, on affiche une erreur 404
-    if ($idCategory === null) {
-      throw new NotFoundHttpException("Element d'id ".$idCategory." n'existe pas.");
+    if(!isset($idCategory) || empty($category)){
+      throw new NotFoundHttpException("Oups, not found category #".$idCategory);
     }else{
       $em->remove($category);
       $em->flush();
