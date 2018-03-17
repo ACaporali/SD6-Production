@@ -3,6 +3,7 @@
 namespace SD6Production\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use SD6Production\AppBundle\Entity\Advert;
 use SD6Production\AppBundle\Entity\Member;
@@ -26,6 +27,10 @@ class DefaultController extends Controller
     //Récupère toutes les productions
     $em = $this->getDoctrine()->getManager();
     $listeProductions = $em ->getRepository('SD6ProductionAppBundle:Advert')->getAdvertCategories('Productions');
+
+    if(empty($listeProductions)){
+      throw new NotFoundHttpException("Oups, no advert of type 'production' founded");
+    }
 
     //Regarde si il y a des production épinglés (productions en haut de page)
     $productionsPinned = [];
@@ -52,6 +57,10 @@ class DefaultController extends Controller
     $em = $this->getDoctrine()->getManager();
     $listeMembers = $em->getRepository('SD6ProductionAppBundle:Member')->findAll();
 
+    if(empty($listeMembers)){
+      throw new NotFoundHttpException("Oups, team not founded");
+    }
+
     return $this->render('SD6ProductionAppBundle:Default:equipe.html.twig', array(
       'listeMembers' => $listeMembers,
     ));
@@ -62,6 +71,10 @@ class DefaultController extends Controller
     //Récupère toutes les actualités
     $em = $this->getDoctrine()->getManager();
     $listeAdverts = $em ->getRepository('SD6ProductionAppBundle:Advert')->getAdvertCategories('Actualites');
+
+    if(empty($listeAdverts)){
+      throw new NotFoundHttpException("Oups, no advert of type 'actualites' founded");
+    }
 
     //Regarde si il y a des actualités épinglés (productions en haut de page)
     $actualitesPinned = [];
@@ -84,6 +97,10 @@ class DefaultController extends Controller
     $category = $em->getRepository('SD6ProductionAppBundle:Category')->findOneByName('Galerie');
     $images = $em->getRepository('SD6ProductionAppBundle:Image')->findBy(array("category" => $category), array('date' => 'DESC'));
 
+    if(empty($images)){
+      throw new NotFoundHttpException("Oups, no picture founded");
+    }
+
     return $this->render('SD6ProductionAppBundle:Default:photos.html.twig', array(
       'images' => $images,
     ));
@@ -94,6 +111,10 @@ class DefaultController extends Controller
     //Récupère toutes adverts de casting
     $em = $this->getDoctrine()->getManager();
     $listeAdverts = $em->getRepository('SD6ProductionAppBundle:Advert')->getAdvertCategories('Casting');
+
+    if(empty($listeAdverts)){
+      throw new NotFoundHttpException("Oups, no advert of type 'casting' founded");
+    }
 
     //Regarde si il y a des casting épinglés (productions en haut de page)
     $castingsPinned = [];
@@ -109,12 +130,17 @@ class DefaultController extends Controller
     ));
   }
 
-  public function detailsAdvertAction($typeAdvert, $slugAdvert)
+  public function detailAdvertAction($typeAdvert, $slugAdvert)
   {
     $em = $this->getDoctrine()->getManager();
 
     //Récupère l'advert à afficher
     $advert = $em->getRepository('SD6ProductionAppBundle:Advert')->findOneBySlug($slugAdvert);
+
+    if(empty($advert)){
+      throw new NotFoundHttpException("Oups, not found detail for the element : ".$slugAdvert);
+    }
+
     $id = $advert->getId();
 
     //Récupère l'advert précédente et suivante
@@ -134,9 +160,17 @@ class DefaultController extends Controller
     $em = $this->getDoctrine()->getManager();
     $listeProductions = $em ->getRepository('SD6ProductionAppBundle:Advert')->getAdvertNbWithCategory($limit, 'Productions');
 
+    if(empty($listeProductions)){
+      throw new NotFoundHttpException("Oups, no advert of type 'production' founded for the sideBar");
+    }
+
     //Récupère les dernières actualités
     $em = $this->getDoctrine()->getManager();
     $listeActualites = $em ->getRepository('SD6ProductionAppBundle:Advert')->getAdvertNbWithCategory($limit, 'Actualites');
+
+    if(empty($listeProductions)){
+      throw new NotFoundHttpException("Oups, no advert of type 'actualites' founded for the sideBar");
+    }
 
     return $this->render('SD6ProductionAppBundle:Default:side-bar.html.twig', array(
       'listeProductions' => $listeProductions,
