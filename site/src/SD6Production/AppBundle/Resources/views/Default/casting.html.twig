@@ -37,7 +37,7 @@
               <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <div class="titre">
                   <h3>
-                    <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': castingPinned.category.name, 'slugAdvert': castingPinned.slug}) }}">
+                    <a href="{{ path('sd6_production_app_detail_advert',{'typeAdvert': castingPinned.category.name, 'slugAdvert': castingPinned.slug}) }}">
                       {{castingPinned.title}}
                     </a>
                   </h3>
@@ -47,7 +47,7 @@
                   <p>{{castingPinned.taglines|raw}}</p>
                 </div>
                 <div class="bouton">
-                  <a href="{{ path('sd6_production_app_details_advert',{'typeAdvert': castingPinned.category.name, 'slugAdvert': castingPinned.slug}) }}">Voir plus</a>
+                  <a href="{{ path('sd6_production_app_detail_advert',{'typeAdvert': castingPinned.category.name, 'slugAdvert': castingPinned.slug}) }}">Voir plus</a>
                   {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <div class="row boutons-admin">
                       <a href="{{ path('sd6_production_admin_edite_advert', {'idAdvert': castingPinned.id})}}" class="editer">Editer</a>
