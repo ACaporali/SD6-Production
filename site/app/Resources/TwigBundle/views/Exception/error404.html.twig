@@ -10,7 +10,14 @@
 
 {% block site_body %}
 <div class="row">
-  <h1>Page non trouvée</h1>
-  <p>La page que vous tentez d'afficher n'existe pas ou a été déplacée, nous vous invitons à <a href="{{ path('sd6_production_app_homepage') }}">retourner à l'accueil</a>. Merci pour votre compréhension.</p>
+  <div class="bordures">
+    <div class="row">
+      <h1 class="text-center">Oups, page non trouvée</h1>
+      <hr>
+      <p class="text-center">La page que vous cherchez semble introuvable, elle a peux étre été déplacé ou supprimée. Code d'erreur : 404.</p>
+      <p class="text-center">Nous vous invitons à <a href="{{ path('sd6_production_app_homepage') }}">retourner à l'accueil</a>. Merci pour votre compréhension.</p>
+      <p class="text-right">SD6 Production</p>
+    </div>
+  </div>
 </div>
 {% endblock %}
