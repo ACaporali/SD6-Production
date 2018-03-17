@@ -2,13 +2,13 @@
   <div class="production">
     <h4>Dernières productions</h4>
     {% for production in listeProductions %}
-    <a href="{{path('sd6_production_app_details_advert', {'typeAdvert': production.category.slug, 'slugAdvert': production.slug})}}">{{production.title}}</a>
+    <a href="{{path('sd6_production_app_detail_advert', {'typeAdvert': production.category.slug, 'slugAdvert': production.slug})}}">{{production.title}}</a>
     {% endfor %}
   </div>
   <div class="actualites">
     <h4>Dernières actualités</h4>
     {% for actualites in listeActualites %}
-    <a href="{{path('sd6_production_app_details_advert', {'typeAdvert': actualites.category.slug, 'slugAdvert': actualites.slug})}}">{{actualites.title}}</a>
+    <a href="{{path('sd6_production_app_detail_advert', {'typeAdvert': actualites.category.slug, 'slugAdvert': actualites.slug})}}">{{actualites.title}}</a>
     {% endfor %}
   </div>
 </div>
