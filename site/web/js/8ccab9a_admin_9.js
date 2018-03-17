@@ -1,4 +1,3 @@
-console.log('ici 123');
 //Message alerte
 function alertMessage(titre, msg, btn1, btn2, classCss) {
   msg = '<div class="bg-alert alert fade in '+classCss+'" id="alertMessage">'+

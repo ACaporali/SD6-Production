@@ -15,8 +15,10 @@
     <hr class="hr-beige">
 		<div class="bordures">
 	  	<div class="row">
-		  	<a href="{{ path('sd6_production_admin_add_advert', {'type': 'autre'}) }}">Ajouter une annonce</a>
-        <a href="{{ path('sd6_production_admin_add_advert', {'type': 'casting'}) }}">Ajouter un casting</a>
+        <div class="ajout">
+          <a href="{{ path('sd6_production_admin_add_advert', {'type': 'autre'}) }}" class="btn btn-primary">Ajouter une annonce</a>
+          <a href="{{ path('sd6_production_admin_add_advert', {'type': 'casting'}) }}" class="btn btn-primary">Ajouter un casting</a>
+        </div>
         <div class="liste">
           <table class="table table-hover">
             <thead>
@@ -24,8 +26,7 @@
                 <th>Titre</th>
                 <th>Publié</th>
                 <th>Date publication</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -36,12 +37,10 @@
                     <td>{{advert.date| localizeddate('medium', 'none', app.request.locale)}}</td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="{{path('sd6_production_admin_edite_advert', {'idAdvert': advert.id})}}">Modifier</a>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="boutons-admin">
-                        <a href="#" class="supprimer" data-id="{{advert.id}}">Supprimer</a>
+                        <div class="btn-group" role="group" aria-label="actions">
+                          <a href="{{path('sd6_production_admin_edite_advert', {'idAdvert': advert.id})}}" class="btn btn-default">Modifier</a>
+                          <a href="#" class="supprimer btn btn-danger" data-id="{{advert.id}}">Supprimer</a>
+                        </div>
                       </div>
                     </td>
                   </tr>

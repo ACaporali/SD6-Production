@@ -896,3 +896,9 @@ h4 {
 
 .nom-image label {
   overflow: hidden; }
+
+.boutons-admin .supprimer {
+  color: #fff; }
+
+.boutons-admin .supprimer:hover {
+  color: #fff; }

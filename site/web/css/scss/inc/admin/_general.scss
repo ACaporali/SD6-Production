@@ -11,3 +11,25 @@
     overflow: hidden;
   }
 }
+
+.boutons-admin{
+  .supprimer{
+    color: #fff;
+  }
+
+  .supprimer:hover {
+    color: #fff;
+  }
+}
+
+.admin-annonces{
+  .ajout{
+    a{
+      color: #fff;
+    }
+
+    a:hover{
+      color: #fff;
+    }
+  }
+}
