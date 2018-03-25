@@ -903,8 +903,8 @@ h4 {
 .boutons-admin .supprimer:hover {
   color: #fff; }
 
-.admin-annonces .ajout a {
+a.btn-primary {
   color: #fff; }
 
-.admin-annonces .ajout a:hover {
+a.btn-primary:hover {
   color: #fff; }

@@ -16,20 +16,20 @@
 		<div class="bordures">
       <div class="row">
         <h2>Mon compte</h2>
-        <a href="{{ path('fos_user_change_password') }}">Change mot de passe</a>
+        <a href="{{ path('fos_user_change_password') }}" class="btn btn-primary">Change mot de passe</a>
         {% include "FOSUserBundle:Profile:show_content.html.twig" with {'user': userConnected} %}
       </div>
       {% if is_granted('ROLE_SUPER_ADMIN') %}
 	  	<div class="row">
         <h2>Liste des comptes</h2>
-		  	<a href="{{ path('fos_user_registration_register') }}">Ajouter un compte</a>
+		  	<a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">Ajouter un compte</a>
         <div class="liste">
           <table class="table table-hover">
             <thead>
               <tr>
                 <th>Nom</th>
                 <th>Role</th>
-                <th>Supprimer</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
                     {% endfor %}</td>
                     <td>
                       <div class="boutons-admin">
-                        <a href="#" class="supprimer" data-id="{{user.id}}" class="supprimer">Supprimer</a>
+                        <a href="#" data-id="{{user.id}}" class="supprimer btn btn-danger">Supprimer</a>
                       </div>
                     </td>
                   </tr>
