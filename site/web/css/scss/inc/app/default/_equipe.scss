@@ -3,6 +3,11 @@
   .membres{
     padding-top: 0px;
 
+    .bordures{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     [class*="col-"]{
       padding-bottom: 20px;
       .image{

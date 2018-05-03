@@ -342,6 +342,9 @@ footer {
 /*------Equipe------*/
 .equipe .membres {
   padding-top: 0px; }
+  .equipe .membres .bordures {
+    display: flex;
+    flex-wrap: wrap; }
   .equipe .membres [class*="col-"] {
     padding-bottom: 20px; }
     .equipe .membres [class*="col-"] .image {
@@ -903,8 +906,8 @@ h4 {
 .boutons-admin .supprimer:hover {
   color: #fff; }
 
-.btn-primary {
+a.btn-primary {
   color: #fff; }
 
-.btn-primary:hover {
+a.btn-primary:hover {
   color: #fff; }
