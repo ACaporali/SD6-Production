@@ -22,7 +22,7 @@
             <thead>
               <tr>
                 <th>Titre</th>
-                <th>Publié</th>
+                <th>Publié ?</th>
                 <th>Date publication</th>
                 <th>Actions</th>
               </tr>
@@ -31,7 +31,7 @@
               {% for advert in adverts %}
                   <tr>
                     <td>{{advert.title}}</td>
-                    <td>{{advert.published}}</td>
+                    <td>{% if advert.published %}Oui{% else %}Non{% endif %}</td>
                     <td>{{advert.date| localizeddate('medium', 'none', app.request.locale)}}</td>
                     <td>
                       <div class="boutons-admin">

@@ -12,19 +12,19 @@
 {{ parent() }}
 
 <div class="popup-pinned">
+  <h1 class="beige text-center">Popup pinned</h1>
+  <hr class="hr-beige">
   <div class="bordures">
-    <h3>Toutes les popup pinned</h3>
-
-    <a href="{{path('sd6_production_popup_infos_create')}}">Ajouter</a>
-    {% if allPopup is not null %}
+    <div class="row">
+      <a href="{{path('sd6_production_popup_infos_create')}}" class="btn btn-primary">Ajouter une popup</a>
+      {% if allPopup is not null %}
       <table class="table table-hover">
         <thead>
           <tr>
             <th>Numéro</th>
             <th>Titre</th>
-            <th>Publiée ?</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
+            <th>Publié ?</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -32,22 +32,24 @@
           <tr>
             <td>{{popup.id}}</td>
             <td>{{popup.title}}</td>
-            <td>{% if popup.published == true %}oui{% else %}non{% endif %}</td>
-            <td><a href="{{path('sd6_production_popup_infos_edite',{idPopup: popup.id})}}">modifier</a></td>
+            <td>{% if popup.published %}Oui{% else %}Non{% endif %}</td>
             <td>
               <div class="boutons-admin">
-                <a href="#" class="supprimer" data-id="{{popup.id}}" class="supprimer">Supprimer</a>
+                <div class="btn-group">
+                  <a href="{{path('sd6_production_popup_infos_edite',{idPopup: popup.id})}}" class="btn btn-default">modifier</a>
+                  <a href="#" class="supprimer btn btn-danger" data-id="{{popup.id}}">Supprimer</a>
+                </div>
               </div>
             </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
-    {% else %}
-    <p>Aucun popup.</p>
-    {% endif %}
+      {% else %}
+      <p>Aucun popup.</p>
+      {% endif %}
+    </div>
   </div>
-
 </div>
 
 {% endblock %}
