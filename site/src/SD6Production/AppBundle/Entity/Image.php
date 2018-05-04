@@ -140,66 +140,7 @@ class Image
     $this->file = $file;
   }
 
-  /**
-  * @ORM\PrePersist()
-  * @ORM\PreUpdate()
-  */
-  public function preUpload()
-  {
-    if ($this->file === null) {
-      return;
-    }
 
-    $nom = $this->file->getClientOriginalName();
-
-    $this->url = "uploads/img/".$nom;
-
-    if ($this->alt === null) {
-      $this->alt = $this->file->getClientOriginalName();
-    }
-  }
-
-  /**
-  * @ORM\PostPersist()
-  * @ORM\PostUpdate()
-  */
-  public function upload()
-  {
-    if ($this->file === null) {
-      return;
-    }
-
-    $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
-  }
-
-  /**
-  * @ORM\PreRemove()
-  */
-  public function preRemoveUpload()
-  {
-    $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
-  }
-
-  /**
-  * @ORM\PostRemove()
-  */
-  public function removeUpload()
-  {
-    if (file_exists($this->tempFilename)) {
-
-      unlink($this->tempFilename);
-    }
-  }
-
-  public function getUploadDir()
-  {
-    return 'uploads/img';
-  }
-
-  protected function getUploadRootDir()
-  {
-    return __DIR__.'/../../../../web/'.$this->getUploadDir();
-  }
 
     /**
      * Set category
