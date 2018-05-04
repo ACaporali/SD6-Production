@@ -18,7 +18,3 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
-
-    #prodeMode : true all images will be saved in 'www' folder
-    #prodeMode : false all images will be saved in 'web' folder
-    prodMode : false

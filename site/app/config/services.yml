@@ -4,15 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     app.form.registration:
         class: SD6Production\UserBundle\Form\RegistrationType
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: user_registration }
-    listener.image:
-        class: SD6Production\AppBundle\EventListener\SaveImage
-        tags:
-            - { name: doctrine.event_listener, event: prePersist, method: prePersist }
-            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }
-            - { name: doctrine.event_listener, event: preRemove, method: preRemove }
-            - { name: doctrine.event_listener, event: postRemove, method: postRemove }
